@@ -1,0 +1,33 @@
+.button {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    background-color: #EEEEEE;
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    padding: 2px 10px 2px 2px;
+
+    border: none;
+
+    &__icon {
+        padding: 7px;
+
+        width: 36px;
+        height: 36px;
+
+        background-color: #fff;
+    }
+
+    &__text {
+        font-family: 'Golos UI VF';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+
+        color: #666666;
+    }
+}

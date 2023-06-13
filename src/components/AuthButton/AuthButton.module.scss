@@ -1,0 +1,38 @@
+.button {
+    font-family: 'Golos UI VF';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+
+    color: #7C7C7C;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+
+    &__outline {
+        font-family: 'Golos UI VF';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+
+        text-decoration: none;
+
+        color: #FFFFFF;
+
+        background-color: #0066FF;
+
+        padding: 12px 22px;
+
+        border-radius: 45px;
+
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+    }
+}

@@ -1,0 +1,71 @@
+.privacy {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &__checkbox {
+        display: none;
+
+        &:checked {
+            +.privacy__agree {
+                &::before {
+                    opacity: 1;
+                }
+
+                border: 1px solid #0066FF;
+            }
+        }
+
+        &:checked+.privacy__label{
+            color: red;
+        }
+    }
+
+    &__agree {
+        width: 15px;
+        height: 15px;
+
+        border: 1px solid #666666;
+        filter: drop-shadow(0px 0px 1px rgba(0, 102, 255, 0.8));
+        border-radius: 2px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: .2s;
+
+        cursor: pointer;
+
+        &::before {
+            content: '';
+
+            display: inline-block;
+
+            width: 10px;
+            height: 10px;
+
+            background-image: url('../../public/svg/check.svg');
+            background-repeat: no-repeat;
+            background-size: auto;
+
+            opacity: 0;
+
+            transition: .2s;
+        }
+    }
+
+    &__label {
+        font-family: 'Golos UI VF';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: #666666;
+
+        cursor: pointer;
+
+        width: 100%;
+    }
+}

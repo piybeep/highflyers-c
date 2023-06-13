@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+
+    &__text {
+        font-family: 'Golos UI VF';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #666666;
+    }
+
+    &__link {
+        font-family: 'Golos UI VF';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #0066FF;
+
+        text-decoration: none;
+    }
+}
