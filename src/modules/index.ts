@@ -1,2 +1,5 @@
 export * from './Authorization'
 export * from './Registration'
+export * from './Recovery'
+export * from './Submit'
+export * from './PasswordChange'

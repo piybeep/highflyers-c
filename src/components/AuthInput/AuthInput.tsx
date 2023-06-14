@@ -10,7 +10,7 @@ export function AuthInput({ placeholder, password = false, ...props }: AuthInput
     const [isPassword, setIsPassword] = useState(false)
     return (
         <div className={s.wrapper}>
-            <input className={s.input} {...props} placeholder={placeholder} type={isPassword ? 'password' : 'text'} />
+            <input className={s.input} {...props} required placeholder={placeholder} type={password ? isPassword ? 'password' : 'text' : 'email'} />
             <span className={s.input__text}>{placeholder}</span>
             {
                 password && <span onClick={() => setIsPassword(!isPassword)} className={s.span}>

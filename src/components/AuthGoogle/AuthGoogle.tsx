@@ -3,7 +3,7 @@ import Image from 'next/image';
 import s from './AuthGoogle.module.scss'
 import { AuthGoogleProps } from './AuthGoogle.types';
 
-import icon from '../../public/img/GoogleLogo.png'
+import icon from '../../../public/img/GoogleLogo.png'
 
 export function AuthGoogle({}:AuthGoogleProps) {
     return (
