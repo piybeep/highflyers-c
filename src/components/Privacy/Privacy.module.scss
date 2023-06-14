@@ -3,22 +3,34 @@
     align-items: center;
     column-gap: 8px;
 
+    cursor: pointer;
+
+    &:hover {
+        .privacy__label {
+            color: #0066FF;
+        }
+
+        .privacy__agree {
+            border: 1px solid #0066FF;
+        }
+    }
+
+    &:has(.privacy__checkbox:checked) {
+        .privacy__label {
+            color: #0066FF
+        }
+
+        .privacy__agree {
+            &::before {
+                opacity: 1;
+            }
+
+            border: 1px solid #0066FF;
+        }
+    }
+
     &__checkbox {
         display: none;
-
-        &:checked {
-            +.privacy__agree {
-                &::before {
-                    opacity: 1;
-                }
-
-                border: 1px solid #0066FF;
-            }
-        }
-
-        &:checked+.privacy__label{
-            color: red;
-        }
     }
 
     &__agree {
@@ -35,19 +47,18 @@
 
         transition: .2s;
 
-        cursor: pointer;
-
         &::before {
             content: '';
 
             display: inline-block;
 
-            width: 10px;
-            height: 10px;
+            width: 7px;
+            height: 7px;
 
             background-image: url('../../public/svg/check.svg');
             background-repeat: no-repeat;
-            background-size: auto;
+            background-size: contain;
+            background-position: center;
 
             opacity: 0;
 
@@ -63,8 +74,6 @@
         line-height: 17px;
 
         color: #666666;
-
-        cursor: pointer;
 
         width: 100%;
     }
