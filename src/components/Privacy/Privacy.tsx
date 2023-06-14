@@ -7,7 +7,6 @@ export function Privacy({ }: PrivacyProps) {
                 <input
                     className={s.privacy__checkbox}
                     type="checkbox"
-                    id="check"
                 />
                 <span className={s.privacy__agree}></span>
                 <span className={s.privacy__label}>Я принимаю политику конфиденциальности и пользовательское соглашение</span>
