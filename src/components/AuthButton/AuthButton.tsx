@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import s from './AuthButton.module.scss'
 import { AuthButtonProps } from './AuthButton.types';
 
-export function AuthButton({ value, isOutline = false, size = 'default' }: AuthButtonProps) {
+export function AuthButton({ value, isOutline = false, size = 'default', ...props }: AuthButtonProps) {
     return (
-        <button className={classNames(s.button, s[size], {
+        <button {...props} className={classNames(s.button, s[size], {
             [s.button__outline]: isOutline,
         })}>{value}
             {

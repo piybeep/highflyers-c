@@ -1,22 +1,46 @@
 'use client'
 import Link from 'next/link';
 
+import { useForm, Controller } from 'react-hook-form';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
 import { AuthButton, AuthInput, AuthTitle } from '@/components';
 import s from './Recovery.module.scss'
 import { RecoveryProps } from './Recovery.types';
+import classNames from 'classnames';
 
-export function Recovery({ }: RecoveryProps) {
+export function Recovery({ isSubmited, setIsSubmited }: RecoveryProps) {
+
+    const { control, handleSubmit } = useForm()
+    const submitForm = handleSubmit(async (data) => {
+        try {
+            await axios.post(`${process.env.NEXT_PUBLIC_HOST}/auth/recovery`, { email: data.email })
+            setIsSubmited(true)
+
+        } catch (error: any) {
+            toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+        }
+    })
+
     return (
-        <form className={s.form}>
+        <form className={classNames(s.form, {
+            [s.form__hidden]: isSubmited
+        })} onSubmit={submitForm}>
             <div className={s.form__info}>
                 <AuthTitle value='Восстановление пароля' />
-                <AuthInput placeholder={'Введите почту для отправки ссылки'} />
+                <Controller
+                    render={({ field }) => <AuthInput placeholder={'Введите почту для отправки ссылки'} {...field} />}
+                    name="email"
+                    control={control}
+                    defaultValue=""
+                />
             </div>
             <div className={s.form__buttons}>
                 <Link href={'/authorization'}>
                     <AuthButton value={'Назад'} size='small' />
                 </Link>
-                <AuthButton value={'Отправить'} isOutline size='large' />
+                <AuthButton type='submit' value={'Отправить'} isOutline size='large' />
             </div>
         </form>
     );
