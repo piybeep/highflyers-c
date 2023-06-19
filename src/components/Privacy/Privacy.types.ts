@@ -1,3 +1,3 @@
 import React from "react";
 
-export interface PrivacyProps{ }
+export interface PrivacyProps extends React.InputHTMLAttributes<HTMLInputElement>{ }

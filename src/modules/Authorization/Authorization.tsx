@@ -37,13 +37,13 @@ export function Authorization({ }: AuthorizationProps) {
             </div>
             <div className={s.form__info}>
                 <Controller
-                    render={({ field }) => <AuthInput placeholder={'Почта'} {...field} />}
+                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Почта'} onChange={onChange} value={value} />}
                     name="email"
                     control={control}
                     defaultValue=""
                 />
                 <Controller
-                    render={({ field }) => <AuthInput placeholder={'Пароль'} password {...field} />}
+                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Пароль'} password onChange={onChange} value={value} />}
                     name="password"
                     control={control}
                     defaultValue=""

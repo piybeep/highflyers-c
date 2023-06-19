@@ -14,6 +14,7 @@ export function Recovery({ isSubmited, setIsSubmited }: RecoveryProps) {
 
     const { control, handleSubmit } = useForm()
     const submitForm = handleSubmit(async (data) => {
+        console.log(data)
         try {
             await axios.post(`${process.env.NEXT_PUBLIC_HOST}/auth/recovery`, { email: data.email })
             setIsSubmited(true)
@@ -30,7 +31,7 @@ export function Recovery({ isSubmited, setIsSubmited }: RecoveryProps) {
             <div className={s.form__info}>
                 <AuthTitle value='Восстановление пароля' />
                 <Controller
-                    render={({ field }) => <AuthInput placeholder={'Введите почту для отправки ссылки'} {...field} />}
+                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Введите почту для отправки ссылки'} onChange={onChange} value={value} />}
                     name="email"
                     control={control}
                     defaultValue=""
