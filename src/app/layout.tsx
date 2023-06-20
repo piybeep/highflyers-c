@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 
 import "./globals.scss";
 import { NextAuthProvider } from "./providers";
+import { Header } from "@/modules";
 
 export const metadata = {
 	title: "Create Next App",
