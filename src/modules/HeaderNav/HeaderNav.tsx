@@ -1,6 +1,5 @@
 'use client'
 
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,7 +11,8 @@ import { HeaderNavProps } from './HeaderNav.types';
 import s from './HeaderNav.module.scss'
 
 export function HeaderNav({ }: HeaderNavProps) {
-    const { status } = useSession()
+    // Пока костыль
+    const status = 'unauthenticated'
 
     return (
         <div className={s.menu}>

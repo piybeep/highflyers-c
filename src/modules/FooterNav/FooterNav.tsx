@@ -2,7 +2,6 @@
 
 import classNames from "classnames";
 
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 import { NAVIGATION, NAVIGATION_WITH_AUTH } from "@/constants/links";
@@ -11,7 +10,9 @@ import { FooterNavProps } from "./FooterNav.types";
 import s from './FooterNav.module.scss'
 
 export function FooterNav({ }: FooterNavProps) {
-    const { status } = useSession()
+
+    // Пока костыль
+    const status = 'unauthenticated'
 
     return (
         <div className={s.menu}>

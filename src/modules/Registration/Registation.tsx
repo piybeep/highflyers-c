@@ -30,7 +30,7 @@ export function Registation({ }: RegistationProps) {
             <div className={s.form__header}>
                 <AuthTitle value={'Зарегистрироваться'} />
                 <AuthAccount />
-                <AuthGoogle />
+                <AuthGoogle type='button' />
             </div>
             <div className={s.form__info}>
                 <Controller
