@@ -3,12 +3,12 @@ interface currentUser {
     first_name: string,
     secondName: string,
     email: string,
-    isAdmin: boolean
+    isAdmin: boolean,
 }
 
 export interface userProps {
-    user: currentUser,
+    user: currentUser | null,
     accessToken: string,
     refreshToken: string,
-    isAuth: boolean
+    isAuth: boolean,
 }

@@ -19,7 +19,9 @@ export function AuthGoogle({ }: AuthGoogleProps) {
                     {
                         token: credentialResponse.credential,
                     }
-                ).then((data) => {
+                ).then((response) => {
+                    localStorage.setItem('accessToken', response.data.accessToken)
+                    localStorage.setItem('refreshToken', response.data.refreshToken)
                     route.push('/')
                 })
                     .catch((error) => {

@@ -12,10 +12,10 @@ api.interceptors.response.use((config) => {
     return config
 }, async (error) => {
     const originalRequest = error.config
-    if ((error.response.status === 401 || error.response.status === 403) && error.config && !error.config._isRetry) {
+    if ((error?.response?.status === 401 || error?.response?.status === 403) && error?.config && !error?.config?._isRetry) {
         originalRequest._isRetry = true
         try {
-            const response = await axios.get(`${apiHost}/auth`, { withCredentials: true, headers: { ...error.config.headers, Authorization: `Bearer ${localStorage.getItem('refreshToken')}` } })
+            const response = await axios.get(`${apiHost}/auth/refresh`, { withCredentials: true, headers: { ...error.config.headers, Authorization: `Bearer ${localStorage.getItem('refreshToken')}` } })
             localStorage.setItem('accessToken', response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
             return api.request(originalRequest)
