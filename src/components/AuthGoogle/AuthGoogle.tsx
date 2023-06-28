@@ -20,7 +20,6 @@ export function AuthGoogle({ }: AuthGoogleProps) {
                         token: credentialResponse.credential,
                     }
                 ).then((data) => {
-                    console.log(data.data)
                     route.push('/')
                 })
                     .catch((error) => {

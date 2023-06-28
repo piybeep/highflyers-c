@@ -1,5 +1,7 @@
 'use client'
 
+import { useUser } from "@/store";
+
 import classNames from "classnames";
 
 import Link from "next/link";
@@ -11,12 +13,11 @@ import s from './FooterNav.module.scss'
 
 export function FooterNav({ }: FooterNavProps) {
 
-    // Пока костыль
-    const status = 'unauthenticated'
+    const {isAuth} = useUser(state => state)
 
     return (
         <div className={s.menu}>
-            {(status === 'unauthenticated' ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
+            {(!isAuth ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
                 current.type === 'link'
                     ?
                     <Link key={current.text} href={current.link} className={s.menu__link}>
