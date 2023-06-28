@@ -30,7 +30,7 @@ export function Registation({ }: RegistationProps) {
             <div className={s.form__header}>
                 <AuthTitle value={'Зарегистрироваться'} />
                 <AuthAccount />
-                <AuthGoogle type='button' />
+                <AuthGoogle />
             </div>
             <div className={s.form__info}>
                 <Controller
@@ -49,7 +49,7 @@ export function Registation({ }: RegistationProps) {
                     name="checkbox"
                     control={control}
                     defaultValue={false}
-                    render={({ field: {value, onChange} }) => (<Privacy value={value}  onChange={onChange}/>)}
+                    render={({ field: { value, onChange } }) => (<Privacy value={value} onChange={onChange} />)}
                 />
             </div>
             <div className={s.form__button}>

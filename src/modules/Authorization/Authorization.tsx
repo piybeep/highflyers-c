@@ -33,7 +33,7 @@ export function Authorization({ }: AuthorizationProps) {
             <div className={s.form__header}>
                 <AuthTitle value={'Авторизоваться'} />
                 <AuthAccount value={'authorization'} />
-                <AuthGoogle type='button' />
+                <AuthGoogle/>
             </div>
             <div className={s.form__info}>
                 <Controller
@@ -49,7 +49,7 @@ export function Authorization({ }: AuthorizationProps) {
                     defaultValue=""
                 />
                 <Link href={'/recovery'}>
-                    <AuthButton value='Забыли пароль?' />
+                    <AuthButton value='Забыли пароль?' type='button' />
                 </Link>
             </div>
 

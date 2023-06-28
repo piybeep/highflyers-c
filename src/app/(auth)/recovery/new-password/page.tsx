@@ -1,7 +1,7 @@
 import { PasswordChange } from "@/modules";
 
-export default function page(){
+export default function page({ searchParams }: {searchParams: URLSearchParams}) {
     return (
-        <PasswordChange/>
+        <PasswordChange userId={searchParams.id} resetCode={searchParams.code} />
     );
 };
