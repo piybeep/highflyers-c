@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiHost = process.env.NEXT_PUBLIC_HOST
+export const apiHost = process.env.NEXT_PUBLIC_HOST
 const api = axios.create({ withCredentials: true, baseURL: apiHost })
 
 api.interceptors.request.use((config) => {

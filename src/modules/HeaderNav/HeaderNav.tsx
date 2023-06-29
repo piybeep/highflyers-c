@@ -14,14 +14,15 @@ import s from './HeaderNav.module.scss'
 
 export function HeaderNav({ }: HeaderNavProps) {
 
-    const { isAuth } = useUser(state => state)
+    const user = useUser(state => state.user)
+    const isAuth = useUser(state => state.isAuth)
 
     return (
         <div className={s.menu}>
             {(!isAuth ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
                 current.type === 'link'
                     ?
-                    <Link key={current.text} href={current.link} className={s.menu__link}>
+                    <Link key={current.text} href={current.text == 'Профиль' ? '/profile/'+ user?.id : current.link} className={s.menu__link}>
                         {current.text}
                         {current.img && <Image className={s.menu__img} src={current.img} alt={'картинка'} width={26} height={9} />}
                     </Link>
@@ -50,4 +51,4 @@ export function HeaderNav({ }: HeaderNavProps) {
             ))}
         </div>
     );
-};
+}

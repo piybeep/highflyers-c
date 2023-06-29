@@ -8,7 +8,9 @@ interface currentUser {
 
 export interface userProps {
     user: currentUser | null,
-    accessToken: string,
-    refreshToken: string,
+    accessToken?: string,
+    refreshToken?: string,
     isAuth: boolean,
+    setIsAuth: (flag: boolean) => void,
+    setUser: (user: currentUser | null) => void
 }
