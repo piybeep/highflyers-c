@@ -1,0 +1,14 @@
+.title {
+    font-family: 'Golos UI VF', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #252525;
+
+    &__hidden{
+        display: none;
+    }
+}

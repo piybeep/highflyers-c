@@ -1,4 +1,8 @@
+import { Toaster } from "react-hot-toast";
+
 import "./globals.scss";
+import { GoogleAuthProvider } from "./providers";
+import React from "react";
 
 export const metadata = {
 	title: "Create Next App",
@@ -12,7 +16,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru">
-			<body>{children}</body>
+			<body>
+				<GoogleAuthProvider>
+					{children}
+				</GoogleAuthProvider>
+				<Toaster />
+			</body>
 		</html>
 	);
 }

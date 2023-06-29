@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+
+    &__column {
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    &__row {
+        flex-direction: row;
+    }
+
+    &__img {
+        width: inherit;
+        height: fit-content;
+    }
+}

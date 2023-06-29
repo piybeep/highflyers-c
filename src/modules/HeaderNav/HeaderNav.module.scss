@@ -1,0 +1,144 @@
+.menu {
+    display: flex;
+    column-gap: 15px;
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    width: 100%;
+    max-width: 1048px;
+
+    &__link {
+        height: fit-content;
+
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        color: #252525;
+
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+
+        &_drop {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+
+            &::after {
+                content: '';
+                display: inline-block;
+
+                width: 12px;
+                height: 9px;
+
+                background-image: url(../../../public/svg/menu/arrow-down.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+        }
+    }
+
+    &__img{
+        width: 26px;
+        height: 9px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 11px;
+
+        cursor: pointer;
+
+        padding-bottom: 15px;
+
+        &:hover{
+            .info{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        position: relative;
+    }
+}
+
+.info {
+    padding: 10px 16px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    cursor: default;
+
+    position: absolute;
+    top: 45px;
+
+    transition: .3s;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 10;
+
+    &__header {
+        font-family: 'Golos Text VF', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        text-align: left;
+
+        color: #666666;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: 14px;
+        row-gap: 10px;
+    }
+
+    &__item{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(2, 25px);
+
+        column-gap: 14px;
+    }
+
+    &__link {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #252525;
+
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    &__circle{
+        display: flex;
+        border-radius: 100px;
+        background-color: #50BCFF;
+    }
+}
