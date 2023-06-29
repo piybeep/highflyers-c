@@ -10,4 +10,4 @@ export function AuthAccount({value='registration'}:AuthAccountProps) {
             <Link className={s.wrapper__link} href={value === 'registration' ? '/authorization' : '/registration'}>{value === 'authorization' ? 'Зарегистрироваться' : 'Войти'}</Link>
         </div>
     );
-};
+}

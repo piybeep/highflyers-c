@@ -17,4 +17,4 @@ export function Logo({ position = 'column' }: LogoProps) {
             <Image className={s.wrapper__img} src={nameCompany} alt={"Картинка"} />
         </div>
     );
-};
+}

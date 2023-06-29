@@ -58,4 +58,4 @@ export function Authorization({ }: AuthorizationProps) {
             </div>
         </form>
     );
-};
+}

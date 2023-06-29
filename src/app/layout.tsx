@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 
 import "./globals.scss";
 import { GoogleAuthProvider } from "./providers";
+import React from "react";
 
 export const metadata = {
 	title: "Create Next App",

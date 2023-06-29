@@ -3,13 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { FooterNav } from "../FooterNav";
+import { FooterNav,FooterSupport } from "@/modules";
 
 import { SOCIAL } from "@/constants";
 
 import { FooterProps } from "./Footer.types";
 import s from './Footer.module.scss'
-import { FooterSupport } from "../FooterSupport";
 
 export function Footer({ }: FooterProps) {
     return (
@@ -27,4 +26,4 @@ export function Footer({ }: FooterProps) {
             <FooterSupport />
         </footer>
     );
-};
+}

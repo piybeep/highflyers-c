@@ -11,7 +11,7 @@ export function FooterSupport({}:FooterSupportProps) {
                 <div className={s.support__info}>
                     <div className={s.support__email}>
                         <h2 className={s.support__title}>Свяжитесь с нами</h2>
-                        <a className={s.support__link} href="mailTo: support@mail.com">support@mail.com</a>
+                        <a className={s.support__link} href="mailTo:support@mail.com">support@mail.com</a>
                     </div>
                     <div className={s.support__payment}>
                         <h2 className={s.support__title}>Способы оплаты</h2>
@@ -33,4 +33,4 @@ export function FooterSupport({}:FooterSupportProps) {
                 </div>
             </div>
     );
-};
+}

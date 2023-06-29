@@ -13,4 +13,4 @@ export function Privacy({ ...props }: PrivacyProps) {
             <span className={s.privacy__label}>Я принимаю политику конфиденциальности и пользовательское соглашение</span>
         </label>
     );
-};
+}

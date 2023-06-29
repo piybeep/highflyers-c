@@ -4,11 +4,11 @@ import toast from 'react-hot-toast';
 import { useForm, Controller } from 'react-hook-form';
 
 import { AuthAccount, AuthButton, AuthGoogle, AuthInput, AuthTitle, Privacy } from '@/components';
-import s from './Registation.module.scss'
-import { RegistationProps } from './Registation.types';
+import s from './Registration.module.scss'
+import { RegistrationProps } from './Registration.types';
 
-export function Registation({ }: RegistationProps) {
-    const { control, handleSubmit, reset, setValue } = useForm();
+export function Registration({ }: RegistrationProps) {
+    const { control, handleSubmit, reset} = useForm();
 
     const submitForm = handleSubmit(async (data) => {
         if (data.checkbox) {
@@ -57,4 +57,4 @@ export function Registation({ }: RegistationProps) {
             </div>
         </form>
     );
-};
+}

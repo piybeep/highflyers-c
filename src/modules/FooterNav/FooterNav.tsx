@@ -37,4 +37,4 @@ export function FooterNav({ }: FooterNavProps) {
             ))}
         </div>
     );
-};
+}

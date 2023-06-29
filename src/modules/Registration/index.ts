@@ -1,1 +1,1 @@
-export {Registation} from './Registation'
+export {Registration} from './Registration'

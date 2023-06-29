@@ -1,7 +1,7 @@
-import { Registation } from "@/modules";
+import { Registration } from "@/modules";
 
 export default function registrationPage() {
     return (
-        <Registation />
+        <Registration />
     );
 };

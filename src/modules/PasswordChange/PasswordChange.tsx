@@ -13,7 +13,7 @@ import s from './PasswordChange.module.scss'
 
 
 
-export function PasswordChange({ userId, resetCode, ...props }: PasswordChangeProps) {
+export function PasswordChange({ userId, resetCode}: PasswordChangeProps) {
 
     const { control, handleSubmit } = useForm()
     const router = useRouter()
@@ -47,4 +47,4 @@ export function PasswordChange({ userId, resetCode, ...props }: PasswordChangePr
             </div>
         </form>
     );
-};
+}
