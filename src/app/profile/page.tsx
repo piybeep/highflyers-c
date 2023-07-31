@@ -1,11 +1,9 @@
-'use client'
-
-import { ProfileData } from "@/modules";
+import { Profile } from "@/modules";
 
 export default function page() {
     return (
-        <div>
-            <ProfileData />
-        </div>
+        <>
+            <Profile />
+        </>
     );
 };

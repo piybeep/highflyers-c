@@ -1,0 +1,237 @@
+.wrapper {
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+
+    color: #06F;
+    font-family: Golos UI VF;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &__icon {
+        width: fit-content;
+        height: auto;
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 460px));
+    gap: 20px;
+}
+
+.item {
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 50px;
+
+    height: fit-content;
+
+    width: 100%;
+}
+
+.header {
+    padding: 40px 40px 0px 40px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &__title {
+        color: #329C30;
+        font-family: Golos UI VF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+
+    &__price {
+        color: #329C30;
+        font-family: Golos UI VF;
+        font-size: 42px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.items {
+    padding: 0px 40px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    width: 100%;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__description {
+        color: #000;
+        font-family: Golos UI VF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+    }
+
+    &__icon {
+        width: fit-content;
+    }
+}
+
+.buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 28px;
+
+        padding-top: 28px;
+
+        border: 1px solid;
+        border-radius: 20px;
+
+        width: 100%;
+    }
+
+    &__text {
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    &__all {
+        color: #329C30;
+        font-family: Golos UI VF;
+        font-size: 42px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+
+        width: 100%;
+
+        border: none;
+        outline: none;
+
+        background-color: transparent;
+
+        padding: 61px 0px;
+
+        border: 1px solid;
+
+        border-radius: 20px;
+    }
+
+    &__acess {
+        width: 100%;
+
+        padding: 28px 0px;
+
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        border: none;
+        outline: none;
+
+        color: #FFF;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    &__chapter {
+        width: 100%;
+
+        padding: 28px 0px;
+
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        border: none;
+        outline: none;
+
+        color: #FFF;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        position: relative;
+    }
+
+    &__full {
+        color: #FFF;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        width: 100%;
+
+        padding: 71px 0px;
+
+        border: none;
+        outline: none;
+
+        border-radius: 20px;
+    }
+
+    &__discount {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+
+        color: #06F;
+        font-family: Golos UI VF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        background-color: #EDF8FF;
+        border-radius: 5px;
+
+        padding: 2px 6px;
+    }
+}

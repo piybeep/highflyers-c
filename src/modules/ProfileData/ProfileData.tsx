@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Input } from '@/components';
 
@@ -23,10 +24,10 @@ export function ProfileData({ ...props }) {
                     <Input isBordered placeholder='Фамилия' isPlaceholder />
                     <Input isBordered placeholder='Пароль' isPlaceholder isPassword />
                 </div>
-                <div className={s.remove}>
+                <Link href={{ pathname: '/profile', query: { window: 'remove' } }} className={s.remove}>
                     <p className={s.remove__title}>Удалить аккаунт</p>
                     <Image className={s.remove__svg} src={trash} alt={'Иконка'} />
-                </div>
+                </Link>
             </div>
         </div>
     );
