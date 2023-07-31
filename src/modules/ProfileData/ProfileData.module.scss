@@ -1,0 +1,60 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    width: 100%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+
+    color: #06F;
+    font-family: Golos UI VF;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 600px));
+    column-gap: 30px;
+    justify-content: space-between;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 6px;
+
+    position: relative;
+    right: 45px;
+
+    &__title {
+        color: #B3B3B3;
+        font-family: Golos Text VF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &__svg {
+        width: fit-content;
+        height: auto;
+    }
+}
