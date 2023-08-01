@@ -3,3 +3,34 @@
     flex-direction: column;
     row-gap: 100px;
 }
+
+.material {
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        column-gap: 14px;
+
+        color: #06F;
+        font-family: Golos UI VF;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+    }
+
+    &__icon {
+        width: fit-content;
+        height: auto;
+    }
+}

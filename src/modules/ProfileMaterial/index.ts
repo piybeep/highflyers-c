@@ -1,1 +1,0 @@
-export { ProfileMaterial } from './ProfileMaterial'
