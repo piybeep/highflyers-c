@@ -1,0 +1,58 @@
+.button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+
+    &.default {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 120%;
+        text-align: center;
+        text-decoration-line: underline;
+
+        color: #7C7C7C;
+    }
+
+    &.small {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 120%;
+        text-decoration-line: underline;
+
+        color: #7C7C7C;
+    }
+
+    &.large {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.125rem;
+        line-height: 120%;
+
+        text-decoration: none;
+
+        color: #FFFFFF;
+    }
+
+    &__outline {
+        background-color: #0066FF;
+
+        padding: 12px 22px;
+
+        border-radius: 45px;
+
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+
+        color: #FFFFFF !important;
+
+        text-decoration: none !important;
+    }
+}

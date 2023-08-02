@@ -1,0 +1,30 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    color: #252525;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Golos UI VF, sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.description {
+    color: #252525;
+    font-family: Golos Text VF, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 15px;
+}
