@@ -20,24 +20,24 @@
         row-gap: 5px;
     }
 
-    
+
     &__title {
         font-family: 'Golos UI VF', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1rem;
+        line-height: 120%;
 
         color: #B3B3B3;
     }
 
-    
+
     &__link {
         font-family: 'Golos UI VF', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 32px;
-        line-height: 38px;
+        font-size: 2rem;
+        line-height: 120%;
 
         color: #FFFFFF;
 
@@ -72,35 +72,35 @@
         column-gap: 15px;
     }
 
-    
+
     &__item {
         font-family: 'Golos UI VF', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: 0.875rem;
+        line-height: 120%;
         text-decoration-line: underline;
 
         color: #666666;
     }
 
-    
+
     &__piybeep {
         font-family: 'Golos UI VF', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1rem;
+        line-height: 120%;
 
         color: #FFFFFF;
 
-        
+
         &_link {
             font-family: 'Golos UI VF', sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
-            line-height: 19px;
+            font-size: 1rem;
+            line-height: 120%;
 
             color: #FFFFFF;
         }
