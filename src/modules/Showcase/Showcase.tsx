@@ -12,24 +12,24 @@ export function Showcase({ materials }: { materials: Material[] }) {
 
     const [discount, setDiscount] = useState('')
 
-    const funcDiscount = () => {
-        const num = 100
-
-        const sumAllCard = materials.reduce((accum, currentAccum) => accum + currentAccum.priceForOne, 0)
-        const countServices = materials.reduce((accum, currentAccum) => accum + currentAccum.list.length, 0)
-
-        const sumAllChapter = materials.reduce((accum, currentAccum) => accum + currentAccum.fullPrice, 0)
-        const lengthMaterial = materials.length
-
-        const left = (num / (sumAllCard / countServices))
-        const rigth = sumAllChapter / lengthMaterial
-
-        setDiscount(Math.round(left * rigth).toLocaleString())
-    }
 
     useEffect(() => {
+        const funcDiscount = () => {
+            const num = 100
+
+            const sumAllCard = materials.reduce((accum, currentAccum) => accum + currentAccum.priceForOne, 0)
+            const countServices = materials.reduce((accum, currentAccum) => accum + currentAccum.list.length, 0)
+
+            const sumAllChapter = materials.reduce((accum, currentAccum) => accum + currentAccum.fullPrice, 0)
+            const lengthMaterial = materials.length
+
+            const left = (num / (sumAllCard / countServices))
+            const rigth = sumAllChapter / lengthMaterial
+
+            setDiscount(Math.round(left * rigth).toLocaleString())
+        }
         funcDiscount()
-    }, [funcDiscount])
+    }, [])
 
     return (
         <div className={s.wrapper}>
