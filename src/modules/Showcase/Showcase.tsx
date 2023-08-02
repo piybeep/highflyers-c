@@ -12,10 +12,6 @@ export function Showcase({ materials }: { materials: Material[] }) {
 
     const [discount, setDiscount] = useState('')
 
-    useEffect(() => {
-        funcDiscount()
-    }, [])
-
     const funcDiscount = () => {
         const num = 100
 
@@ -30,6 +26,10 @@ export function Showcase({ materials }: { materials: Material[] }) {
 
         setDiscount(Math.round(left * rigth).toLocaleString())
     }
+
+    useEffect(() => {
+        funcDiscount()
+    }, [funcDiscount])
 
     return (
         <div className={s.wrapper}>
