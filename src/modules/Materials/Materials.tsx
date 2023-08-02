@@ -7,10 +7,10 @@ import { Material } from '@/types';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import classNames from 'classnames';
 
-import check from '../../public/svg/check.svg'
+import check from '../../../public/svg/check.svg'
 import s from './Materials.module.scss'
 
-import preloader from '../../public/svg/preloader.svg'
+import preloader from '../../../public/svg/preloader.svg'
 
 export function Materials({ materials }: { materials: Material[] }) {
 

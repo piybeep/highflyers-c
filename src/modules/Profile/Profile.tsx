@@ -5,7 +5,7 @@ import { ProfileData, Materials, RemoveProfile } from "@/modules";
 
 import s from './Profile.module.scss'
 
-import material from '../../public/svg/material.svg'
+import material from '../../../public/svg/material.svg'
 import Image from "next/image";
 
 export function Profile({ materials }: { materials: Material[] }) {

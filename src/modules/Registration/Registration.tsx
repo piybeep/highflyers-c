@@ -5,10 +5,9 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { AuthAccount, AuthButton, AuthGoogle, AuthInput, AuthTitle, Privacy } from '@/components';
 import s from './Registration.module.scss'
-import { RegistrationProps } from './Registration.types';
 
-export function Registration({ }: RegistrationProps) {
-    const { control, handleSubmit, reset} = useForm();
+export function Registration() {
+    const { control, handleSubmit, reset } = useForm();
 
     const submitForm = handleSubmit(async (data) => {
         if (data.checkbox) {

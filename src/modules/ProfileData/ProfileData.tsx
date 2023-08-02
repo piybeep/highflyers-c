@@ -7,8 +7,8 @@ import { Input } from '@/components';
 
 import s from './ProfileData.module.scss'
 
-import profileIcon from '../../public/svg/profile.svg'
-import trash from '../../public/svg/trash.svg'
+import profileIcon from '../../../public/svg/profile.svg'
+import trash from '../../../public/svg/trash.svg'
 
 export function ProfileData({ ...props }) {
     return (

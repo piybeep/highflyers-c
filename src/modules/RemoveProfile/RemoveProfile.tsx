@@ -1,12 +1,10 @@
-'use client'
-
 import { AuthButton, PopupLayout } from '@/components';
 
 import s from './RemoveProfile.module.scss'
 
 import Link from 'next/link';
 
-export function RemoveProfile() {
+export async function RemoveProfile() {
 
     return (
         <PopupLayout>

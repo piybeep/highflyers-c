@@ -9,9 +9,8 @@ import axios from 'axios';
 
 import { AuthAccount, AuthButton, AuthGoogle, AuthInput, AuthTitle } from '@/components';
 import s from './Authorization.module.scss'
-import { AuthorizationProps } from './Authorization.types';
 
-export function Authorization({ }: AuthorizationProps) {
+export function Authorization() {
 
     const route = useRouter()
 
@@ -33,17 +32,17 @@ export function Authorization({ }: AuthorizationProps) {
             <div className={s.form__header}>
                 <AuthTitle value={'Авторизоваться'} />
                 <AuthAccount value={'authorization'} />
-                <AuthGoogle/>
+                <AuthGoogle />
             </div>
             <div className={s.form__info}>
                 <Controller
-                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Почта'} onChange={onChange} value={value} />}
+                    render={({ field: { onChange, value } }) => <AuthInput placeholder={'Почта'} onChange={onChange} value={value} />}
                     name="email"
                     control={control}
                     defaultValue=""
                 />
                 <Controller
-                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Пароль'} password onChange={onChange} value={value} />}
+                    render={({ field: { onChange, value } }) => <AuthInput placeholder={'Пароль'} password onChange={onChange} value={value} />}
                     name="password"
                     control={control}
                     defaultValue=""

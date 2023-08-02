@@ -9,10 +9,9 @@ import classNames from 'classnames';
 
 import { NAVIGATION, NAVIGATION_WITH_AUTH } from '@/constants/links';
 
-import { HeaderNavProps } from './HeaderNav.types';
 import s from './HeaderNav.module.scss'
 
-export function HeaderNav({ }: HeaderNavProps) {
+export function HeaderNav() {
 
     const user = useUser(state => state.user)
     const isAuth = useUser(state => state.isAuth)
@@ -22,7 +21,7 @@ export function HeaderNav({ }: HeaderNavProps) {
             {(!isAuth ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
                 current.type === 'link'
                     ?
-                    <Link key={current.text} href={current.text == 'Профиль' ? '/profile/'+ user?.id : current.link} className={s.menu__link}>
+                    <Link key={current.text} href={current.text == 'Профиль' ? '/profile/' + user?.id : current.link} className={s.menu__link}>
                         {current.text}
                         {current.img && <Image className={s.menu__img} src={current.img} alt={'картинка'} width={26} height={9} />}
                     </Link>

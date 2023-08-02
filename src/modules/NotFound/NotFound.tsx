@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import svg from '../../public/svg/notFound.svg'
+import svg from '../../../public/svg/notFound.svg'
 
 import s from './NotFound.module.scss'
 import Link from 'next/link';

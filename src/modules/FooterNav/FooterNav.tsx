@@ -8,12 +8,11 @@ import Link from "next/link";
 
 import { NAVIGATION, NAVIGATION_WITH_AUTH } from "@/constants/links";
 
-import { FooterNavProps } from "./FooterNav.types";
 import s from './FooterNav.module.scss'
 
-export function FooterNav({ }: FooterNavProps) {
+export function FooterNav() {
 
-    const {isAuth} = useUser(state => state)
+    const { isAuth } = useUser(state => state)
 
     return (
         <div className={s.menu}>
