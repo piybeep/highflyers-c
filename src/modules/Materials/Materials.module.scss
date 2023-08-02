@@ -1,6 +1,10 @@
 .wrapper {
     width: 100%;
     max-width: 1420px;
+
+    &__preloader {
+        width: 100%;
+    }
 }
 
 .item {
