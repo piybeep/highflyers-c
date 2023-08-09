@@ -1,0 +1,147 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    &__title {
+        color: #252525;
+        font-family: Golos UI VF, sans-serif;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &__button {
+        color: #252525;
+        font-family: Golos UI VF, sans-serif;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        background-color: transparent;
+
+        border: 1px solid #666;
+        border-radius: 45px;
+
+        outline: none;
+
+        padding: 7px 16px;
+
+        cursor: pointer;
+    }
+}
+
+.item {
+
+    border-radius: 6px;
+    border: 3px solid #50BCFF;
+
+    &_active {
+        border: none;
+        border-left: 3px solid #50BCFF;
+        border-radius: unset;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 680px));
+        gap: 20px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        column-gap: 26px;
+
+        position: relative;
+
+        cursor: pointer;
+
+        padding: 18px 30px;
+
+        transition: .3s;
+
+        &:hover {
+            background: #DEF2FF;
+        }
+
+        &_active {
+            &:hover {
+                background: none;
+            }
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+
+        transform: translateY(-50%) rotate(-90deg);
+
+        transition: .3s;
+
+        &_active {
+            transform: rotate(0deg) translateY(-13px);
+        }
+    }
+
+    &__title {
+        color: #252525;
+        font-family: Golos UI VF, sans-serif;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__count {
+        color: #252525;
+        font-family: Golos UI VF, sans-serif;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+
+        &_all {
+            padding: 2px 6px;
+
+            border-radius: 5px;
+            background-color: #50BCFF;
+
+            color: #FFF;
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-template-rows: 0fr;
+
+        overflow: hidden;
+
+        transition: grid-template-rows .3s linear;
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+        &_open {
+            grid-template-rows: 1fr;
+
+            padding-bottom: 18px;
+        }
+    }
+}

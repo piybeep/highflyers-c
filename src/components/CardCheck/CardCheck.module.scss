@@ -1,0 +1,64 @@
+.wrapper {
+    padding: 30px;
+
+    border-radius: 10px;
+    background: #F5F5F5;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.title {
+    color: #252525;
+    font-family: Golos UI VF;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    &__text {
+        font-family: Golos UI VF;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        &_youtube {
+            color: #F26363;
+        }
+
+        &_books {
+            color: #329C30;
+        }
+
+        &_iTunes {
+            color: #4F86EC;
+        }
+    }
+}
+
+.button {
+    color: #252525;
+    font-family: Golos UI VF;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+
+    padding: 7px 16px;
+
+    margin-top: auto;
+
+    border-radius: 45px;
+    border: 1px solid #666;
+
+    width: fit-content;
+}
