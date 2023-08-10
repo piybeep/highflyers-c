@@ -3,10 +3,11 @@ import s from './CardPlans.module.scss'
 import { CardPlansProps } from './CardPlans.types';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { MaterialLayout } from '@/layout';
 
 export function CardPlans({ name, free, time, img, ...props }: CardPlansProps) {
     return (
-        <div className={s.wrapper}>
+        <MaterialLayout materialTypes='plans'>
             <div className={s.info}>
                 <h2 className={s.info__title}>{name}</h2>
                 <p className={s.info__time}>{time}</p>
@@ -16,6 +17,6 @@ export function CardPlans({ name, free, time, img, ...props }: CardPlansProps) {
                 <Link href={'#'} className={s.info__button}>Читать</Link>
             </div>
             <Image width={260} height={250} className={s.img} src={img} alt={'Картинка'} />
-        </div>
+        </MaterialLayout>
     );
 };
