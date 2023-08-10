@@ -25,7 +25,7 @@ export const LESSON_LIST = [
                 name: "Научная литература",
                 youtube: 'Youtube-каналы',
                 books: 'Книги',
-                iTunes: 'Подкасты на iTunes'
+                iTunes: 'Подкасты на iTunes',
             },
             {
                 id: "2",

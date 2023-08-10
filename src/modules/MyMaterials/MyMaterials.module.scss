@@ -57,8 +57,19 @@
 
     &__list {
         display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 680px));
         gap: 20px;
+
+        &_plans {
+            grid-template-columns: repeat(auto-fill, minmax(620px, auto));
+        }
+
+        &_check {
+            grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+        }
+
+        &_article {
+            grid-template-columns: repeat(auto-fill, minmax(387px, auto));
+        }
     }
 
     &__header {

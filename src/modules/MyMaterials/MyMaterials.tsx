@@ -1,13 +1,13 @@
 'use client'
+import { useState } from 'react';
 
-import { Category } from '@/types';
+import classNames from 'classnames';
+import declOfNum from '@/utils/declOfNum';
+
+import { CardArticleProps, CardCheckProps, Category, CardPlansProps } from '@/types';
+import { CardArticle, CardCheck, CardPlans } from '@/components';
 
 import s from './MyMaterials.module.scss'
-
-import declOfNum from '@/utils/declOfNum';
-import classNames from 'classnames';
-import { useState } from 'react';
-import { CardArticle, CardCheck, CardPlans } from '@/components';
 
 export function MyMaterials({ list }: { list: Category[] }) {
 
@@ -53,20 +53,24 @@ export function MyMaterials({ list }: { list: Category[] }) {
                         <div className={classNames(s.item__info, {
                             [s.item__info_open]: isOpen === current.id
                         })}>
-                            <div className={s.item__list} style={{ minHeight: 0 }}>
+                            <div className={classNames(s.item__list, {
+                                [s.item__list_plans]: current.name === 'Планы уроков',
+                                [s.item__list_check]: current.name === 'Чек-листы',
+                                [s.item__list_article]: current.name === 'Полезные статьи',
+                            })} style={{ minHeight: 0 }}>
                                 {
-                                    current.name === 'Планы уроков' && current.materials.map(current => (
-                                        <CardPlans id={current.id} name={current.name} free={current.free} time={current.time} img={current.img} />
+                                    current.name === 'Планы уроков' && (current.materials as CardPlansProps[]).map(current => (
+                                        <CardPlans key={current.id} id={current.id} name={current.name} free={current.free} time={current.time} img={current.img} />
                                     ))
                                 }
                                 {
-                                    current.name === 'Чек-листы' && current.materials.map(current => (
-                                        <CardCheck id={current.id} name={current.name} youtube={current.youtube} iTunes={current.iTunes} books={current.books} />
+                                    current.name === 'Чек-листы' && (current.materials as CardCheckProps[]).map(current => (
+                                        <CardCheck key={current.id} id={current.id} name={current.name} youtube={current.youtube} iTunes={current.iTunes} books={current.books} />
                                     ))
                                 }
                                 {
-                                    current.name === 'Полезные статьи' && current.materials.map(current => (
-                                        <CardArticle id={current.id} name={current.name} description={current.description}/>
+                                    current.name === 'Полезные статьи' && (current.materials as CardArticleProps[]).map(current => (
+                                        <CardArticle key={current.id} id={current.id} name={current.name} description={current.description} />
                                     ))
                                 }
                             </div>
