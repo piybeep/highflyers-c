@@ -1,0 +1,52 @@
+.wrapper {
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    width: fit-content;
+
+    padding: 0px 30px;
+    padding-bottom: 47px;
+
+    border-radius: 10px;
+    border: 1px solid transparent;
+
+    transition: .3s;
+
+    &:hover {
+        border-color: #B3B3B3;
+    }
+}
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    row-gap: 15px;
+
+    &__title {
+        color: #252525;
+        font-family: Golos UI VF;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__time {
+        color: #666;
+        text-align: center;
+        font-family: Golos UI VF;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
