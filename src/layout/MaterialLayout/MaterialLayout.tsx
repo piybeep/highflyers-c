@@ -12,7 +12,7 @@ interface MaterialLayoutProps {
 export function MaterialLayout({ children, materialTypes }: MaterialLayoutProps) {
     const [isFocus, setIsFocus] = useState('')
 
-    const handleMouseEnter = (e: any) => {
+    const handleMouseEnter = () => {
         // Для выбора цвета из массива
         // -----------------------------------------------------------
         // const colors = ["green", "purple", "teal", "violet", "pink"]
@@ -31,14 +31,14 @@ export function MaterialLayout({ children, materialTypes }: MaterialLayoutProps)
         setIsFocus(color)
     }
 
-    const handleMouseLeave = (e: any) => {
+    const handleMouseLeave = () => {
         setIsFocus('')
     }
 
     return (
         <div
             style={{ backgroundColor: isFocus }}
-            onMouseEnter={e => handleMouseEnter(e)} onMouseLeave={e => handleMouseLeave(e)}
+            onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}
             className={classNames(s.wrapper, {
                 [s.wrapper__plans]: materialTypes === 'plans',
                 [s.wrapper__check]: materialTypes === 'check',
