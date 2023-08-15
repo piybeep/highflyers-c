@@ -13,21 +13,13 @@ export function MaterialLayout({ children, materialTypes }: MaterialLayoutProps)
     const [isFocus, setIsFocus] = useState('')
 
     const handleMouseEnter = () => {
-        // Для выбора цвета из массива
-        // -----------------------------------------------------------
-        // const colors = ["green", "purple", "teal", "violet", "pink"]
-        // let randomNumber = Math.floor(Math.random() * colors.length)
-        // e.target.style.backgroundColor = `${colors[randomNumber]}`
-        // -----------------------------------------------------------
-
         // Это для выбора рандомного цвета
         // --------------------------------------------------
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
+        var color: any = [];
+        for (var i = 0; i < 3; i++) {
+            color.push(Math.floor(Math.random() * (255 - 234) + 234))
         }
-        // --------------------------------------------------
+        console.log(color)
         setIsFocus(color)
     }
 
@@ -37,13 +29,9 @@ export function MaterialLayout({ children, materialTypes }: MaterialLayoutProps)
 
     return (
         <div
-            style={{ backgroundColor: isFocus }}
+            style={{ backgroundColor: `rgb(${isFocus[0] ? isFocus[0] : 245}, ${isFocus[1] ? isFocus[1] : 245}, ${isFocus[2] ? isFocus[2] : 245})` }}
             onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}
-            className={classNames(s.wrapper, {
-                [s.wrapper__plans]: materialTypes === 'plans',
-                [s.wrapper__check]: materialTypes === 'check',
-                [s.wrapper__article]: materialTypes === 'article',
-            })}>
+            className={s.wrapper}>
             {children}
         </div >
     );
