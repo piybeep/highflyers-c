@@ -5,11 +5,10 @@ import { useState } from 'react';
 import s from './MaterialLayout.module.scss'
 import classNames from 'classnames';
 interface MaterialLayoutProps {
-    materialTypes: 'check' | 'plans' | 'article'
     children?: JSX.Element | JSX.Element[]
 }
 
-export function MaterialLayout({ children, materialTypes }: MaterialLayoutProps) {
+export function MaterialLayout({ children }: MaterialLayoutProps) {
     const [isFocus, setIsFocus] = useState('')
 
     const handleMouseEnter = () => {

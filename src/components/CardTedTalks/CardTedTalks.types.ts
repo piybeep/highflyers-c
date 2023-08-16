@@ -1,5 +1,5 @@
 export interface CardTedTalksProps {
-    img: string
+    video: string
     title: string
     time: string
     link: string

@@ -67,4 +67,39 @@ export const LESSON_LIST = [
             },
         ]
     },
+    {
+        id: '4',
+        name: 'TedTalks',
+        count: 5,
+        materials: [
+            {
+                id: '1',
+                video: cover.src,
+                title: 'Правильные и неправильные глаголы',
+                time: '50 минут',
+                link: '#'
+            },
+            {
+                id: '2',
+                video: cover.src,
+                title: 'Сравнение прилагательных',
+                time: '50 минут',
+                link: '#'
+            },
+            {
+                id: '3',
+                video: cover.src,
+                title: 'Настоящее продолженное время для обозначения будущего',
+                time: '50 минут',
+                link: '#'
+            },
+            {
+                id: '4',
+                video: cover.src,
+                title: 'Настоящее продолженное время',
+                time: '50 минут',
+                link: '#'
+            }
+        ]
+    }
 ]

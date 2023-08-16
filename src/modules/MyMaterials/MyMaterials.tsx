@@ -4,8 +4,8 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import declOfNum from '@/utils/declOfNum';
 
-import { CardArticleProps, CardCheckProps, Category, CardPlansProps } from '@/types';
-import { CardArticle, CardCheck, CardPlans } from '@/components';
+import { CardArticleProps, CardCheckProps, Category, CardPlansProps, CardTedTalksProps } from '@/types';
+import { CardArticle, CardCheck, CardPlans, CardTedTalks } from '@/components';
 
 import s from './MyMaterials.module.scss'
 
@@ -57,6 +57,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                 [s.item__list_plans]: current.name === 'Планы уроков',
                                 [s.item__list_check]: current.name === 'Чек-листы',
                                 [s.item__list_article]: current.name === 'Полезные статьи',
+                                [s.item__list_tedTalks]: current.name === 'TedTalks',
                             })} style={{ minHeight: 0 }}>
                                 {
                                     current.name === 'Планы уроков' && (current.materials as CardPlansProps[]).map(current => (
@@ -71,6 +72,11 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                 {
                                     current.name === 'Полезные статьи' && (current.materials as CardArticleProps[]).map(current => (
                                         <CardArticle key={current.id} id={current.id} name={current.name} description={current.description} />
+                                    ))
+                                }
+                                {
+                                    current.name === 'TedTalks' && (current.materials as CardTedTalksProps[]).map(current => (
+                                        <CardTedTalks key={current.id} video={current.video} title={current.title} time={current.time} link={current.link} />
                                     ))
                                 }
                             </div>

@@ -5,7 +5,7 @@
     flex-direction: column;
     row-gap: 25px;
 
-    width: fit-content;
+    width: 100%;
 
     padding: 0px 30px;
     padding-bottom: 47px;
@@ -22,6 +22,7 @@
 
 .img {
     width: 100%;
+    max-width: 433px;
     height: auto;
 }
 

@@ -2,7 +2,7 @@ export interface Category {
     id: string
     name: string
     count: number
-    materials: CardPlansProps[] | CardCheckProps[] | CardArticleProps[]
+    materials: CardPlansProps[] | CardCheckProps[] | CardArticleProps[] | CardTedTalksProps[]
 }
 
 export interface CardPlansProps {
@@ -24,4 +24,12 @@ export interface CardArticleProps {
     id: string
     name: string
     description: string
+}
+
+export interface CardTedTalksProps {
+    id: string
+    video: string
+    title: string
+    time: string
+    link: string
 }
