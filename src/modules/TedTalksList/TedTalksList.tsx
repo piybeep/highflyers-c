@@ -1,6 +1,8 @@
 import { CardTedTalks } from '@/components';
 import s from './TedTalksList.module.scss'
 
+import img from '../../../public/img/cover.png'
+
 export function TedTalksList() {
 
     const data = [
@@ -8,12 +10,22 @@ export function TedTalksList() {
             title: 'Грамматика',
             materials: [
                 {
-                    video: '',
+                    video: img.src,
                     title: 'Правильные и неправильные глаголы',
                     time: '50 минут'
                 },
                 {
-                    video: '',
+                    video: img.src,
+                    title: 'Сравнение прилагательных',
+                    time: '50 минут'
+                },
+                {
+                    video: img.src,
+                    title: 'Правильные и неправильные глаголы',
+                    time: '50 минут'
+                },
+                {
+                    video: img.src,
                     title: 'Сравнение прилагательных',
                     time: '50 минут'
                 },
@@ -23,12 +35,12 @@ export function TedTalksList() {
             title: 'Фонетика',
             materials: [
                 {
-                    video: '',
+                    video: img.src,
                     title: 'Правильные и неправильные глаголы',
                     time: '50 минут'
                 },
                 {
-                    video: '',
+                    video: img.src,
                     title: 'Сравнение прилагательных',
                     time: '50 минут'
                 },
@@ -46,7 +58,7 @@ export function TedTalksList() {
                             <div className={s.item__list}>
                                 {
                                     current.materials.map(current => (
-                                        <CardTedTalks video={current.video} title={current.time} time={current.time} link={'#'} />
+                                        <CardTedTalks video={current.video} title={current.title} time={current.time} link={'#'} />
                                     ))
                                 }
                             </div>
