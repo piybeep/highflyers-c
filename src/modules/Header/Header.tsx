@@ -15,7 +15,10 @@ import { toast } from "react-hot-toast";
 export function Header() {
     const setUser = useUser(state => state.setUser)
     const setIsAuth = useUser(state => state.setIsAuth)
-    const { error, data } = useSWR('/users/8f26396b-8b26-417a-81e6-e7cbc391a7d5', { fetcher: api.get, errorRetryCount: 1 })
+    const user = useUser(state => state.user)
+    const { error, data } = useSWR(`/users/${user?.id}`, { fetcher: api.get, errorRetryCount: 1 })
+
+    console.log(user)
 
     useEffect(() => {
         if (data && data.status === 200) {
@@ -30,7 +33,6 @@ export function Header() {
             toast.error((error?.response?.data?.message || error?.message) ?? 'Произошла ошибка')
         }
     }, [error])
-
 
     return (
         <header className={s.wrapper}>

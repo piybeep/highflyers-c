@@ -3,13 +3,13 @@ import { MATERIALS_LIST } from "@/constants";
 import { Profile } from "@/modules";
 
 export const metadata = {
-    title: "Профиль",
+    title: "Профиль - Higthflyers",
     description: "Страница профиля",
 };
 
-export default function page() {
+export default async function page() {
 
-    const res = MATERIALS_LIST
+    const res = await MATERIALS_LIST
 
     return (
         <>

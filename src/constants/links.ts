@@ -72,7 +72,7 @@ export const NAVIGATION = [
         id: 6,
         text: 'Профиль',
         type: 'link',
-        link: '/#',
+        link: '/profile',
     }
 ]
 
@@ -144,12 +144,12 @@ export const NAVIGATION_WITH_AUTH = [
         text: 'TEDTalks',
         type: 'link',
         img: '/svg/menu/ted.svg',
-        link: '/#',
+        link: '/TedTalks',
     },
     {
         id: 6,
         text: 'Профиль',
         type: 'link',
-        link: '/#',
+        link: '/profile',
     }
 ]
