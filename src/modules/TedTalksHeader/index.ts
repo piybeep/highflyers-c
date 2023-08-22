@@ -1,0 +1,1 @@
+export { TedTalksHeader } from './TedTalksHeader'
