@@ -5,19 +5,32 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { AuthAccount, AuthButton, AuthGoogle, AuthInput, AuthTitle, Privacy } from '@/components';
 import s from './Registration.module.scss'
+import { useRouter } from 'next/navigation';
+import { useUser } from '@/store';
 
 export function Registration() {
     const { control, handleSubmit, reset } = useForm();
 
+    const { setUser } = useUser()
+
+    const router = useRouter()
+
     const submitForm = handleSubmit(async (data) => {
         if (data.checkbox) {
             try {
-                const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/auth`, { email: data.email, password: data.password })
-                localStorage.setItem('accessToken', response.data.accessToken)
-                localStorage.setItem('refreshToken', response.data.refreshToken)
+                const response = await axios.post(`/api/register`, { email: data.email, password: data.password }, { withCredentials: true })
+                toast.success('Пользователь зарегистрирован')
+                setUser(response.data)
                 reset()
+                router.push('/')
             } catch (error: any) {
-                toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+                if (Array.isArray(error?.response?.data?.message)) {
+                    error?.response?.data?.message.map((current: any) => (
+                        toast.error(current)
+                    ))
+                } else {
+                    toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+                }
             }
         } else {
             toast.error('Примите политику конфиденциальности')

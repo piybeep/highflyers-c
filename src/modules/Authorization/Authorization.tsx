@@ -18,12 +18,17 @@ export function Authorization() {
 
     const submitForm = handleSubmit(async (data) => {
         try {
-            const response = await axios.put(`${process.env.NEXT_PUBLIC_HOST}/auth`, { email: data.email, password: data.password })
-            localStorage.setItem('accessToken', response.data.accessToken)
-            localStorage.setItem('refreshToken', response.data.refreshToken)
+            const response = await axios.put('/api/login', { email: data.email, password: data.password }, { withCredentials: true })
+            toast.success('Вы успешно вошли')
             route.push('/')
         } catch (error: any) {
-            toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+            if (Array.isArray(error?.response?.data?.message)) {
+                error?.response?.data?.message.map((current: any) => (
+                    toast.error(current)
+                ))
+            } else {
+                toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+            }
         }
     })
 

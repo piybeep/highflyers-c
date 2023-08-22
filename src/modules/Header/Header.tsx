@@ -16,7 +16,7 @@ export function Header() {
     const setUser = useUser(state => state.setUser)
     const setIsAuth = useUser(state => state.setIsAuth)
     const user = useUser(state => state.user)
-    const { error, data } = useSWR(`/users/${user?.id}`, { fetcher: api.get, errorRetryCount: 1 })
+    const { data } = useSWR(`/users/${user?.id}`, { fetcher: api.get, errorRetryCount: 1 })
 
     console.log(user)
 
@@ -26,13 +26,6 @@ export function Header() {
             setIsAuth && setIsAuth(true)
         }
     }, [data, setIsAuth, setUser])
-
-    useEffect(() => {
-        if (error) {
-            console.log(error)
-            toast.error((error?.response?.data?.message || error?.message) ?? 'Произошла ошибка')
-        }
-    }, [error])
 
     return (
         <header className={s.wrapper}>
