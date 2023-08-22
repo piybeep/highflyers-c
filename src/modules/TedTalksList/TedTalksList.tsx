@@ -1,3 +1,4 @@
+import { CardTedTalks } from '@/components';
 import s from './TedTalksList.module.scss'
 
 export function TedTalksList() {
@@ -34,6 +35,7 @@ export function TedTalksList() {
             ]
         }
     ]
+
     return (
         <div className={s.wrapper}>
             <div className={s.list}>
@@ -42,7 +44,11 @@ export function TedTalksList() {
                         <div className={s.item}>
                             <h2 className={s.item__title}>{current.title}</h2>
                             <div className={s.item__list}>
-
+                                {
+                                    current.materials.map(current => (
+                                        <CardTedTalks video={current.video} title={current.time} time={current.time} link={'#'} />
+                                    ))
+                                }
                             </div>
                         </div>
                     ))
