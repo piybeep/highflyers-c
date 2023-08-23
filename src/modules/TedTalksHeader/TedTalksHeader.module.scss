@@ -34,7 +34,7 @@
     &__title {
         color: #06F;
         text-align: center;
-        font-family: Golos Text VF;
+        font-family: Golos UI VF;
         font-size: 1rem;
         font-style: normal;
         font-weight: 500;
@@ -52,6 +52,18 @@
         cursor: pointer;
 
         user-select: none;
+
+        width: fit-content;
+
+        &:hover {
+            .info__checkbox {
+                border-color: #06F;
+            }
+
+            .info__text {
+                color: #06F;
+            }
+        }
     }
 
     &__checkbox {
@@ -65,13 +77,18 @@
         align-items: center;
         justify-content: center;
 
+        transition: .3s;
+
         &::before {
             content: '';
 
             width: 8px;
             height: 8px;
 
-            background-color: red;
+            background-image: url(../../../public/svg/check.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
 
             opacity: 0;
 
@@ -83,7 +100,14 @@
         display: none;
 
         &:checked {
+
+            ~.info__text {
+                color: #06F;
+            }
+
             ~.info__checkbox {
+
+                border-color: #06F;
 
                 &::before {
                     opacity: 1;
@@ -99,6 +123,8 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+
+        transition: .3s;
     }
 }
 
