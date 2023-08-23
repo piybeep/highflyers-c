@@ -1,7 +1,7 @@
-import { userData } from '@/constants/db'
-import { NextRequest, NextResponse } from 'next/server'
+import {userData} from '@/constants/db'
+import {NextRequest, NextResponse} from 'next/server'
 
-import { randomBytes } from 'crypto'
+import {randomBytes} from 'crypto'
 
 export async function PUT(request: NextRequest) {
     const data = await request.json()
@@ -27,13 +27,22 @@ export async function PUT(request: NextRequest) {
             existingUser.idToken = token
         } else {
             const token = randomBytes(16).toString('hex')
-            userData.push({ idUser: dataRes.user.id, accessToken: dataRes.accessToken, refreshToken: dataRes.refreshToken, idToken: token })
+            userData.push({
+                idUser: dataRes.user.id,
+                accessToken: dataRes.accessToken,
+                refreshToken: dataRes.refreshToken,
+                idToken: token
+            })
         }
+        const new_token = userData.find((current) => current.idUser === dataRes.user.id)?.idToken
         return new Response(dataRes.user, {
             status: 200,
-            headers: { 'Set-Cookie': `token=${userData.find((current) => current.idUser === dataRes.user.id)?.idToken}; Path=/` },
+            headers: {
+                'Set-Cookie': `token=${new_token}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`,
+                'Content-Type': `application/json; charset=utf-8`,
+            },
         })
     } else {
-        return NextResponse.json(dataRes, { status: res.status })
+        return NextResponse.json(dataRes, {status: res.status})
     }
 }
