@@ -11,6 +11,7 @@ import api from "@/api";
 import { useUser } from "@/store";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 export function Header() {
     const setUser = useUser(state => state.setUser)
@@ -41,8 +42,8 @@ export function Header() {
                     <Logo position="row" />
                 </div>
                 <div className={s.info__buttons}>
-                    <button className={classNames(s.info__button, s.info__button_signIn)}>Войти</button>
-                    <button className={classNames(s.info__button, s.info__button_start)}>Начать!</button>
+                    <Link href={'/authorization'} className={classNames(s.info__button, s.info__button_signIn)}>Войти</Link>
+                    <Link href={'/registration'} className={classNames(s.info__button, s.info__button_start)}>Начать!</Link>
                 </div>
             </div>
             <div className={s.nav}>
