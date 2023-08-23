@@ -1,7 +1,9 @@
-import {userData} from '@/constants/db'
-import {NextRequest, NextResponse} from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-import {randomBytes} from 'crypto'
+import { randomBytes } from 'crypto'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export async function PUT(request: NextRequest) {
     const data = await request.json()
@@ -18,23 +20,39 @@ export async function PUT(request: NextRequest) {
     const dataRes = await res.json()
 
     if (res.ok) {
-        const existingUser = userData.find((current) => current.idUser === dataRes.user.id)
+        const existingUser = await prisma.user.findFirst({ where: { idUser: dataRes.user.id } })
         if (existingUser) {
             const token = randomBytes(16).toString('hex')
 
-            existingUser.accessToken = dataRes.accessToken
-            existingUser.refreshToken = dataRes.refreshToken
-            existingUser.idToken = token
+            await prisma.user.update({
+                where: {
+                    idUser: dataRes.user.id,
+                },
+                data: {
+                    accessToken: dataRes.accessToken,
+                    refreshToken: dataRes.refreshToken,
+                    idToken: token
+                }
+            })
         } else {
             const token = randomBytes(16).toString('hex')
-            userData.push({
-                idUser: dataRes.user.id,
-                accessToken: dataRes.accessToken,
-                refreshToken: dataRes.refreshToken,
-                idToken: token
+            await prisma.user.create({
+                data: {
+                    idUser: dataRes.user.id,
+                    accessToken: dataRes.accessToken,
+                    refreshToken: dataRes.refreshToken,
+                    idToken: token
+                }
             })
         }
-        const new_token = userData.find((current) => current.idUser === dataRes.user.id)?.idToken
+        const new_token = (await prisma.user.findFirst({
+            where: {
+                idUser: dataRes.user.id
+            },
+            select: {
+                idToken: true
+            }
+        }))?.idToken
         return new Response(dataRes.user, {
             status: 200,
             headers: {
@@ -43,6 +61,6 @@ export async function PUT(request: NextRequest) {
             },
         })
     } else {
-        return NextResponse.json(dataRes, {status: res.status})
+        return NextResponse.json(dataRes, { status: res.status })
     }
 }
