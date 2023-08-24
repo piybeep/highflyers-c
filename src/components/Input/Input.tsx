@@ -13,11 +13,13 @@ export function Input({
     isPassword = false,
     isEdit = false,
     inputType = 'text',
+    className,
+    ...props
 }: InputProps) {
     const [isType, setIsType] = useState(!isPassword);
 
     return (
-        <div className={s.wrapper}>
+        <div className={classNames(s.wrapper, s[`wrapper__${className}`])}>
             <p
                 className={classNames(s.placeholder, {
                     [s.placeholder__none]: !isPlaceholder,

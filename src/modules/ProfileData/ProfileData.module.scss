@@ -35,6 +35,10 @@
 .form {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 600px));
+    grid-template-areas:
+        'first email'
+        'second password';
+    row-gap: 20px;
     column-gap: 30px;
     justify-content: space-between;
 }
@@ -42,7 +46,7 @@
 .remove {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    align-self: flex-end;
     column-gap: 6px;
 
     text-decoration: none;
@@ -51,6 +55,8 @@
     right: 45px;
 
     cursor: pointer;
+
+    width: fit-content;
 
     &__title {
         color: #b3b3b3;
