@@ -8,6 +8,22 @@
 
     max-width: 600px;
 
+    &__first {
+        grid-area: first;
+    }
+
+    &__second {
+        grid-area: second;
+    }
+
+    &__email {
+        grid-area: email;
+    }
+
+    &__password {
+        grid-area: password;
+    }
+
     &__info {
         display: flex;
         align-items: center;

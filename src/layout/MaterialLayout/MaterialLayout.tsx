@@ -10,7 +10,7 @@ interface MaterialLayoutProps {
 }
 
 export function MaterialLayout({ children }: MaterialLayoutProps) {
-    const [isFocus, setIsFocus] = useState([0, 0, 0]);
+    const [isFocus, setIsFocus] = useState([245, 245, 245]);
 
     const handleMouseEnter = () => {
         setIsFocus(
@@ -21,15 +21,13 @@ export function MaterialLayout({ children }: MaterialLayoutProps) {
     };
 
     const handleMouseLeave = () => {
-        setIsFocus([0, 0, 0]);
+        setIsFocus([245, 245, 245]);
     };
 
     return (
         <div
             style={{
-                backgroundColor: `rgb(${isFocus[0] ? isFocus[0] : 245}, ${
-                    isFocus[1] ? isFocus[1] : 245
-                }, ${isFocus[2] ? isFocus[2] : 245})`,
+                backgroundColor: `rgb(${isFocus[0]}, ${isFocus[1]}, ${isFocus[2]})`,
             }}
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={() => handleMouseLeave()}

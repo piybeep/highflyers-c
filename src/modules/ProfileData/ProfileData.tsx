@@ -36,7 +36,7 @@ export function ProfileData() {
                 <div>Загрузка данных</div>
             ) : (
                 <div className={s.info}>
-                    <form className={s.form}>
+                    <form className={s.form} autoComplete='off'>
                         <Controller
                             render={({ field: { onChange, value } }) => (
                                 <Input
@@ -45,9 +45,24 @@ export function ProfileData() {
                                     isPlaceholder
                                     onChange={onChange}
                                     value={value}
+                                    className={'first'}
                                 />
                             )}
                             name='first_name'
+                            control={control}
+                        />
+                        <Controller
+                            render={({ field: { onChange, value } }) => (
+                                <Input
+                                    isBordered
+                                    placeholder='Фамилия'
+                                    isPlaceholder
+                                    onChange={onChange}
+                                    value={value}
+                                    className={'second'}
+                                />
+                            )}
+                            name='second_name'
                             control={control}
                         />
                         <Controller
@@ -59,22 +74,10 @@ export function ProfileData() {
                                     inputType='email'
                                     onChange={onChange}
                                     value={value}
+                                    className={'email'}
                                 />
                             )}
                             name='email'
-                            control={control}
-                        />
-                        <Controller
-                            render={({ field: { onChange, value } }) => (
-                                <Input
-                                    isBordered
-                                    placeholder='Фамилия'
-                                    isPlaceholder
-                                    onChange={onChange}
-                                    value={value}
-                                />
-                            )}
-                            name='second_name'
                             control={control}
                         />
                         <Controller
@@ -86,6 +89,7 @@ export function ProfileData() {
                                     isPassword
                                     onChange={onChange}
                                     value={value}
+                                    className={'password'}
                                 />
                             )}
                             name='new_password'
