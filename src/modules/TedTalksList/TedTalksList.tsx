@@ -53,12 +53,12 @@ export function TedTalksList() {
             <div className={s.list}>
                 {
                     data.map(current => (
-                        <div className={s.item}>
+                        <div key={current.title} className={s.item}>
                             <h2 className={s.item__title}>{current.title}</h2>
                             <div className={s.item__list}>
                                 {
                                     current.materials.map(current => (
-                                        <CardTedTalks video={current.video} title={current.title} time={current.time} link={'#'} />
+                                        <CardTedTalks key={current.title} video={current.video} title={current.title} time={current.time} link={'#'} />
                                     ))
                                 }
                             </div>
