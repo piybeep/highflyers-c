@@ -1,29 +1,27 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import s from './MaterialLayout.module.scss';
 
 interface MaterialLayoutProps {
-    children?: JSX.Element | JSX.Element[];
+    children?: ReactNode;
+    materialTypes?: string;
 }
 
 export function MaterialLayout({ children }: MaterialLayoutProps) {
-    const [isFocus, setIsFocus] = useState('');
+    const [isFocus, setIsFocus] = useState([0, 0, 0]);
 
     const handleMouseEnter = () => {
-        // Это для выбора рандомного цвета
-        // --------------------------------------------------
-        var color: any = [];
-        for (var i = 0; i < 3; i++) {
-            color.push(Math.floor(Math.random() * (255 - 234) + 234));
-        }
-        console.log(color);
-        setIsFocus(color);
+        setIsFocus(
+            Array.from(Array(3), () =>
+                Math.floor(Math.random() * (255 - 234) + 234),
+            ),
+        );
     };
 
     const handleMouseLeave = () => {
-        setIsFocus('');
+        setIsFocus([0, 0, 0]);
     };
 
     return (

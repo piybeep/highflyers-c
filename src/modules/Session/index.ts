@@ -1,1 +1,1 @@
-export { SessionProvider } from './SessionProvider';
+export { SessionFetcher } from './SessionFetcher';

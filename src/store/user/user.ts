@@ -15,7 +15,9 @@ export const useUser = create<userProps>()(
             }),
             {
                 name: 'user',
-                partialize: (state) => ({ user: state.user }),
+                partialize: (state) => ({
+                    user: state.user,
+                }),
             },
         ),
     ),

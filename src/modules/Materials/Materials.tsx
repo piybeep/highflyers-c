@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,18 +9,10 @@ import classNames from 'classnames';
 
 import check from '../../../public/svg/check.svg';
 import s from './Materials.module.scss';
-
-import preloader from '../../../public/svg/preloader.svg';
 import { PAGES_LINK } from '@/constants';
 
 export function Materials({ materials }: { materials: Material[] }) {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        setIsLoaded(true);
-    }, []);
-
-    return isLoaded ? (
+    return (
         <div className={s.wrapper}>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{ 350: 1, 950: 2, 1300: 3 }}
@@ -166,12 +158,5 @@ export function Materials({ materials }: { materials: Material[] }) {
                 </Masonry>
             </ResponsiveMasonry>
         </div>
-    ) : (
-        // Пока тестовый preloader
-        <Image
-            className={s.wrapper__preloader}
-            src={preloader}
-            alt={'Загрузчик'}
-        />
     );
 }

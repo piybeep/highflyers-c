@@ -1,42 +1,32 @@
-'use client';
-
 import { Material } from '@/types';
 import { Materials } from '@/modules';
 import { PAGES_LINK } from '@/constants';
 
 import Link from 'next/link';
 import s from './Showcase.module.scss';
-import { useEffect, useState } from 'react';
 
 export function Showcase({ materials }: { materials: Material[] }) {
-    const [discount, setDiscount] = useState('');
+    const num = 100;
 
-    useEffect(() => {
-        const funcDiscount = () => {
-            const num = 100;
+    const sumAllCard = materials.reduce(
+        (accum, currentAccum) => accum + currentAccum.priceForOne,
+        0,
+    );
+    const countServices = materials.reduce(
+        (accum, currentAccum) => accum + currentAccum.list.length,
+        0,
+    );
 
-            const sumAllCard = materials.reduce(
-                (accum, currentAccum) => accum + currentAccum.priceForOne,
-                0,
-            );
-            const countServices = materials.reduce(
-                (accum, currentAccum) => accum + currentAccum.list.length,
-                0,
-            );
+    const sumAllChapter = materials.reduce(
+        (accum, currentAccum) => accum + currentAccum.fullPrice,
+        0,
+    );
+    const lengthMaterial = materials.length;
 
-            const sumAllChapter = materials.reduce(
-                (accum, currentAccum) => accum + currentAccum.fullPrice,
-                0,
-            );
-            const lengthMaterial = materials.length;
+    const left = num / (sumAllCard / countServices);
+    const right = sumAllChapter / lengthMaterial;
 
-            const left = num / (sumAllCard / countServices);
-            const right = sumAllChapter / lengthMaterial;
-
-            setDiscount(Math.round(left * right).toLocaleString());
-        };
-        funcDiscount();
-    }, [materials]);
+    const discount = Math.round(left * right).toLocaleString();
 
     return (
         <div className={s.wrapper}>

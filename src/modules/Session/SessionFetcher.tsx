@@ -1,11 +1,12 @@
 'use client';
 
-import { PropsWithChildren, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useUser } from '@/store';
 import axios from 'axios';
 
-export function SessionProvider({ children }: PropsWithChildren) {
-    const { setUser, setStatus } = useUser();
+export function SessionFetcher() {
+    const setUser = useUser((state) => state.setUser);
+    const setStatus = useUser((state) => state.setStatus);
 
     useEffect(() => {
         setStatus('loading');
@@ -21,5 +22,5 @@ export function SessionProvider({ children }: PropsWithChildren) {
             });
     }, []);
 
-    return <>{children}</>;
+    return null;
 }

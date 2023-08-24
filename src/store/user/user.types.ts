@@ -1,18 +1,18 @@
 interface currentUser {
     id: string;
     first_name: string;
-    secondName: string;
+    second_name: string;
     email: string;
     isAdmin: boolean;
 }
+
+type Status = 'unauthenticated' | 'loading' | 'authenticated';
 
 export interface userProps {
     user: currentUser | null;
     accessToken?: string;
     refreshToken?: string;
     setUser: (user: currentUser | null) => void;
-    status: 'unauthenticated' | 'loading' | 'authenticated';
-    setStatus: (
-        status: 'unauthenticated' | 'loading' | 'authenticated',
-    ) => void;
+    status: Status;
+    setStatus: (status: Status) => void;
 }
