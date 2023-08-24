@@ -1,4 +1,4 @@
 export interface RecoveryProps {
-    setIsSubmited: (isSubmited: boolean) => void,
-    isSubmited: boolean
+    setIsSubmitted: (isSubmitted: boolean) => void,
+    isSubmitted: boolean
  }

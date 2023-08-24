@@ -1,7 +1,11 @@
-import { Registation } from "@/modules";
+import { Registration } from "@/modules";
+
+export const metadata = {
+    title: "Регистрация - Highflyers",
+};
 
 export default function registrationPage() {
     return (
-        <Registation />
+        <Registration />
     );
 };

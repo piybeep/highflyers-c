@@ -28,4 +28,4 @@ export function AuthInput({ placeholder, password = false, ...props }: AuthInput
             }
         </div>
     );
-};
+}

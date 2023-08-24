@@ -1,0 +1,84 @@
+.menu {
+    display: flex;
+    column-gap: 25px;
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    width: 100%;
+    // 808 не подходит для авторизованного пользователя
+    max-width: 808px;
+
+    &__link {
+        height: fit-content;
+
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 120%;
+
+        color: #FFFFFF;
+
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+
+        &_drop {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #666;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 11px;
+
+        cursor: pointer;
+
+        padding-bottom: 15px;
+
+        &:hover {
+            .list {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        position: relative;
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    width: fit-content;
+
+    position: absolute;
+    top: 45px;
+
+    transition: .3s;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 10;
+
+    &__link {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 120%;
+
+        color: #FFFFFF;
+
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+}

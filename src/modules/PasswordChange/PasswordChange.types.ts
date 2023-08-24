@@ -1,1 +1,4 @@
-export interface PasswordChangeProps {}
+export interface PasswordChangeProps {
+    userId: string,
+    resetCode: string,
+}

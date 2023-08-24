@@ -15,4 +15,4 @@ export function AuthButton({ value, isOutline = false, size = 'default', ...prop
             }
         </button>
     );
-};
+}

@@ -3,12 +3,16 @@
 import { Recovery, Submit } from "@/modules";
 import { useState } from "react";
 
-export default function page() {
-    const [isSubmited, setIsSubmited] = useState(false)
+export const metadata = {
+    title: "Восстановление пароля - Highflyers",
+};
+
+export default function Page() {
+    const [isSubmitted, setIsSubmitted] = useState(false)
     return (
         <>
-            <Submit isSubmited={isSubmited}/>
-            <Recovery isSubmited={isSubmited} setIsSubmited={setIsSubmited}/>
+            <Submit isSubmitted={isSubmitted} />
+            <Recovery isSubmitted={isSubmitted} setIsSubmitted={setIsSubmitted} />
         </>
     );
 };

@@ -1,7 +1,11 @@
 import { PasswordChange } from "@/modules";
 
-export default function page(){
+export const metadata = {
+    title: "Новый пароль - Highflyers",
+};
+
+export default function page({ searchParams }: { searchParams: { id: string, code: string } }) {
     return (
-        <PasswordChange/>
+        <PasswordChange userId={searchParams.id} resetCode={searchParams.code} />
     );
 };

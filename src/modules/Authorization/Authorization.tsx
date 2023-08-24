@@ -9,9 +9,8 @@ import axios from 'axios';
 
 import { AuthAccount, AuthButton, AuthGoogle, AuthInput, AuthTitle } from '@/components';
 import s from './Authorization.module.scss'
-import { AuthorizationProps } from './Authorization.types';
 
-export function Authorization({ }: AuthorizationProps) {
+export function Authorization() {
 
     const route = useRouter()
 
@@ -19,12 +18,17 @@ export function Authorization({ }: AuthorizationProps) {
 
     const submitForm = handleSubmit(async (data) => {
         try {
-            const response = await axios.put(`${process.env.NEXT_PUBLIC_HOST}/auth`, { email: data.email, password: data.password })
-            localStorage.setItem('accessToken', response.data.accessToken)
-            localStorage.setItem('refreshToken', response.data.refreshToken)
+            const response = await axios.put('/api/login', { email: data.email, password: data.password }, { withCredentials: true })
+            toast.success('Вы успешно вошли')
             route.push('/')
         } catch (error: any) {
-            toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+            if (Array.isArray(error?.response?.data?.message)) {
+                error?.response?.data?.message.map((current: any) => (
+                    toast.error(current)
+                ))
+            } else {
+                toast.error(error?.response?.data?.message ?? 'Неизвестная ошибка')
+            }
         }
     })
 
@@ -33,23 +37,23 @@ export function Authorization({ }: AuthorizationProps) {
             <div className={s.form__header}>
                 <AuthTitle value={'Авторизоваться'} />
                 <AuthAccount value={'authorization'} />
-                <AuthGoogle type='button' />
+                <AuthGoogle />
             </div>
             <div className={s.form__info}>
                 <Controller
-                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Почта'} onChange={onChange} value={value} />}
+                    render={({ field: { onChange, value } }) => <AuthInput placeholder={'Почта'} onChange={onChange} value={value} />}
                     name="email"
                     control={control}
                     defaultValue=""
                 />
                 <Controller
-                    render={({ field: {onChange, value} }) => <AuthInput placeholder={'Пароль'} password onChange={onChange} value={value} />}
+                    render={({ field: { onChange, value } }) => <AuthInput placeholder={'Пароль'} password onChange={onChange} value={value} />}
                     name="password"
                     control={control}
                     defaultValue=""
                 />
                 <Link href={'/recovery'}>
-                    <AuthButton value='Забыли пароль?' />
+                    <AuthButton value='Забыли пароль?' type='button' />
                 </Link>
             </div>
 
@@ -58,4 +62,4 @@ export function Authorization({ }: AuthorizationProps) {
             </div>
         </form>
     );
-};
+}

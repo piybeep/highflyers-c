@@ -1,0 +1,108 @@
+.support {
+    width: 100%;
+    max-width: 1180px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+        max-width: 633px;
+    }
+
+    &__email {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+
+    &__title {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 120%;
+
+        color: #B3B3B3;
+    }
+
+
+    &__link {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 120%;
+
+        color: #FFFFFF;
+
+        text-decoration: none;
+    }
+
+    &__payment {
+        display: flex;
+        flex-direction: column;
+        row-gap: 14px;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 15px;
+    }
+
+    &__img {
+        width: fit-content;
+        height: auto;
+    }
+
+    &__policy {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__items {
+        display: flex;
+        column-gap: 15px;
+    }
+
+
+    &__item {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 120%;
+        text-decoration-line: underline;
+
+        color: #666666;
+    }
+
+
+    &__piybeep {
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 120%;
+
+        color: #FFFFFF;
+
+
+        &_link {
+            font-family: 'Golos UI VF', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 120%;
+
+            color: #FFFFFF;
+        }
+    }
+}

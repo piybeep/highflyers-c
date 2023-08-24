@@ -1,0 +1,66 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+
+    color: #06F;
+    font-family: Golos UI VF, sans-serif;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+
+    max-width: 1300px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 600px));
+    column-gap: 30px;
+    justify-content: space-between;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 6px;
+
+    text-decoration: none;
+
+    position: relative;
+    right: 45px;
+
+    cursor: pointer;
+
+    &__title {
+        color: #B3B3B3;
+        font-family: Golos Text VF, sans-serif;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &__svg {
+        width: fit-content;
+        height: auto;
+    }
+}

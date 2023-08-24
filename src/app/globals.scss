@@ -3,6 +3,11 @@
 * {
     box-sizing: border-box;
 
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    scrollbar-gutter: stable;
 }
