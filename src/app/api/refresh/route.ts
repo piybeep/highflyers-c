@@ -22,8 +22,8 @@ export async function GET(request: NextRequest) {
 
     const dataRes = await res.json();
     if (res.ok) {
+        const token = randomBytes(16).toString('hex');
         if (existingUser) {
-            const token = randomBytes(16).toString('hex');
             await prisma.user.update({
                 where: {
                     idUser: dataRes.user.id,
@@ -35,7 +35,6 @@ export async function GET(request: NextRequest) {
                 },
             });
         } else {
-            const token = randomBytes(16).toString('hex');
             await prisma.user.create({
                 data: {
                     idUser: dataRes.user.id,
@@ -45,20 +44,10 @@ export async function GET(request: NextRequest) {
                 },
             });
         }
-        const new_token = (
-            await prisma.user.findFirst({
-                where: {
-                    idUser: dataRes.user.id,
-                },
-                select: {
-                    idToken: true,
-                },
-            })
-        )?.idToken;
         return new Response(JSON.stringify({ user: dataRes.user }), {
             status: 200,
             headers: {
-                'Set-Cookie': `token=${new_token}; path=/; expires=${new Date(
+                'Set-Cookie': `token=${token}; path=/; expires=${new Date(
                     Date.now() + 1000 * 60 * 60 * 24 * 30,
                 ).toUTCString()}`,
                 'Content-Type': `application/json; charset=utf-8`,
