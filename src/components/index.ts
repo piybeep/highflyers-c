@@ -12,3 +12,4 @@ export * from './CardCheck';
 export * from './CardArticle';
 export * from './CardEge';
 export * from './CardTedTalks';
+export * from './FullScreenLoader'
