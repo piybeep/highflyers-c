@@ -15,3 +15,5 @@ export * from './Profile'
 export * from './Materials'
 export * from './Showcase'
 export * from './MyMaterials'
+
+export * from './Session'

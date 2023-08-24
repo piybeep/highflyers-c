@@ -10,7 +10,7 @@ export interface userProps {
     user: currentUser | null,
     accessToken?: string,
     refreshToken?: string,
-    isAuth: boolean,
-    setIsAuth: (flag: boolean) => void,
-    setUser: (user: currentUser | null) => void
+    setUser: (user: currentUser | null) => void,
+    status: "unauthenticated" | "loading" | "authenticated",
+    setStatus: (status: "unauthenticated" | "loading" | "authenticated") => void
 }

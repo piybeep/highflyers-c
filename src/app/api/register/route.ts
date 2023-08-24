@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import {NextRequest, NextResponse} from 'next/server'
 
-import { randomBytes } from 'crypto'
-import { PrismaClient } from '@prisma/client'
+import {randomBytes} from 'crypto'
+import {PrismaClient} from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -57,13 +57,13 @@ export async function POST(request: NextRequest) {
                 idToken: true
             }
         }))?.idToken
-        return NextResponse.json(dataRes.user, {
+        return NextResponse.json(JSON.stringify({user: dataRes.user}), {
             headers: {
                 'Set-Cookie': `token=${new_token}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`,
                 'Content-Type': `application/json; charset=utf-8`,
             }
         })
     } else {
-        return NextResponse.json(dataRes, { status: res.status })
+        return NextResponse.json(dataRes, {status: res.status})
     }
 }

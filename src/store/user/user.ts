@@ -1,12 +1,15 @@
-import { create } from "zustand";
+import {create} from "zustand";
 
-import { userProps } from "./user.types";
+import {userProps} from "./user.types";
 
-import { persist } from 'zustand/middleware'
+import {devtools, persist} from 'zustand/middleware'
 
-export const useUser = create<userProps>()(persist((set) => ({
+export const useUser = create<userProps>()(devtools(persist((set) => ({
     user: null,
-    isAuth: false,
-    setIsAuth: (flag: boolean) => set({ isAuth: flag }),
-    setUser: (user) => set({ user }, true),
-}), { name: 'user' }))
+    setUser: (user) => set({user}, true),
+    status: "unauthenticated",
+    setStatus: (status) => set({status})
+}), {
+    name: 'user',
+    partialize: state => ({user: state.user}),
+})))

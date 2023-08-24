@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import {NextRequest, NextResponse} from 'next/server'
 
-import { randomBytes } from 'crypto'
-import { PrismaClient } from '@prisma/client'
+import {randomBytes} from 'crypto'
+import {PrismaClient} from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -20,7 +20,7 @@ export async function PUT(request: NextRequest) {
     const dataRes = await res.json()
 
     if (res.ok) {
-        const existingUser = await prisma.user.findFirst({ where: { idUser: dataRes.user.id } })
+        const existingUser = await prisma.user.findFirst({where: {idUser: dataRes.user.id}})
         if (existingUser) {
             const token = randomBytes(16).toString('hex')
 
@@ -53,7 +53,7 @@ export async function PUT(request: NextRequest) {
                 idToken: true
             }
         }))?.idToken
-        return new Response(dataRes.user, {
+        return new Response(JSON.stringify({user: dataRes.user}), {
             status: 200,
             headers: {
                 'Set-Cookie': `token=${new_token}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`,
@@ -61,6 +61,6 @@ export async function PUT(request: NextRequest) {
             },
         })
     } else {
-        return NextResponse.json(dataRes, { status: res.status })
+        return NextResponse.json(dataRes, {status: res.status})
     }
 }

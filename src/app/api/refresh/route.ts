@@ -1,15 +1,16 @@
-import { PrismaClient } from "@prisma/client"
-import { randomBytes } from "crypto"
-import { NextRequest, NextResponse } from "next/server"
+import {PrismaClient} from "@prisma/client"
+import {randomBytes} from "crypto"
+import {NextRequest, NextResponse} from "next/server"
 
 const prisma = new PrismaClient()
 
-export async function GET(request: NextRequest, response: NextResponse) {
-    console.log(request)
-    const token = new URL(request.url).searchParams.get('token')
+export async function GET(request: NextRequest) {
+    if (!request.cookies.has('token')) {
+        return NextResponse.json({message: "Unauthorized"}, {status: 401})
+    }
     const existingUser = await prisma.user.findFirst({
         where: {
-            idToken: token!
+            idToken: request.cookies.get('token')!.value
         }
     })
 
@@ -52,7 +53,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
                 idToken: true
             }
         }))?.idToken
-        return new Response(JSON.stringify({ user: dataRes.user, token: new_token }), {
+        return new Response(JSON.stringify({user: dataRes.user}), {
             status: 200,
             headers: {
                 'Set-Cookie': `token=${new_token}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`,
@@ -60,6 +61,6 @@ export async function GET(request: NextRequest, response: NextResponse) {
             },
         })
     } else {
-        return NextResponse.json(dataRes, { status: res.status })
+        return NextResponse.json(dataRes, {status: res.status})
     }
 }

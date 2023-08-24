@@ -8,19 +8,6 @@ import {Logo} from "@/components";
 import {HeaderNav} from "@/modules";
 
 export function Header() {
-    // const setUser = useUser(state => state.setUser)
-    // const setIsAuth = useUser(state => state.setIsAuth)
-    // const user = useUser(state => state.user)
-    // const { data } = useSWR(`/users/${user?.id}`, { fetcher: api.get, errorRetryCount: 1 })
-    //
-    // console.log(user)
-    //
-    // useEffect(() => {
-    //     if (data && data.status === 200) {
-    //         setUser && setUser(data.data)
-    //         setIsAuth && setIsAuth(true)
-    //     }
-    // }, [data, setIsAuth, setUser])
 
     return (
         <header className={s.wrapper}>
