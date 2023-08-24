@@ -4,10 +4,11 @@ import classNames from 'classnames';
 
 import s from './Header.module.scss';
 
+import { Logo } from "@/components";
+import { HeaderNav } from "@/modules";
 import { Logo } from '@/components';
 import { HeaderNav } from '@/modules';
-import Link from 'next/link';
-import { PAGES_LINK } from '@/constants';
+import {PAGES_LINK} from "@/constants";
 
 export function Header() {
     return (

@@ -38,11 +38,14 @@
 
     padding: 7px 16px;
 
-    font-family: 'Golos UI VF', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 120%;
+        cursor: pointer;
+
+        font-family: 'Golos UI VF', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.125rem;
+        line-height: 120%;
+        text-decoration: none;
 
     &_signIn {
       color: #252525;

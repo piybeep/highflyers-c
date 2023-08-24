@@ -85,7 +85,7 @@ export const NAVIGATION_WITH_AUTH = [
         id: 0,
         text: 'Мои материалы',
         type: 'link',
-        link: '/my-my-materials',
+        link: '/my-materials',
     },
     {
         id: 1,
@@ -123,25 +123,25 @@ export const NAVIGATION_WITH_AUTH = [
         id: 2,
         text: 'Полезные статьи',
         type: 'link',
-        link: '/#',
+        link: '/article',
     },
     {
         id: 3,
         text: 'Планы уроков',
         type: 'link',
-        link: '/#',
+        link: '/lesson-plans',
     },
     {
         id: 4,
         text: 'Чек-листы',
         type: 'link',
-        link: '/#',
+        link: '/check-lists',
     },
     {
         id: 5,
         text: 'ОГЭ ЕГЭ',
         type: 'link',
-        link: '/#',
+        link: '/ege',
     },
     {
         id: 6,
