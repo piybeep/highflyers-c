@@ -1,39 +1,74 @@
-'use client'
+'use client';
 
-import { useUser } from "@/store";
+import classNames from 'classnames';
+import Link from 'next/link';
 
-import classNames from "classnames";
+import { useUser } from '@/store';
+import { NAVIGATION, PAGES_LINK } from '@/constants';
 
-import Link from "next/link";
-
-import { NAVIGATION, NAVIGATION_WITH_AUTH } from "@/constants/links";
-
-import s from './FooterNav.module.scss'
+import s from './FooterNav.module.scss';
 
 export function FooterNav() {
-
-    const { isAuth } = useUser(state => state)
+    const status = useUser((state) => state.status);
 
     return (
         <div className={s.menu}>
-            {(!isAuth ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
-                current.type === 'link'
-                    ?
-                    <Link key={current.text} href={current.link} className={s.menu__link}>
-                        {current.text}
+            {status === 'authenticated' ? (
+                <Link href={PAGES_LINK.MY_MATERIALS} className={s.menu__link}>
+                    Мои материалы
+                </Link>
+            ) : (
+                <Link href={PAGES_LINK.HOME} className={s.menu__link}>
+                    Главная
+                </Link>
+            )}
+            {NAVIGATION.map((menu_item) =>
+                menu_item.type === 'link' ? (
+                    <Link
+                        key={menu_item.text}
+                        href={menu_item.link}
+                        className={s.menu__link}
+                    >
+                        {menu_item.text}
                     </Link>
-                    :
-                    <div key={current.text} className={s.menu__info}>
-                        <Link href={current.link} className={classNames(s.menu__link, s.menu__link_drop)}>{current.text}</Link>
+                ) : (
+                    <div key={menu_item.text} className={s.menu__info}>
+                        <Link
+                            href={menu_item.link}
+                            className={classNames(
+                                s.menu__link,
+                                s.menu__link_drop,
+                            )}
+                        >
+                            {menu_item.text}
+                        </Link>
                         <div className={s.list}>
-                            {current.level?.map(current => (
-                                <Link key={current.text} className={s.list__link} href={{ query: { level: current.text }, pathname: '/learn' }}>
-                                    {current.text}
+                            {menu_item.level?.map((list_item) => (
+                                <Link
+                                    key={list_item.text}
+                                    className={s.list__link}
+                                    href={{
+                                        query: { level: list_item.text },
+                                        pathname: menu_item.link,
+                                    }}
+                                >
+                                    {list_item.text}
                                 </Link>
                             ))}
                         </div>
                     </div>
-            ))}
+                ),
+            )}
+            <Link
+                href={
+                    status === 'authenticated'
+                        ? PAGES_LINK.PROFILE
+                        : PAGES_LINK.LOGIN
+                }
+                className={s.menu__link}
+            >
+                Профиль
+            </Link>
         </div>
     );
 }

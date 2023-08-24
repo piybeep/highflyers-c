@@ -1,15 +1,25 @@
+export const PAGES_LINK = {
+    HOME: '/',
+    MY_MATERIALS: '/my-materials',
+    LEARNING: '/learning',
+    ARTICLES: '/articles',
+    LESSON_PLANS: '/lesson-plans',
+    CHECK_LISTS: '/check-lists',
+    EXAMS: '/exams',
+    TEDTALKS: '/tedtalks',
+    PROFILE: '/profile',
+    LOGIN: '/login',
+    REGISTER: '/register',
+    RECOVERY: '/recovery',
+    BUY: '/buy',
+};
+
 export const NAVIGATION = [
-    {
-        id: 0,
-        text: 'Главная',
-        type: 'link',
-        link: '/',
-    },
     {
         id: 1,
         text: 'Обучение',
         type: 'list',
-        link: '/training',
+        link: PAGES_LINK.LEARNING,
         level: [
             {
                 id: 0,
@@ -35,53 +45,47 @@ export const NAVIGATION = [
                 id: 5,
                 text: 'c2',
             },
-        ]
+        ],
     },
     {
         id: 2,
         text: 'Полезные статьи',
         type: 'link',
-        link: '/#',
+        link: PAGES_LINK.ARTICLES,
     },
     {
         id: 3,
         text: 'Планы уроков',
         type: 'link',
-        link: '/#',
+        link: PAGES_LINK.LESSON_PLANS,
     },
     {
         id: 4,
         text: 'Чек-листы',
         type: 'link',
-        link: '/#',
+        link: PAGES_LINK.CHECK_LISTS,
     },
     {
         id: 5,
         text: 'ОГЭ ЕГЭ',
         type: 'link',
-        link: '/#',
+        link: PAGES_LINK.EXAMS,
     },
     {
         id: 6,
         text: 'TEDTalks',
         img: '/svg/menu/ted.svg',
         type: 'link',
-        link: '/#',
+        link: PAGES_LINK.TEDTALKS,
     },
-    {
-        id: 6,
-        text: 'Профиль',
-        type: 'link',
-        link: '/profile',
-    }
-]
+];
 
 export const NAVIGATION_WITH_AUTH = [
     {
         id: 0,
         text: 'Мои материалы',
         type: 'link',
-        link: '/my-materials',
+        link: '/my-my-materials',
     },
     {
         id: 1,
@@ -113,7 +117,7 @@ export const NAVIGATION_WITH_AUTH = [
                 id: 5,
                 text: 'c2',
             },
-        ]
+        ],
     },
     {
         id: 2,
@@ -151,5 +155,5 @@ export const NAVIGATION_WITH_AUTH = [
         text: 'Профиль',
         type: 'link',
         link: '/profile',
-    }
-]
+    },
+];

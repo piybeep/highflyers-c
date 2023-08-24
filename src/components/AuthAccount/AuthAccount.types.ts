@@ -1,3 +1,3 @@
 export interface AuthAccountProps {
-    value?: string
+    value?: string;
 }

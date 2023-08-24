@@ -1,1 +1,1 @@
-export { CardTedTalks } from './CardTedTalks'
+export { CardTedTalks } from './CardTedTalks';

@@ -1,23 +1,25 @@
-'use client'
+'use client';
 
-import {PropsWithChildren, useEffect} from "react";
-import {useUser} from "@/store";
-import axios from "axios";
+import { PropsWithChildren, useEffect } from 'react';
+import { useUser } from '@/store';
+import axios from 'axios';
 
-export function SessionProvider({children}: PropsWithChildren) {
-    const {setUser, setStatus} = useUser()
+export function SessionProvider({ children }: PropsWithChildren) {
+    const { setUser, setStatus } = useUser();
 
     useEffect(() => {
-        setStatus("loading")
-        axios.get('/api/refresh', {withCredentials: true}).then(res => {
-            setUser(res.data.user)
-            setStatus("authenticated")
-        }).catch(() => {
-            setStatus("unauthenticated")
-        })
+        setStatus('loading');
+        axios
+            .get('/api/refresh', { withCredentials: true })
+            .then((res) => {
+                setUser(res.data.user);
+                setStatus('authenticated');
+            })
+            .catch(() => {
+                setUser(null);
+                setStatus('unauthenticated');
+            });
     }, []);
 
-    return <>
-        {children}
-    </>
+    return <>{children}</>;
 }

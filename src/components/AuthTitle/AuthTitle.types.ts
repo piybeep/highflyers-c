@@ -1,3 +1,3 @@
 export interface AuthTitleProps {
-    value: string
+    value: string;
 }

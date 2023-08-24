@@ -1,1 +1,1 @@
-export { Recovery } from './Recovery'
+export { Recovery } from './Recovery';

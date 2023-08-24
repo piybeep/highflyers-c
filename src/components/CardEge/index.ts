@@ -1,1 +1,1 @@
-export { CardEge } from './CardEge'
+export { CardEge } from './CardEge';

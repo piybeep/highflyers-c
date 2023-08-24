@@ -1,11 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { FooterNav, FooterSupport } from "@/modules";
+import { FooterNav, FooterSupport } from '@/modules';
 
-import { SOCIAL } from "@/constants";
+import { SOCIAL } from '@/constants';
 
-import s from './Footer.module.scss'
+import s from './Footer.module.scss';
 
 export function Footer() {
     return (
@@ -13,9 +13,19 @@ export function Footer() {
             <div className={s.info}>
                 <FooterNav />
                 <div className={s.info__list}>
-                    {SOCIAL.map(current => (
-                        <Link key={current.id} target="_blank" href={current.link}>
-                            <Image className={s.info__img} src={current.img} alt={'картинка'} width={35} height={35} />
+                    {SOCIAL.map((current) => (
+                        <Link
+                            key={current.id}
+                            target='_blank'
+                            href={current.link}
+                        >
+                            <Image
+                                className={s.info__img}
+                                src={current.img}
+                                alt={''}
+                                width={35}
+                                height={35}
+                            />
                         </Link>
                     ))}
                 </div>

@@ -1,1 +1,1 @@
-export * from './MaterialLayout'
+export * from './MaterialLayout';

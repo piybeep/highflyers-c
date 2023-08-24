@@ -1,1 +1,1 @@
-export { MyMaterials } from './MyMaterials'
+export { MyMaterials } from './MyMaterials';

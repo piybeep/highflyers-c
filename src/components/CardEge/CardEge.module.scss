@@ -1,37 +1,37 @@
 .wrapper {
-    padding: 18px 30px;
+  padding: 18px 30px;
 
-    border-radius: 10px;
-    background: #F5F5F5;
+  border-radius: 10px;
+  background: #f5f5f5;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    width: 100%;
-    max-width: 680px;
+  width: 100%;
+  max-width: 680px;
 }
 
 .title {
-    color: #252525;
-    font-family: Golos Text VF;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #252525;
+  font-family: Golos Text VF, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .button {
-    padding: 7px 16px;
+  padding: 7px 16px;
 
-    color: #252525;
-    font-family: Golos Text VF;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-decoration: none;
+  color: #252525;
+  font-family: Golos Text VF, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
 
-    border-radius: 45px;
-    border: 1px solid #666;
+  border-radius: 45px;
+  border: 1px solid #666;
 }

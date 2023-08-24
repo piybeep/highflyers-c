@@ -1,3 +1,4 @@
-import React from "react";
+import React from 'react';
 
-export interface AuthGoogleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface AuthGoogleProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {}

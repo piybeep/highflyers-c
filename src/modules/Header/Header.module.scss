@@ -1,67 +1,65 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    row-gap: 13px;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  row-gap: 13px;
+  flex-direction: column;
 }
 
 .info {
-    display: grid;
-    grid-template-areas:
-        '. logo buttons';
+  display: grid;
+  grid-template-areas: '. logo buttons';
 
-    padding: 20px;
+  padding: 20px;
+
+  width: 100%;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    grid-area: logo;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+
+    grid-area: buttons;
 
     width: 100%;
+  }
 
-    &__logo {
-        display: flex;
-        justify-content: center;
-        grid-area: logo;
+  &__button {
+    border-radius: 45px;
+    border: none;
+    background-color: transparent;
+
+    text-decoration: none;
+
+    padding: 7px 16px;
+
+    font-family: 'Golos UI VF', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 120%;
+
+    &_signIn {
+      color: #252525;
+
+      border: 1px solid #666666;
     }
 
-    &__buttons {
-        display: flex;
-        justify-content: flex-end;
-        column-gap: 20px;
+    &_start {
+      color: #ffffff;
 
-        grid-area: buttons;
-
-        width: 100%;
+      background-color: #0066ff;
     }
-
-    &__button {
-        border-radius: 45px;
-        border: none;
-        background-color: transparent;
-
-        padding: 7px 16px;
-
-        cursor: pointer;
-
-        font-family: 'Golos UI VF', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.125rem;
-        line-height: 120%;
-
-
-        &_signIn {
-            color: #252525;
-
-            border: 1px solid #666666;
-        }
-
-        &_start {
-            color: #FFFFFF;
-
-            background-color: #0066FF;
-        }
-    }
+  }
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

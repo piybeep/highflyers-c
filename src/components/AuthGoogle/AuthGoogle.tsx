@@ -1,38 +1,40 @@
-'use client'
+'use client';
 
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
-import {GoogleLogin} from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
-import {AuthGoogleProps} from './AuthGoogle.types';
-import {useUser} from '@/store';
+import { AuthGoogleProps } from './AuthGoogle.types';
+import { useUser } from '@/store';
 
 export function AuthGoogle({}: AuthGoogleProps) {
-    const route = useRouter()
-    const {setUser} = useUser()
+    const route = useRouter();
+    const setUser = useUser((state) => state.setUser);
+    const setStatus = useUser((state) => state.setStatus);
     return (
         <GoogleLogin
             onSuccess={async (credentialResponse) => {
-                axios.post(
-                    `${process.env.NEXT_PUBLIC_HOST}/auth/google`,
-                    {
+                axios
+                    .post(`${process.env.NEXT_PUBLIC_HOST}/auth/google`, {
                         token: credentialResponse.credential,
-                    }
-                ).then((response) => {
-                    setUser(response.data.user)
-                    route.push('/')
-                })
-                    .catch((error) => {
-                        toast.error('Что-то пошло не так')
-                        console.error(error)
-                        setUser(null)
                     })
+                    .then((response) => {
+                        setUser(response.data.user);
+                        setStatus('authenticated');
+                        route.push('/');
+                    })
+                    .catch((error) => {
+                        toast.error('Что-то пошло не так');
+                        console.error(error);
+                        setUser(null);
+                        setStatus('unauthenticated');
+                    });
             }}
             onError={() => {
-                console.log("Login Failed");
+                console.log('Login Failed');
             }}
         />
     );

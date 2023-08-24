@@ -1,17 +1,16 @@
-import { MATERIALS_LIST } from "@/constants";
-import { Showcase } from "@/modules";
+import { MATERIALS_LIST } from '@/constants';
+import { Showcase } from '@/modules';
 
 export const metadata = {
-	title: "Highflyers - школа английского языка",
+    title: 'Highflyers - школа английского языка',
 };
 
 export default function Home() {
+    const res = MATERIALS_LIST;
 
-	const res = MATERIALS_LIST
-
-	return (
-		<main>
-			<Showcase materials={res} />
-		</main>
-	)
+    return (
+        <main>
+            <Showcase materials={res} />
+        </main>
+    );
 }

@@ -9,16 +9,16 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 2,
-                description: 'Обучение по уровням А1 - С2'
-            }
+                description: 'Обучение по уровням А1 - С2',
+            },
         ],
     },
     {
@@ -31,20 +31,20 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 2,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 3,
-                description: 'Обучение по уровням А1 - С2'
-            }
+                description: 'Обучение по уровням А1 - С2',
+            },
         ],
     },
     {
@@ -57,24 +57,24 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 2,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 3,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 4,
-                description: 'Обучение по уровням А1 - С2'
-            }
+                description: 'Обучение по уровням А1 - С2',
+            },
         ],
     },
     {
@@ -87,11 +87,11 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
         ],
     },
@@ -105,15 +105,15 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 2,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
         ],
     },
@@ -127,20 +127,20 @@ export const MATERIALS_LIST = [
         list: [
             {
                 id: 0,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 1,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 2,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
             {
                 id: 3,
-                description: 'Обучение по уровням А1 - С2'
+                description: 'Обучение по уровням А1 - С2',
             },
         ],
     },
-]
+];

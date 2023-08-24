@@ -1,1 +1,1 @@
-export { MaterialLayout } from './MaterialLayout'
+export { MaterialLayout } from './MaterialLayout';

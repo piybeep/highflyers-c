@@ -1,84 +1,84 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
 
-    padding: 30px;
+  padding: 30px;
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  &__title {
+    color: var(--dark-2, #252525);
+    font-family: Golos UI VF, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__time {
     display: flex;
-    flex-direction: column;
-    row-gap: 15px;
+    align-items: center;
+    column-gap: 7px;
 
-    &__title {
-        color: var(--dark-2, #252525);
-        font-family: Golos UI VF;
-        font-size: 1.5rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    color: var(--dark-1, #666);
+    text-align: center;
+    font-family: Golos UI VF, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &::before {
+      content: url(../../../public/svg/card/time.svg);
+
+      width: 15px;
+      height: 15px;
     }
+  }
 
-    &__time {
-        display: flex;
-        align-items: center;
-        column-gap: 7px;
+  &__status {
+    padding: 2px 6px;
 
-        color: var(--dark-1, #666);
-        text-align: center;
-        font-family: Golos UI VF;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+    border-radius: 5px;
+    background: #06f;
 
-        &::before {
-            content: url(../../../public/svg/card/time.svg);
+    width: fit-content;
 
-            width: 15px;
-            height: 15px;
-        }
+    color: #fff;
+    font-family: Golos UI VF, sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    &_free {
+      background: #50bcff;
     }
+  }
 
-    &__status {
-        padding: 2px 6px;
+  &__button {
+    color: #252525;
+    font-family: Golos UI VF, sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
 
-        border-radius: 5px;
-        background: #06F;
+    padding: 7px 16px;
 
-        width: fit-content;
+    border-radius: 45px;
+    border: 1px solid #666;
 
-        color: #FFF;
-        font-family: Golos UI VF;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    width: fit-content;
 
-        &_free {
-            background: #50BCFF;
-        }
-    }
+    margin-top: auto;
 
-    &__button {
-        color: #252525;
-        font-family: Golos UI VF;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        text-decoration: none;
-
-        padding: 7px 16px;
-
-        border-radius: 45px;
-        border: 1px solid #666;
-
-        width: fit-content;
-
-        margin-top: auto;
-
-        cursor: pointer;
-    }
+    cursor: pointer;
+  }
 }
