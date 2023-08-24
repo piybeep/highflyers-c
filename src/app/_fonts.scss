@@ -68,3 +68,16 @@
     font-display: swap;
 }
 
+
+
+
+// заглушка, потому что мне кажется что там другой шрифт
+@font-face {
+    font-family: 'Golos Text VF';
+    src: url('/fonts/GolosUI-Bold.woff2') format('woff2'),
+        url('/fonts/GolosUI-Bold.woff') format('woff'),
+        url('/fonts/GolosUI-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

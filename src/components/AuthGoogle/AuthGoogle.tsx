@@ -8,9 +8,11 @@ import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
 import { AuthGoogleProps } from './AuthGoogle.types';
+import { useUser } from '@/store';
 
 export function AuthGoogle({ }: AuthGoogleProps) {
     const route = useRouter()
+    const { setUser, setIsAuth } = useUser()
     return (
         <GoogleLogin
             onSuccess={async (credentialResponse) => {
@@ -22,11 +24,15 @@ export function AuthGoogle({ }: AuthGoogleProps) {
                 ).then((response) => {
                     localStorage.setItem('accessToken', response.data.accessToken)
                     localStorage.setItem('refreshToken', response.data.refreshToken)
+                    setUser(response.data.user)
+                    setIsAuth(true)
                     route.push('/')
                 })
                     .catch((error) => {
                         toast.error('Что-то пошло не так')
                         console.error(error)
+                        setIsAuth(false)
+                        setUser(null)
                     })
             }}
             onError={() => {

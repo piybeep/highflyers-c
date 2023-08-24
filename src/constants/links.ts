@@ -41,38 +41,38 @@ export const NAVIGATION = [
         id: 2,
         text: 'Полезные статьи',
         type: 'link',
-        link: '/#',
+        link: '/article',
     },
     {
         id: 3,
         text: 'Планы уроков',
         type: 'link',
-        link: '/#',
+        link: '/lesson-plans',
     },
     {
         id: 4,
         text: 'Чек-листы',
         type: 'link',
-        link: '/#',
+        link: '/check-lists',
     },
     {
         id: 5,
         text: 'ОГЭ ЕГЭ',
         type: 'link',
-        link: '/#',
+        link: '/ege',
     },
     {
         id: 6,
         text: 'TEDTalks',
         img: '/svg/menu/ted.svg',
         type: 'link',
-        link: '/#',
+        link: '/TedTalks',
     },
     {
         id: 6,
         text: 'Профиль',
         type: 'link',
-        link: '/#',
+        link: '/profile',
     }
 ]
 
@@ -119,37 +119,37 @@ export const NAVIGATION_WITH_AUTH = [
         id: 2,
         text: 'Полезные статьи',
         type: 'link',
-        link: '/#',
+        link: '/article',
     },
     {
         id: 3,
         text: 'Планы уроков',
         type: 'link',
-        link: '/#',
+        link: '/lesson-plans',
     },
     {
         id: 4,
         text: 'Чек-листы',
         type: 'link',
-        link: '/#',
+        link: '/check-lists',
     },
     {
         id: 5,
         text: 'ОГЭ ЕГЭ',
         type: 'link',
-        link: '/#',
+        link: '/ege',
     },
     {
         id: 6,
         text: 'TEDTalks',
         type: 'link',
         img: '/svg/menu/ted.svg',
-        link: '/#',
+        link: '/TedTalks',
     },
     {
         id: 6,
         text: 'Профиль',
         type: 'link',
-        link: '/#',
+        link: '/profile',
     }
 ]

@@ -11,11 +11,15 @@ import api from "@/api";
 import { useUser } from "@/store";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 export function Header() {
     const setUser = useUser(state => state.setUser)
     const setIsAuth = useUser(state => state.setIsAuth)
-    const { error, data } = useSWR('/users/8f26396b-8b26-417a-81e6-e7cbc391a7d5', { fetcher: api.get, errorRetryCount: 1 })
+    const user = useUser(state => state.user)
+    const { error, data } = useSWR(`/users/${user?.id}`, { fetcher: api.get, errorRetryCount: 1 })
+
+    console.log(user)
 
     useEffect(() => {
         if (data && data.status === 200) {
@@ -31,7 +35,6 @@ export function Header() {
         }
     }, [error])
 
-
     return (
         <header className={s.wrapper}>
             <div className={s.info}>
@@ -39,8 +42,8 @@ export function Header() {
                     <Logo position="row" />
                 </div>
                 <div className={s.info__buttons}>
-                    <button className={classNames(s.info__button, s.info__button_signIn)}>Войти</button>
-                    <button className={classNames(s.info__button, s.info__button_start)}>Начать!</button>
+                    <Link href={'/authorization'} className={classNames(s.info__button, s.info__button_signIn)}>Войти</Link>
+                    <Link href={'/registration'} className={classNames(s.info__button, s.info__button_start)}>Начать!</Link>
                 </div>
             </div>
             <div className={s.nav}>

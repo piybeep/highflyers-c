@@ -10,18 +10,23 @@ import classNames from 'classnames';
 import { NAVIGATION, NAVIGATION_WITH_AUTH } from '@/constants/links';
 
 import s from './HeaderNav.module.scss'
+import { useEffect, useState } from 'react';
 
 export function HeaderNav() {
-
-    const user = useUser(state => state.user)
     const isAuth = useUser(state => state.isAuth)
+
+    const [links, setLinks] = useState(NAVIGATION)
+
+    useEffect(() => {
+        isAuth && setLinks(NAVIGATION_WITH_AUTH)
+    }, [isAuth])
 
     return (
         <div className={s.menu}>
-            {(!isAuth ? NAVIGATION : NAVIGATION_WITH_AUTH).map((current) => (
+            {(links).map((current) => (
                 current.type === 'link'
                     ?
-                    <Link key={current.text} href={current.text == 'Профиль' ? '/profile/' + user?.id : current.link} className={s.menu__link}>
+                    <Link key={current.text} href={current.link} className={s.menu__link}>
                         {current.text}
                         {current.img && <Image className={s.menu__img} src={current.img} alt={'картинка'} width={26} height={9} />}
                     </Link>
@@ -31,7 +36,7 @@ export function HeaderNav() {
                         <div className={s.info}>
                             <h2 className={s.info__header}>уровень</h2>
                             <div className={s.info__list}>
-                                {current.level?.map(current => (
+                                {current.level?.map((current) => (
                                     current.id % 2 != 0 ?
                                         <div key={current.text} className={s.info__item}>
                                             <Link className={s.info__link} href={{ query: { level: current.text }, pathname: '/learn' }}>

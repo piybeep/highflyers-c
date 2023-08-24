@@ -1,0 +1,1 @@
+export { CardEge } from './CardEge'
