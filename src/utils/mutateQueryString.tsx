@@ -1,8 +1,11 @@
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { useCallback } from "react"
 
 export const useMutateQuery = () => {
     const searchParams = useSearchParams()
+    const router = useRouter()
+    const pathname = usePathname()
+
     const mutateQueryString = useCallback(({ name, value }: { name: string, value: string }) => {
         const params = new URLSearchParams(searchParams.toString())
         const list = params.has(name) ? params.get(name)!.split(',') : []
@@ -14,5 +17,12 @@ export const useMutateQuery = () => {
         return `${name}=${list.join(',')}`;
     }, [searchParams])
 
-    return { mutateQueryString }
+    const pushQueryString = (currentValue: string) => {
+        router.push(pathname + '?' + mutateQueryString({
+            name: 'list',
+            value: currentValue
+        }), { scroll: false })
+    }
+
+    return { pushQueryString }
 }

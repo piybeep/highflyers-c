@@ -2,27 +2,21 @@
 
 import { HeaderButton, HeaderSubtitle, HeaderText, HeaderTheme, HeaderTitle } from '@/components';
 import s from './ArticleHeader.module.scss'
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useMutateQuery } from '@/utils/mutateQueryString';
 
 export function ArticleHeader() {
     const data = ['Разговорные темы и лексика', 'Времена', 'Части речи', 'Еще тема']
 
     const searchParams = useSearchParams()
-    const pathname = usePathname()
-    const router = useRouter()
-
-    const { mutateQueryString } = useMutateQuery()
+    const { pushQueryString } = useMutateQuery()
 
     const resultData = data.map(current => (
         <HeaderButton
             key={current}
             text={current}
             isActive={searchParams.get('list')?.includes(current) ? true : false}
-            onClick={() => router.push(pathname + '?' + mutateQueryString({
-                name: 'list',
-                value: current
-            }), { scroll: false })}
+            onClick={() => pushQueryString(current)}
         />
     ))
 

@@ -1,28 +1,21 @@
 'use client'
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import s from './TedTalksHeader.module.scss'
 import { HeaderButton, HeaderCheckbox, HeaderText, HeaderTheme, HeaderTitle } from '@/components'
 import { useMutateQuery } from '@/utils/mutateQueryString'
 
 export function TedTalksHeader() {
-    const router = useRouter()
-    const pathname = usePathname()
     const searchParams = useSearchParams()
 
     const data = ['Грамматика', 'Части речи', 'Фонетика']
-
-    const { mutateQueryString } = useMutateQuery()
-
+    const { pushQueryString } = useMutateQuery()
     const resultData = data.map(current => (
         <HeaderButton
             key={current}
             text={current}
             isActive={searchParams.get('list')?.includes(current) ? true : false}
-            onClick={() => router.push(pathname + '?' + mutateQueryString({
-                name: 'list',
-                value: current
-            }), { scroll: false })}
+            onClick={() => pushQueryString(current)}
         />
     ))
 
