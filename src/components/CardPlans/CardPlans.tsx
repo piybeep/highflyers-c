@@ -7,7 +7,7 @@ import { MaterialLayout } from '@/layout';
 
 export function CardPlans({ name, free, time, img, ...props }: CardPlansProps) {
     return (
-        <MaterialLayout materialTypes='plans'>
+        <MaterialLayout>
             <div className={s.wrapper}>
                 <div className={s.info}>
                     <h2 className={s.info__title}>{name}</h2>

@@ -6,7 +6,7 @@ import { MaterialLayout } from '@/layout';
 
 export function CardCheck({ id, name, youtube, iTunes, books, ...props }: CardCheckProps) {
     return (
-        <MaterialLayout materialTypes='check'>
+        <MaterialLayout>
             <div className={s.wrapper}>
                 <h2 className={s.title}>{name}</h2>
                 <div className={s.list}>
