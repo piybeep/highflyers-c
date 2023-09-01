@@ -55,7 +55,7 @@ export function ArticleList() {
                         <div className={s.item__list}>
                             {
                                 current.materials.map(current => (
-                                    <CardArticle id={current.id} name={current.name} description={current.descrition} />
+                                    <CardArticle key={current.id} id={current.id} name={current.name} description={current.descrition} />
                                 ))
                             }
                         </div>
