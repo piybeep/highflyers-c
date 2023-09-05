@@ -57,19 +57,25 @@ export const NAVIGATION = [
     },
     {
         id: 5,
-        text: 'ОГЭ ЕГЭ',
+        text: 'ОГЭ',
         type: 'link',
-        link: '/ege',
+        link: '/oge',
     },
     {
         id: 6,
+        text: 'ЕГЭ',
+        type: 'link',
+        link: '/ege'
+    },
+    {
+        id: 7,
         text: 'TEDTalks',
         img: '/svg/menu/ted.svg',
         type: 'link',
         link: '/TedTalks',
     },
     {
-        id: 6,
+        id: 8,
         text: 'Профиль',
         type: 'link',
         link: '/profile',
@@ -135,19 +141,25 @@ export const NAVIGATION_WITH_AUTH = [
     },
     {
         id: 5,
-        text: 'ОГЭ ЕГЭ',
+        text: 'ОГЭ',
         type: 'link',
-        link: '/ege',
+        link: '/oge',
     },
     {
         id: 6,
+        text: 'ЕГЭ',
+        type: 'link',
+        link: '/ege'
+    },
+    {
+        id: 7,
         text: 'TEDTalks',
         type: 'link',
         img: '/svg/menu/ted.svg',
         link: '/TedTalks',
     },
     {
-        id: 6,
+        id: 8,
         text: 'Профиль',
         type: 'link',
         link: '/profile',

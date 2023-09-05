@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+
+    &__title {
+        color: #252525;
+        font-family: Golos UI VF;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(378px, 446px));
+        gap: 40px;
+    }
+}

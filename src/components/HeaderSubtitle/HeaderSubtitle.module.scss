@@ -1,0 +1,30 @@
+.subtitle {
+    color: #FFF;
+    font-family: Golos Text VF;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    padding: 4px 8px;
+
+    border-radius: 5px;
+    background-color: #50BCFF;
+
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &::before,
+    &::after {
+        content: '';
+
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+        background-color: #fff;
+    }
+}
