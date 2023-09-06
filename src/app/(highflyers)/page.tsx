@@ -1,5 +1,5 @@
 import { MATERIALS_LIST } from "@/constants";
-import { Course, Lessons, Preview, Showcase, Started } from "@/modules";
+import { Course, Form, Lessons, Preview, Questions, Showcase, Started } from "@/modules";
 
 import s from './page.module.scss'
 
@@ -17,7 +17,9 @@ export default function Home() {
 			<Started />
 			<Lessons />
 			<Course />
+			<Questions />
 			<Showcase materials={res} />
+			<Form />
 		</main>
 	)
 }

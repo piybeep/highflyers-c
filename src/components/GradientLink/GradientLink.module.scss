@@ -18,25 +18,29 @@
     background: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%);
 
     border: 2px solid;
-    border-radius: 6px;
 
     transition: .3s;
 
     &:hover {
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-
-        border-image: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%) 1;
-
-        .link__svg {
-            fill: #6C6FEF;
-            stroke: #6C6FEF;
-        }
+        opacity: .7;
     }
 
-    &__svg {
-        fill: #fff;
-        stroke: #fff;
-    }
+    // Пока тестовый вариант
+    // &:hover {
+    //     -webkit-background-clip: text;
+    //     -webkit-text-fill-color: transparent;
+    //     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+
+    //     border-image: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%) 1;
+
+    //     .link__svg {
+    //         fill: #6C6FEF;
+    //         stroke: #6C6FEF;
+    //     }
+    // }
+
+    // &__svg {
+    //     fill: #fff;
+    //     stroke: #fff;
+    // }
 }
