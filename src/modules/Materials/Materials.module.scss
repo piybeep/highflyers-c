@@ -208,7 +208,7 @@
 
         &_watch {
             &::before {
-                content: 'Доступно ' attr(data-count) ' материала';
+                content: 'Доступно ' attr(data-count);
             }
 
             &:hover {

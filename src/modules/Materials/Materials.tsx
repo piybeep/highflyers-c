@@ -16,6 +16,24 @@ export function Materials({ materials }: { materials: Material[] }) {
 
     const [isLoaded, setIsLoaded] = useState(false)
 
+    const ending = ['материал', 'материала', 'материалов']
+
+    const numToEnding = (value: number) => {
+        let n = Math.abs(value);
+        n %= 100;
+        if (n >= 5 && n <= 20) {
+            return ending[2];
+        }
+        n %= 10;
+        if (n === 1) {
+            return ending[0];
+        }
+        if (n >= 2 && n <= 4) {
+            return ending[1];
+        }
+        return ending[2];
+    }
+
     useEffect(() => {
         setIsLoaded(true)
     }, [])
@@ -50,7 +68,7 @@ export function Materials({ materials }: { materials: Material[] }) {
                                         current.acess > 0
                                             ?
                                             <div className={s.buttons} style={{ color: '#329C30' }}>
-                                                <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__text, s.buttons__text_watch)} data-count={current.acess}></Link>
+                                                <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__text, s.buttons__text_watch)} data-count={`${current.acess} ${numToEnding(current.acess)}`}></Link>
                                                 <Link href={{ pathname: '/training' }} style={{ backgroundColor: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_buy)} data-text='Хочу ещё'></Link>
                                             </div>
                                             :
