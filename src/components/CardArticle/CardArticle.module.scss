@@ -1,44 +1,44 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 
-    padding: 30px;
+  padding: 30px;
 }
 
 .title {
-    color: #252525;
-    font-family: Golos UI VF;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #252525;
+  font-family: Golos UI VF, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .description {
-    color: #666;
-    font-family: Golos UI VF;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #666;
+  font-family: Golos UI VF, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .button {
-    color: #252525;
-    font-family: Golos UI VF;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-decoration: none;
+  color: #252525;
+  font-family: Golos UI VF, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
 
-    padding: 7px 16px;
+  padding: 7px 16px;
 
-    width: fit-content;
+  width: fit-content;
 
-    margin-top: auto;
+  margin-top: auto;
 
-    border-radius: 45px;
-    border: 1px solid #666;
+  border-radius: 45px;
+  border: 1px solid #666;
 }

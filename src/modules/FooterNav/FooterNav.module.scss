@@ -7,7 +7,7 @@
 
     width: 100%;
     // 808 не подходит для авторизованного пользователя
-    max-width: 808px;
+    max-width: 850px;
 
     &__link {
         height: fit-content;
@@ -18,7 +18,7 @@
         font-size: 1rem;
         line-height: 120%;
 
-        color: #FFFFFF;
+        color: #ffffff;
 
         text-decoration: none;
 
@@ -62,7 +62,7 @@
     position: absolute;
     top: 45px;
 
-    transition: .3s;
+    transition: 0.3s;
 
     opacity: 0;
     visibility: hidden;
@@ -76,7 +76,7 @@
         font-size: 1rem;
         line-height: 120%;
 
-        color: #FFFFFF;
+        color: #ffffff;
 
         text-transform: uppercase;
         text-decoration: none;

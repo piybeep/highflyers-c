@@ -1,22 +1,27 @@
-import { Toaster } from "react-hot-toast";
+import { Toaster } from 'react-hot-toast';
 
-import "./globals.scss";
-import { GoogleAuthProvider } from "./providers";
-import React from "react";
+import './globals.scss';
+import { RootProvider } from './providers';
+import React, { Suspense } from 'react';
+import { SessionFetcher } from '@/modules';
+import Loading from './loading';
 
-export default function RootLayout({
-	children,
+export default async function RootLayout({
+    children,
 }: {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-	return (
-		<html lang="ru">
-			<body>
-				<GoogleAuthProvider>
-					{children}
-				</GoogleAuthProvider>
-				<Toaster />
-			</body>
-		</html>
-	);
+    return (
+        <html lang='ru'>
+            <body>
+                <Suspense fallback={<Loading />}>
+                    <RootProvider>
+                        <SessionFetcher />
+                        {children}
+                        <Toaster />
+                    </RootProvider>
+                </Suspense>
+            </body>
+        </html>
+    );
 }

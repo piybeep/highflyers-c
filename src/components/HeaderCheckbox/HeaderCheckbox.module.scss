@@ -1,0 +1,82 @@
+.label {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    width: fit-content;
+
+    &:hover {
+        .label__checkbox {
+            border-color: #06F;
+        }
+
+        .label__text {
+            color: #06F;
+        }
+    }
+
+    &__input {
+        display: none;
+
+        &:checked {
+
+            ~.label__text {
+                color: #06F;
+            }
+
+            ~.label__checkbox {
+
+                border-color: #06F;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__text {
+        color: #666;
+        font-family: Golos UI VF;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        transition: .3s;
+    }
+
+    &__checkbox {
+        width: 15px;
+        height: 15px;
+
+        border: 1px solid #666;
+        border-radius: 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: .3s;
+
+        &::before {
+            content: '';
+
+            width: 8px;
+            height: 8px;
+
+            background-image: url(../../../public/svg/check.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            opacity: 0;
+
+            transition: .3s;
+        }
+    }
+}

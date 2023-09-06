@@ -1,3 +1,3 @@
 export interface CardEgeProps {
-    title: string
+    title: string;
 }

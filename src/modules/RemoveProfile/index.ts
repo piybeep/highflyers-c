@@ -1,1 +1,1 @@
-export { RemoveProfile } from './RemoveProfile'
+export { RemoveProfile } from './RemoveProfile';

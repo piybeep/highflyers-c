@@ -1,1 +1,1 @@
-export {AuthAccount} from './AuthAccount'
+export { AuthAccount } from './AuthAccount';
