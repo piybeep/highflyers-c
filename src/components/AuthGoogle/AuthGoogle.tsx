@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { toast } from 'react-hot-toast';
 
@@ -11,32 +11,27 @@ import { AuthGoogleProps } from './AuthGoogle.types';
 import { useUser } from '@/store';
 
 export function AuthGoogle({ }: AuthGoogleProps) {
-    const route = useRouter()
-    const { setUser, setIsAuth } = useUser()
+    const route = useRouter();
+    const setUser = useUser((state) => state.setUser);
+    const setStatus = useUser((state) => state.setStatus);
     return (
         <GoogleLogin
             onSuccess={async (credentialResponse) => {
-                axios.post(
-                    `${process.env.NEXT_PUBLIC_HOST}/auth/google`,
-                    {
-                        token: credentialResponse.credential,
-                    }
-                ).then((response) => {
-                    localStorage.setItem('accessToken', response.data.accessToken)
-                    localStorage.setItem('refreshToken', response.data.refreshToken)
-                    setUser(response.data.user)
-                    setIsAuth(true)
+                try {
+                    const res = await axios.post('/api/google', { token: credentialResponse.credential })
+                    // setUser(res.data.user)
+                    // setStatus('authenticated')
                     route.push('/')
-                })
-                    .catch((error) => {
-                        toast.error('Что-то пошло не так')
-                        console.error(error)
-                        setIsAuth(false)
-                        setUser(null)
-                    })
+                }
+                catch (error) {
+                    toast.error('Что-то пошло не так');
+                    console.error(error);
+                    // setUser(null);
+                    // setStatus('unauthenticated');
+                }
             }}
             onError={() => {
-                console.log("Login Failed");
+                console.log('Login Failed');
             }}
         />
     );

@@ -17,5 +17,6 @@ export * from './Showcase'
 export * from './TedTalksHeader'
 export * from './TedTalksList'
 export * from './MyMaterials'
+export * from './Session';
 export * from './ArticleHeader'
 export * from './ArticleList'

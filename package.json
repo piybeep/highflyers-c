@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier ./src --write"
   },
   "dependencies": {
+    "@prisma/client": "^5.2.0",
     "@react-oauth/google": "^0.11.1",
     "@types/date-fns": "^2.6.0",
     "@types/node": "20.5.9",
@@ -31,6 +33,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@types/react-responsive-masonry": "^2.1.0"
+    "@types/react-responsive-masonry": "^2.1.0",
+    "prisma": "^5.2.0"
   }
 }

@@ -9,7 +9,7 @@
 
     outline: none;
     border: none;
-    border-bottom: 1px solid #B3B3B3;
+    border-bottom: 1px solid #b3b3b3;
     padding-bottom: 6px;
     padding-top: 20px;
 
@@ -25,7 +25,7 @@
 
     color: #252525;
 
-    &:focus+.input__text {
+    &:focus + .input__text {
         bottom: 31px;
 
         font-size: 0.75rem;
@@ -40,7 +40,7 @@
         color: transparent;
     }
 
-    &:not(:placeholder-shown)+.input__text {
+    &:not(:placeholder-shown) + .input__text {
         bottom: 31px;
 
         font-size: 0.75rem;
@@ -52,7 +52,7 @@
         bottom: 6px;
         left: 0;
 
-        transition: .2s;
+        transition: 0.2s;
 
         cursor: text;
 
@@ -62,7 +62,7 @@
         font-size: 1rem;
         line-height: 120%;
 
-        color: #7C7C7C;
+        color: #7c7c7c;
     }
 }
 
@@ -71,7 +71,7 @@
     bottom: 6px;
     right: 11px;
 
-    transition: .2s;
+    transition: 0.2s;
 
     z-index: 2;
 
@@ -96,7 +96,7 @@
 
         opacity: 0;
 
-        transition: .2s;
+        transition: 0.2s;
 
         &_close {
             opacity: 1;

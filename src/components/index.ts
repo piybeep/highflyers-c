@@ -1,4 +1,4 @@
-export * from './Input'
+export * from './Input';
 export * from './AuthTitle';
 export * from './AuthAccount'
 export * from './AuthGoogle'
@@ -18,3 +18,4 @@ export * from './HeaderTitle'
 export * from './HeaderTheme'
 export * from './HeaderText'
 export * from './HeaderCheckbox'
+export * from './FullScreenLoader'

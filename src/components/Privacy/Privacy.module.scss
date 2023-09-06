@@ -7,17 +7,17 @@
 
     &:hover {
         .privacy__label {
-            color: #0066FF;
+            color: #0066ff;
         }
 
         .privacy__agree {
-            border: 1px solid #0066FF;
+            border: 1px solid #0066ff;
         }
     }
 
     &:has(.privacy__checkbox:checked) {
         .privacy__label {
-            color: #0066FF
+            color: #0066ff;
         }
 
         .privacy__agree {
@@ -25,7 +25,7 @@
                 opacity: 1;
             }
 
-            border: 1px solid #0066FF;
+            border: 1px solid #0066ff;
         }
     }
 
@@ -45,7 +45,7 @@
         align-items: center;
         justify-content: center;
 
-        transition: .2s;
+        transition: 0.2s;
 
         &::before {
             content: '';
@@ -62,7 +62,7 @@
 
             opacity: 0;
 
-            transition: .2s;
+            transition: 0.2s;
         }
     }
 

@@ -1,1 +1,1 @@
-export { AuthGoogle } from './AuthGoogle'
+export { AuthGoogle } from './AuthGoogle';

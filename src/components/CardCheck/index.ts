@@ -1,1 +1,1 @@
-export { CardCheck } from './CardCheck'
+export { CardCheck } from './CardCheck';

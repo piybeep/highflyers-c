@@ -5,7 +5,6 @@
 }
 
 .material {
-
     width: 100%;
     max-width: 1420px;
 
@@ -20,13 +19,14 @@
         align-items: center;
         column-gap: 14px;
 
-        color: #06F;
-        font-family: Golos UI VF, sans-serif;
+        color: #06f;
+        font-family:
+            Golos UI VF,
+            sans-serif;
         font-size: 1.75rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-
     }
 
     &__icon {

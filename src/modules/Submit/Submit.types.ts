@@ -1,3 +1,3 @@
 export interface SubmitProps {
-    isSubmitted: boolean
+    isSubmitted: boolean;
 }

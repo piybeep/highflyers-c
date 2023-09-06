@@ -1,4 +1,4 @@
 export interface PasswordChangeProps {
-    userId: string,
-    resetCode: string,
+    userId: string;
+    resetCode: string;
 }

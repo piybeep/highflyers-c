@@ -1,4 +1,4 @@
 export interface PopupLayoutProps {
     isShow?: boolean;
-    setIsShow: (value: boolean) => void
+    setIsShow: (value: boolean) => void;
 }
