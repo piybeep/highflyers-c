@@ -1,3 +1,36 @@
+export const NAVIGATION__PREVIEW = [
+    {
+        title: 'Обучение по карточкам',
+        href: '#',
+        videoHref: '/video/testVideo1.mp4'
+    },
+    {
+        title: 'Полезные статьи',
+        href: '/Articles',
+        videoHref: '/video/testVideo1.mp4'
+    },
+    {
+        title: 'Планы уроков',
+        href: '/Lesson-plans',
+        videoHref: '/video/testVideo2.mp4'
+    },
+    {
+        title: 'Чек-листы',
+        href: '/Checklist',
+        videoHref: '/video/testVideo3.mp4'
+    },
+    {
+        title: 'TedTalks',
+        href: '/TedTalks',
+        videoHref: '/video/testVideo4.mp4'
+    },
+    {
+        title: 'Подготовка к ОГЭ/ЕГЭ',
+        href: '#',
+        videoHref: '/video/testVideo5.mp4'
+    }
+]
+
 export const NAVIGATION = [
     {
         id: 0,

@@ -1,0 +1,42 @@
+.link {
+    color: #FFF;
+    font-family: Golos UI VF;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+
+    padding: 18px 22px;
+
+    width: fit-content;
+
+    background: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%);
+
+    border: 2px solid;
+    border-radius: 6px;
+
+    transition: .3s;
+
+    &:hover {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+
+        border-image: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%) 1;
+
+        .link__svg {
+            fill: #6C6FEF;
+            stroke: #6C6FEF;
+        }
+    }
+
+    &__svg {
+        fill: #fff;
+        stroke: #fff;
+    }
+}

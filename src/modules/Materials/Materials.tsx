@@ -45,13 +45,13 @@ export function Materials({ materials }: { materials: Material[] }) {
                                 {
                                     current.acess === current.total
                                         ?
-                                        <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_all)}>Доступен весь</Link>
+                                        <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_all)}></Link>
                                         :
                                         current.acess > 0
                                             ?
                                             <div className={s.buttons} style={{ color: '#329C30' }}>
-                                                <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={s.buttons__text}>Доступно {current.acess} материала</Link>
-                                                <Link href={{ pathname: '/training' }} style={{ backgroundColor: '#329C30' }} className={s.buttons__button}>Хочу ещё</Link>
+                                                <Link href={{ pathname: '/myMaterials', query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__text, s.buttons__text_watch)} data-count={current.acess}></Link>
+                                                <Link href={{ pathname: '/training' }} style={{ backgroundColor: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_buy)} data-text='Хочу ещё'></Link>
                                             </div>
                                             :
                                             current.total === 1
@@ -59,8 +59,8 @@ export function Materials({ materials }: { materials: Material[] }) {
                                                 <Link href={{ pathname: '/buy' }} style={{ backgroundColor: '#06F' }} className={classNames(s.buttons__button, s.buttons__button_chapter)}>Весь раздел за {current.priceForOne} ₽</Link>
                                                 :
                                                 <div className={s.buttons} style={{ borderColor: '#06F' }}>
-                                                    <Link href={{ pathname: '/checkList' }} style={{ color: '#06F' }} className={s.buttons__text}>Каждый чек-лист за {current.priceForOne}</Link>
-                                                    <Link href={{ pathname: '/buy' }} style={{ backgroundColor: '#06F' }} className={s.buttons__button}>
+                                                    <Link href={{ pathname: '/checkList' }} style={{ color: '#06F' }} className={classNames(s.buttons__text, s.buttons__text_checklist)}>Каждый чек-лист за {current.priceForOne}</Link>
+                                                    <Link href={{ pathname: '/buy' }} style={{ backgroundColor: '#06F' }} className={classNames(s.buttons__button, s.buttons__text_checklist)}>
                                                         <span className={s.buttons__button_span}>Выгода {Math.round((100 / current.priceForOne) * (current.fullPrice / current.total))} %</span>
                                                         Весь раздел за {current.fullPrice} ₽
                                                     </Link>

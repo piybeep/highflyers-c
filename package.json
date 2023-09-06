@@ -26,6 +26,7 @@
     "react-hot-toast": "^2.4.1",
     "react-responsive-masonry": "^2.1.7",
     "sass": "^1.66.1",
+    "swiper": "^10.2.0",
     "swr": "^2.2.2",
     "typescript": "5.2.2",
     "zustand": "^4.4.1"

@@ -87,8 +87,6 @@
     flex-direction: column;
     align-items: center;
 
-    border: 1px solid;
-
     border-radius: 20px;
 
     &__button {
@@ -112,6 +110,8 @@
 
         position: relative;
 
+        transition: .3s;
+
         &_all {
             font-size: 2.625rem;
             text-transform: uppercase;
@@ -123,12 +123,44 @@
             border-radius: 20px;
 
             width: 100%;
+
+            &::before {
+                content: 'Доступен весь';
+            }
+
+            &:hover {
+                background-color: #50BCFF;
+                border-color: transparent;
+
+                &::before {
+                    color: #fff;
+                    content: 'Смотреть';
+                }
+            }
+        }
+
+        &_buy {
+            &::before {
+                content: attr(data-text);
+            }
+
+            &:hover {
+                background-color: #E64F30 !important;
+
+                &::before {
+                    content: 'Приобрести еще';
+                }
+            }
         }
 
         &_chapter {
             padding: 71px 0px;
 
             border-radius: 20px;
+
+            &:hover {
+                background-color: #E64F30 !important;
+            }
         }
 
         &_span {
@@ -158,9 +190,45 @@
         font-style: normal;
         font-weight: 400;
         line-height: 150%;
+        text-align: center;
 
         text-decoration: none;
 
         padding: 28px 0px;
+
+        border: 1px solid;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+        width: 100%;
+
+        transition: .3s;
+
+        border-bottom-color: transparent;
+
+        &_watch {
+            &::before {
+                content: 'Доступно ' attr(data-count) ' материала';
+            }
+
+            &:hover {
+                background-color: #50BCFF;
+                border-color: transparent;
+
+                &::before {
+                    content: 'Смотреть';
+                    color: #fff;
+                }
+            }
+        }
+
+        &_checklist {
+            &:hover {
+                background: #E64F30 !important;
+                border-color: #E64F30;
+
+                color: #fff !important;
+            }
+        }
     }
 }
