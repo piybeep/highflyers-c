@@ -1,24 +1,37 @@
-'use client'
+'use client';
 
-import { HeaderButton, HeaderSubtitle, HeaderText, HeaderTheme, HeaderTitle } from '@/components';
-import s from './ArticleHeader.module.scss'
+import {
+    HeaderButton,
+    HeaderSubtitle,
+    HeaderText,
+    HeaderTheme,
+    HeaderTitle,
+} from '@/components';
+import s from './ArticleHeader.module.scss';
 import { useSearchParams } from 'next/navigation';
 import { useMutateQuery } from '@/utils/mutateQueryString';
 
 export function ArticleHeader() {
-    const data = ['Разговорные темы и лексика', 'Времена', 'Части речи', 'Еще тема']
+    const data = [
+        'Разговорные темы и лексика',
+        'Времена',
+        'Части речи',
+        'Еще тема',
+    ];
 
-    const searchParams = useSearchParams()
-    const { pushQueryString } = useMutateQuery()
+    const searchParams = useSearchParams();
+    const { pushQueryString } = useMutateQuery();
 
-    const resultData = data.map(current => (
+    const resultData = data.map((current) => (
         <HeaderButton
             key={current}
             text={current}
-            isActive={searchParams.get('list')?.includes(current) ? true : false}
+            isActive={
+                searchParams.get('list')?.includes(current) ? true : false
+            }
             onClick={() => pushQueryString(current)}
         />
-    ))
+    ));
 
     return (
         <div className={s.wrapper}>
@@ -28,13 +41,15 @@ export function ArticleHeader() {
             </div>
             <div className={s.info}>
                 <HeaderTheme text={'Выбор темы'} />
-                <div className={s.info__list}>
-                    {resultData}
-                </div>
+                <div className={s.info__list}>{resultData}</div>
             </div>
             <div className={s.text}>
-                <HeaderText text={'В данном разделе мы публикуем разные интересные и обучающие статьи, новости и даже шуточные истории на английском языке разных уровней, создаем глоссарий, изучаем большое количество новых слов в контексте, а также делаем упражнения на отработку лексических единиц.'} />
+                <HeaderText
+                    text={
+                        'В данном разделе мы публикуем разные интересные и обучающие статьи, новости и даже шуточные истории на английском языке разных уровней, создаем глоссарий, изучаем большое количество новых слов в контексте, а также делаем упражнения на отработку лексических единиц.'
+                    }
+                />
             </div>
         </div>
     );
-};
+}

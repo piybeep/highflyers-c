@@ -1,6 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react';
 
 export interface HeaderButtonProps extends ComponentProps<'button'> {
-    text: string,
-    isActive: boolean
+    text: string;
+    isActive: boolean;
 }

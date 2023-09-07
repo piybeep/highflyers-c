@@ -12,13 +12,12 @@ import s from './Materials.module.scss';
 import { PAGES_LINK } from '@/constants';
 import { useEffect, useState } from 'react';
 
-import preloader from '../../../public/svg/preloader.svg'
+import preloader from '../../../public/svg/preloader.svg';
 
 export function Materials({ materials }: { materials: Material[] }) {
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    const ending = ['материал', 'материала', 'материалов']
+    const ending = ['материал', 'материала', 'материалов'];
 
     const numToEnding = (value: number) => {
         let n = Math.abs(value);
@@ -34,15 +33,15 @@ export function Materials({ materials }: { materials: Material[] }) {
             return ending[1];
         }
         return ending[2];
-    }
+    };
 
     useEffect(() => {
-        setIsLoaded(true)
-    }, [])
+        setIsLoaded(true);
+    }, []);
 
     return (
         <div className={s.wrapper}>
-            {isLoaded ?
+            {isLoaded ? (
                 <ResponsiveMasonry
                     columnsCountBreakPoints={{ 350: 1, 950: 2, 1300: 3 }}
                 >
@@ -51,8 +50,11 @@ export function Materials({ materials }: { materials: Material[] }) {
                             <div
                                 key={current.id}
                                 style={{
-                                    backgroundColor: `${current.acess > 0 ? '#329C3022' : '#06F2'
-                                        }`,
+                                    backgroundColor: `${
+                                        current.acess > 0
+                                            ? '#329C3022'
+                                            : '#06F2'
+                                    }`,
                                 }}
                                 className={s.item}
                             >
@@ -97,39 +99,124 @@ export function Materials({ materials }: { materials: Material[] }) {
                                         </div>
                                     ))}
                                 </div>
-                                {
-                                    current.acess === current.total
-                                        ?
-                                        <Link href={{ pathname: PAGES_LINK.MY_MATERIALS, query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_all)}></Link>
-                                        :
-                                        current.acess > 0
-                                            ?
-                                            <div className={s.buttons} style={{ color: '#329C30' }}>
-                                                <Link href={{ pathname: PAGES_LINK.MY_MATERIALS, query: { 'material': `${current.id}` } }} style={{ color: '#329C30' }} className={classNames(s.buttons__text, s.buttons__text_watch)} data-count={`${current.acess} ${numToEnding(current.acess)}`}></Link>
-                                                <Link href={{ pathname: PAGES_LINK.LEARNING }} style={{ backgroundColor: '#329C30' }} className={classNames(s.buttons__button, s.buttons__button_buy)} data-text='Хочу ещё'></Link>
-                                            </div>
-                                            :
-                                            current.total === 1
-                                                ?
-                                                <Link href={{ pathname: PAGES_LINK.BUY }} style={{ backgroundColor: '#06F' }} className={classNames(s.buttons__button, s.buttons__button_chapter)}>Весь раздел за {current.priceForOne} ₽</Link>
-                                                :
-                                                <div className={s.buttons} style={{ borderColor: '#06F' }}>
-                                                    <Link href={{ pathname: PAGES_LINK.CHECK_LISTS }} style={{ color: '#06F' }} className={classNames(s.buttons__text, s.buttons__text_checklist)}>Каждый чек-лист за {current.priceForOne}</Link>
-                                                    <Link href={{ pathname: PAGES_LINK.BUY }} style={{ backgroundColor: '#06F' }} className={classNames(s.buttons__button, s.buttons__text_checklist)}>
-                                                        <span className={s.buttons__button_span}>Выгода {Math.round((100 / current.priceForOne) * (current.fullPrice / current.total))} %</span>
-                                                        Весь раздел за {current.fullPrice} ₽
-                                                    </Link>
-                                                </div>
-                                }
+                                {current.acess === current.total ? (
+                                    <Link
+                                        href={{
+                                            pathname: PAGES_LINK.MY_MATERIALS,
+                                            query: {
+                                                material: `${current.id}`,
+                                            },
+                                        }}
+                                        style={{ color: '#329C30' }}
+                                        className={classNames(
+                                            s.buttons__button,
+                                            s.buttons__button_all,
+                                        )}
+                                    ></Link>
+                                ) : current.acess > 0 ? (
+                                    <div
+                                        className={s.buttons}
+                                        style={{ color: '#329C30' }}
+                                    >
+                                        <Link
+                                            href={{
+                                                pathname:
+                                                    PAGES_LINK.MY_MATERIALS,
+                                                query: {
+                                                    material: `${current.id}`,
+                                                },
+                                            }}
+                                            style={{ color: '#329C30' }}
+                                            className={classNames(
+                                                s.buttons__text,
+                                                s.buttons__text_watch,
+                                            )}
+                                            data-count={`${
+                                                current.acess
+                                            } ${numToEnding(current.acess)}`}
+                                        ></Link>
+                                        <Link
+                                            href={{
+                                                pathname: PAGES_LINK.LEARNING,
+                                            }}
+                                            style={{
+                                                backgroundColor: '#329C30',
+                                            }}
+                                            className={classNames(
+                                                s.buttons__button,
+                                                s.buttons__button_buy,
+                                            )}
+                                            data-text='Хочу ещё'
+                                        ></Link>
+                                    </div>
+                                ) : current.total === 1 ? (
+                                    <Link
+                                        href={{ pathname: PAGES_LINK.BUY }}
+                                        style={{ backgroundColor: '#06F' }}
+                                        className={classNames(
+                                            s.buttons__button,
+                                            s.buttons__button_chapter,
+                                        )}
+                                    >
+                                        Весь раздел за {current.priceForOne} ₽
+                                    </Link>
+                                ) : (
+                                    <div
+                                        className={s.buttons}
+                                        style={{ borderColor: '#06F' }}
+                                    >
+                                        <Link
+                                            href={{
+                                                pathname:
+                                                    PAGES_LINK.CHECK_LISTS,
+                                            }}
+                                            style={{ color: '#06F' }}
+                                            className={classNames(
+                                                s.buttons__text,
+                                                s.buttons__text_checklist,
+                                            )}
+                                        >
+                                            Каждый чек-лист за{' '}
+                                            {current.priceForOne}
+                                        </Link>
+                                        <Link
+                                            href={{ pathname: PAGES_LINK.BUY }}
+                                            style={{ backgroundColor: '#06F' }}
+                                            className={classNames(
+                                                s.buttons__button,
+                                                s.buttons__text_checklist,
+                                            )}
+                                        >
+                                            <span
+                                                className={
+                                                    s.buttons__button_span
+                                                }
+                                            >
+                                                Выгода{' '}
+                                                {Math.round(
+                                                    (100 /
+                                                        current.priceForOne) *
+                                                        (current.fullPrice /
+                                                            current.total),
+                                                )}{' '}
+                                                %
+                                            </span>
+                                            Весь раздел за {current.fullPrice} ₽
+                                        </Link>
+                                    </div>
+                                )}
                             </div>
-                        ))
-                        }
-                    </Masonry >
+                        ))}
+                    </Masonry>
                 </ResponsiveMasonry>
-                :
+            ) : (
                 // Пока тестовый preloader
-                <Image className={s.wrapper__preloader} src={preloader} alt={'Загрузчик'} />
-            }
+                <Image
+                    className={s.wrapper__preloader}
+                    src={preloader}
+                    alt={'Загрузчик'}
+                />
+            )}
         </div>
     );
 }

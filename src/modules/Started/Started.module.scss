@@ -33,8 +33,16 @@
     max-width: 487px;
     max-height: 350px;
 
-    background: linear-gradient(180deg, #FFF 51.04%, rgba(255, 255, 255, 0.60) 100%);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 71.35%);
+    background: linear-gradient(
+        180deg,
+        #fff 51.04%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.6) 0%,
+        #fff 71.35%
+    );
 
     position: relative;
 
@@ -53,18 +61,26 @@
         position: absolute;
         top: 0px;
 
-        background: linear-gradient(180deg, #FFF 51.04%, rgba(255, 255, 255, 0.60) 100%);
+        background: linear-gradient(
+            180deg,
+            #fff 51.04%,
+            rgba(255, 255, 255, 0.6) 100%
+        );
     }
 
     &::after {
         position: absolute;
         bottom: 0px;
 
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 71.35%);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.6) 0%,
+            #fff 71.35%
+        );
     }
 
     &__slide {
-        color: #E64F30;
+        color: #e64f30;
         text-align: center;
         font-family: Golos UI VF;
         font-size: 5.8125rem;

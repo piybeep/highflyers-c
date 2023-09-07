@@ -1,9 +1,9 @@
-import { TedTalksHeader, TedTalksList } from "@/modules";
-import s from './page.module.scss'
-import { dataTedTalks } from "@/constants/data";
+import { TedTalksHeader, TedTalksList } from '@/modules';
+import s from './page.module.scss';
+import { dataTedTalks } from '@/constants/data';
 
 export default function page() {
-    const data = dataTedTalks
+    const data = dataTedTalks;
 
     return (
         <div className={s.wrapper}>
@@ -11,4 +11,4 @@ export default function page() {
             <TedTalksList data={data} />
         </div>
     );
-};
+}

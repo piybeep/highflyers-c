@@ -1,5 +1,5 @@
 .link {
-    color: #FFF;
+    color: #fff;
     font-family: Golos UI VF;
     font-size: 1.5rem;
     font-style: normal;
@@ -15,14 +15,19 @@
 
     width: fit-content;
 
-    background: linear-gradient(35deg, rgba(81, 173, 255, 1) 30%, rgba(78, 132, 246, 1) 55%, rgba(125, 118, 238, 1) 70%);
+    background: linear-gradient(
+        35deg,
+        rgba(81, 173, 255, 1) 30%,
+        rgba(78, 132, 246, 1) 55%,
+        rgba(125, 118, 238, 1) 70%
+    );
 
     border: 2px solid;
 
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
-        opacity: .7;
+        opacity: 0.7;
     }
 
     // Пока тестовый вариант

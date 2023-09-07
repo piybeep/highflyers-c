@@ -1,1 +1,1 @@
-export { GradientLink } from './GradientLink'
+export { GradientLink } from './GradientLink';

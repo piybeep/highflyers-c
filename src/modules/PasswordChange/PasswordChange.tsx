@@ -10,6 +10,7 @@ import { AuthButton, AuthInput, AuthTitle } from '@/components';
 
 import { PasswordChangeProps } from './PasswordChange.types';
 import s from './PasswordChange.module.scss';
+import { PAGES_LINK } from '@/constants';
 
 export function PasswordChange({ userId, resetCode }: PasswordChangeProps) {
     const { control, handleSubmit } = useForm();
@@ -33,7 +34,7 @@ export function PasswordChange({ userId, resetCode }: PasswordChangeProps) {
                         response.data.refreshToken,
                     );
                     toast.success('Пароль обновлён');
-                    router.push('/');
+                    router.push(PAGES_LINK.HOME);
                 })
                 .catch((error) =>
                     toast.error(

@@ -1,5 +1,5 @@
 .link {
-    color: #FFF;
+    color: #fff;
     font-variant-numeric: lining-nums proportional-nums;
     font-family: Golos UI VF;
     font-size: 1.25rem;
@@ -13,10 +13,10 @@
     border-radius: 38px;
     border: 1px solid#FFF;
 
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
-        background-color: #50BCFF;
-        border-color: #50BCFF;
+        background-color: #50bcff;
+        border-color: #50bcff;
     }
 }

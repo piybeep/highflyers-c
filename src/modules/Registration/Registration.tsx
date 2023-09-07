@@ -14,6 +14,7 @@ import {
 import s from './Registration.module.scss';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/store';
+import { PAGES_LINK } from '@/constants';
 
 export function Registration() {
     const { control, handleSubmit, reset } = useForm();
@@ -33,7 +34,7 @@ export function Registration() {
                 toast.success('Пользователь зарегистрирован');
                 setUser(response.data);
                 reset();
-                router.push('/');
+                router.push(PAGES_LINK.HOME);
             } catch (error: any) {
                 if (Array.isArray(error?.response?.data?.message)) {
                     error?.response?.data?.message.map((current: any) =>

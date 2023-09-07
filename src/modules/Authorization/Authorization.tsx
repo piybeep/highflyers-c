@@ -41,7 +41,7 @@ export function Authorization() {
             )
             .then(() => {
                 toast.success('Вы успешно вошли');
-                router.push('/');
+                router.push(PAGES_LINK.HOME);
             })
             .catch((error: any) => {
                 if (Array.isArray(error?.response?.data?.message)) {

@@ -1,13 +1,14 @@
-'use client'
+'use client';
 
 import { GradientLink, Title } from '@/components';
 
-import { Autoplay } from "swiper/modules";
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import s from './Started.module.scss'
+import s from './Started.module.scss';
 import { SLIDER__WORDS } from '@/constants/started';
+import { PAGES_LINK } from '@/constants';
 
 export function Started() {
     return (
@@ -15,11 +16,27 @@ export function Started() {
             <div className={s.info}>
                 <Title text={'Начните изучать английский быстро и просто'} />
                 <p className={s.info__description}>
-                    <span>Highflyers - это платформа с большим количеством полезных материалов как для студентов, так и для преподавателей.</span>
-                    <span>Мы предоставляем материалы, по которым вы можете изучать английский язык. На удобной и современной платформе вам доступны обучающие карточки, полезные статьи для изучения лексики, планы уроков для преподавателей, материалы для подготовки к экзаменам и многое другое.</span>
-                    <span>После регистрации вы получите доступ к одному разделу для обучения бесплатно.</span>
+                    <span>
+                        Highflyers - это платформа с большим количеством
+                        полезных материалов как для студентов, так и для
+                        преподавателей.
+                    </span>
+                    <span>
+                        Мы предоставляем материалы, по которым вы можете изучать
+                        английский язык. На удобной и современной платформе вам
+                        доступны обучающие карточки, полезные статьи для
+                        изучения лексики, планы уроков для преподавателей,
+                        материалы для подготовки к экзаменам и многое другое.
+                    </span>
+                    <span>
+                        После регистрации вы получите доступ к одному разделу
+                        для обучения бесплатно.
+                    </span>
                 </p>
-                <GradientLink text={'Попробовать бесплатно'} href={'/registration'} />
+                <GradientLink
+                    text={'Попробовать бесплатно'}
+                    href={PAGES_LINK.REGISTER}
+                />
             </div>
             <Swiper
                 spaceBetween={7}
@@ -34,12 +51,12 @@ export function Started() {
                 direction='vertical'
                 className={s.slider}
             >
-                {
-                    SLIDER__WORDS.map(current => (
-                        <SwiperSlide key={current} className={s.slider__slide}>{current}</SwiperSlide>
-                    ))
-                }
+                {SLIDER__WORDS.map((current) => (
+                    <SwiperSlide key={current} className={s.slider__slide}>
+                        {current}
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </div>
     );
-};
+}

@@ -1,24 +1,32 @@
-import { MATERIALS_LIST } from "@/constants";
-import { Course, Form, Lessons, Preview, Questions, Showcase, Started } from "@/modules";
+import { MATERIALS_LIST } from '@/constants';
+import {
+    Course,
+    Form,
+    Lessons,
+    Preview,
+    Questions,
+    Showcase,
+    Started,
+} from '@/modules';
 
-import s from './page.module.scss'
+import s from './page.module.scss';
 
 export const metadata = {
-	title: 'Highflyers - школа английского языка',
+    title: 'Highflyers - школа английского языка',
 };
 
 export default function Home() {
-	const res = MATERIALS_LIST;
+    const res = MATERIALS_LIST;
 
-	return (
-		<main className={s.wrapper}>
-			<Preview />
-			<Started />
-			<Lessons />
-			<Course />
-			<Questions />
-			<Showcase materials={res} />
-			<Form />
-		</main>
-	)
+    return (
+        <main className={s.wrapper}>
+            <Preview />
+            <Started />
+            <Lessons />
+            <Course />
+            <Questions />
+            <Showcase materials={res} />
+            <Form />
+        </main>
+    );
 }

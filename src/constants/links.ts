@@ -6,46 +6,51 @@ export const PAGES_LINK = {
     LESSON_PLANS: '/lesson-plans',
     CHECK_LISTS: '/check-lists',
     EXAMS: '/exams',
+    OGE: '/oge',
+    EGE: '/ege',
     TEDTALKS: '/tedtalks',
     PROFILE: '/profile',
     LOGIN: '/login',
     REGISTER: '/register',
     RECOVERY: '/recovery',
     BUY: '/buy',
+    PRIVACY: '#',
+    POLICY: '#',
+    PERSONAL_DATA: '#',
 };
 
 export const NAVIGATION__PREVIEW = [
     {
         title: 'Обучение по карточкам',
         href: PAGES_LINK.LEARNING,
-        videoHref: '/video/testVideo1.mp4'
+        videoHref: '/video/testVideo1.mp4',
     },
     {
         title: 'Полезные статьи',
         href: PAGES_LINK.ARTICLES,
-        videoHref: '/video/testVideo1.mp4'
+        videoHref: '/video/testVideo1.mp4',
     },
     {
         title: 'Планы уроков',
         href: PAGES_LINK.LESSON_PLANS,
-        videoHref: '/video/testVideo2.mp4'
+        videoHref: '/video/testVideo2.mp4',
     },
     {
         title: 'Чек-листы',
         href: PAGES_LINK.CHECK_LISTS,
-        videoHref: '/video/testVideo3.mp4'
+        videoHref: '/video/testVideo3.mp4',
     },
     {
         title: 'TedTalks',
         href: PAGES_LINK.TEDTALKS,
-        videoHref: '/video/testVideo4.mp4'
+        videoHref: '/video/testVideo4.mp4',
     },
     {
         title: 'Подготовка к ОГЭ/ЕГЭ',
         href: PAGES_LINK.EXAMS,
-        videoHref: '/video/testVideo5.mp4'
-    }
-]
+        videoHref: '/video/testVideo5.mp4',
+    },
+];
 
 export const NAVIGATION = [
     {
@@ -108,7 +113,7 @@ export const NAVIGATION = [
         id: 6,
         text: 'ЕГЭ',
         type: 'link',
-        link: '/ege'
+        link: PAGES_LINK.EGE,
     },
     {
         id: 7,
@@ -124,13 +129,13 @@ export const NAVIGATION_WITH_AUTH = [
         id: 0,
         text: 'Мои материалы',
         type: 'link',
-        link: '/my-materials',
+        link: PAGES_LINK.MY_MATERIALS,
     },
     {
         id: 1,
         text: 'Обучение',
         type: 'list',
-        link: '/training',
+        link: PAGES_LINK.LEARNING,
         level: [
             {
                 id: 0,
@@ -162,43 +167,43 @@ export const NAVIGATION_WITH_AUTH = [
         id: 2,
         text: 'Полезные статьи',
         type: 'link',
-        link: '/article',
+        link: PAGES_LINK.ARTICLES,
     },
     {
         id: 3,
         text: 'Планы уроков',
         type: 'link',
-        link: '/lesson-plans',
+        link: PAGES_LINK.LESSON_PLANS,
     },
     {
         id: 4,
         text: 'Чек-листы',
         type: 'link',
-        link: '/check-lists',
+        link: PAGES_LINK.CHECK_LISTS,
     },
     {
         id: 5,
         text: 'ОГЭ',
         type: 'link',
-        link: '/oge',
+        link: PAGES_LINK.OGE,
     },
     {
         id: 6,
         text: 'ЕГЭ',
         type: 'link',
-        link: '/ege'
+        link: PAGES_LINK.EGE,
     },
     {
         id: 7,
         text: 'TEDTalks',
         type: 'link',
         img: '/svg/menu/ted.svg',
-        link: '/TedTalks',
+        link: PAGES_LINK.TEDTALKS,
     },
     {
         id: 8,
         text: 'Профиль',
         type: 'link',
-        link: '/profile',
+        link: PAGES_LINK.PROFILE,
     },
 ];

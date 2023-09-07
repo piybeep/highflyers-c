@@ -1,1 +1,1 @@
-export { TedTalksHeader } from './TedTalksHeader'
+export { TedTalksHeader } from './TedTalksHeader';

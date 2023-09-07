@@ -1,1 +1,1 @@
-export { HeaderSubtitle } from './HeaderSubtitle'
+export { HeaderSubtitle } from './HeaderSubtitle';

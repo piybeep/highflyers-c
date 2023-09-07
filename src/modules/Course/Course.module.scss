@@ -20,22 +20,22 @@
 
     padding: 25px;
 
-    transition: .3s;
+    transition: 0.3s;
 
     height: fit-content;
 
     text-decoration: none;
 
     &:hover {
-        background: #F5F5F5;
+        background: #f5f5f5;
     }
 
     &:active {
-        background: #EEE;
+        background: #eee;
     }
 
     &__title {
-        color: #06F;
+        color: #06f;
         font-family: Golos UI VF;
         font-size: 2rem;
         font-style: normal;
