@@ -26,3 +26,5 @@ export * from './Form';
 export * from './Session';
 export * from './ArticleHeader';
 export * from './ArticleList';
+export * from './Training'
+export * from './TrainingList'

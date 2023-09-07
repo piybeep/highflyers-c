@@ -7,6 +7,7 @@ import {
     Questions,
     Showcase,
     Started,
+    TrainingList,
 } from '@/modules';
 
 import s from './page.module.scss';
@@ -24,6 +25,7 @@ export default function Home() {
             <Started />
             <Lessons />
             <Course />
+            <TrainingList />
             <Questions />
             <Showcase materials={res} />
             <Form />

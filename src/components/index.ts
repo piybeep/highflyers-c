@@ -23,3 +23,4 @@ export * from './HeaderTheme';
 export * from './HeaderText';
 export * from './HeaderCheckbox';
 export * from './FullScreenLoader';
+export * from './Paralax'

@@ -1,0 +1,45 @@
+.wrapper {
+    width: 100%;
+
+    display: flex;
+
+    &__left {
+        flex-direction: row;
+        column-gap: 20px;
+
+        max-width: 1420px;
+    }
+
+    &__right {
+        flex-direction: row-reverse;
+        column-gap: 40px;
+
+        max-width: 1080px;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    width: 100%;
+
+    &__left {
+        max-width: 580px;
+    }
+
+    &__right {
+        max-width: 700px;
+    }
+
+    &__description {
+        color: #252525;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+}
