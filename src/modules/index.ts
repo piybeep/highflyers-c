@@ -20,3 +20,5 @@ export * from './MyMaterials'
 export * from './Session';
 export * from './ArticleHeader'
 export * from './ArticleList'
+export * from './LearningHeader'
+export * from './LearningList'

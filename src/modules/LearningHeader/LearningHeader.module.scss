@@ -1,0 +1,68 @@
+.wrapper {
+    display: grid;
+    grid-template-areas:
+        'title description'
+        'info description';
+    row-gap: 54px;
+    column-gap: 30px;
+    justify-content: space-between;
+
+    padding: 50px;
+
+    border-radius: 18px;
+    background: #EDF8FF;
+
+    width: 100%;
+    max-width: 1420px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.info {
+    grid-area: info;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.description {
+    grid-area: description;
+
+    width: 100%;
+    max-width: 507px;
+}
+
+.list {
+    display: flex;
+    column-gap: 10px;
+
+    &__button {
+        border-radius: 38px;
+        border: 1px solid #B3B3B3;
+
+        padding: 8px 16px;
+
+        background-color: transparent;
+
+        color: #252525;
+        font-family: Golos UI VF;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        cursor: pointer;
+
+        user-select: none;
+
+        transition: .3s;
+
+        &_active {
+            color: #06F;
+            border-color: #06F;
+        }
+    }
+}
