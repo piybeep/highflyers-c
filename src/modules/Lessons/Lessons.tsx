@@ -9,7 +9,7 @@ export function Lessons() {
             <Title text={'Для чего подойдут занятия?'} />
             <div className={s.list}>
                 {LESSON__CHOISE.map((current) => (
-                    <div className={s.item}>
+                    <div key={current.title} className={s.item}>
                         <Image
                             className={s.item__img}
                             width={256}

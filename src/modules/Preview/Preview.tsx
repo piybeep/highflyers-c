@@ -3,11 +3,11 @@
 import { NAVIGATION__PREVIEW } from '@/constants';
 import s from './Preview.module.scss';
 import { PreviewLink } from '@/components';
-import { useRef } from 'react';
+import { createRef } from 'react';
 
 export function Preview() {
     const Links = NAVIGATION__PREVIEW.map((current) => {
-        const videoRef = useRef<any>();
+        const videoRef = createRef<any>();
         return (
             <div
                 className={s.links}
