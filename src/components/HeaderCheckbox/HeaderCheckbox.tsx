@@ -1,5 +1,5 @@
-import { HeaderCheckboxProps } from "./HeaderCheckbox.types";
-import s from './HeaderCheckbox.module.scss'
+import { HeaderCheckboxProps } from './HeaderCheckbox.types';
+import s from './HeaderCheckbox.module.scss';
 
 export function HeaderCheckbox({ text, ...props }: HeaderCheckboxProps) {
     return (
@@ -9,4 +9,4 @@ export function HeaderCheckbox({ text, ...props }: HeaderCheckboxProps) {
             <p className={s.label__text}>{text}</p>
         </label>
     );
-};
+}

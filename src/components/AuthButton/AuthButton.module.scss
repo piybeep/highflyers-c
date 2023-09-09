@@ -54,5 +54,25 @@
         color: #ffffff !important;
 
         text-decoration: none !important;
+
+        border: 1px solid #0066ff;
+
+        transition: .3s;
+
+        &:hover {
+            background-color: transparent;
+
+            color: #0066ff !important;
+
+            .button__svg {
+                fill: #0066ff;
+            }
+        }
+    }
+
+    &__svg {
+        fill: #fff;
+
+        transition: .3s;
     }
 }

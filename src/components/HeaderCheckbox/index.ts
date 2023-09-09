@@ -1,1 +1,1 @@
-export { HeaderCheckbox } from './HeaderCheckbox'
+export { HeaderCheckbox } from './HeaderCheckbox';

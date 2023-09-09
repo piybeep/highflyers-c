@@ -1,0 +1,124 @@
+.wrapper {
+    width: 100%;
+    max-width: 1420px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.info {
+    width: 100%;
+    max-width: 400px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 40px;
+
+    &__img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    &__title {
+        color: #252525;
+        font-family: Golos Text VF;
+        font-size: 2.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__description {
+        color: #666;
+        text-align: center;
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+    }
+}
+
+.chat {
+    width: 100%;
+    max-width: 820px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    &__list {
+        width: 100%;
+        max-width: 820px;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        padding: 0px 7px;
+    }
+
+    &__item {
+        border-radius: 23px;
+
+        padding: 7px 15px;
+
+        width: fit-content;
+        max-width: 557px;
+
+        font-feature-settings: 'case' on;
+        font-family: SF UI Display;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+
+        position: relative;
+
+        &_left {
+            background-color: #e9e9eb;
+            color: #000;
+
+            align-self: flex-start;
+
+            &::before {
+                content: '';
+                display: inline-block;
+
+                position: absolute;
+                bottom: 0px;
+                left: -5px;
+
+                width: 20px;
+                height: 25px;
+
+                background-image: url('../../../public/svg/questions/tailLeft.svg');
+                background-size: cover;
+            }
+        }
+
+        &_right {
+            background-color: #e64f30;
+            color: #fff;
+
+            align-self: flex-end;
+
+            &::before {
+                content: '';
+                display: inline-block;
+
+                position: absolute;
+                bottom: 0px;
+                right: -5px;
+
+                width: 20px;
+                height: 25px;
+
+                background-image: url('../../../public/svg/questions/tailRight.svg');
+                background-size: cover;
+            }
+        }
+    }
+}

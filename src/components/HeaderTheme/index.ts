@@ -1,1 +1,1 @@
-export { HeaderTheme } from './HeaderTheme'
+export { HeaderTheme } from './HeaderTheme';

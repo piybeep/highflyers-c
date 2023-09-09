@@ -1,8 +1,6 @@
-import s from './HeaderSubtitle.module.scss'
+import s from './HeaderSubtitle.module.scss';
 import { HeaderSubtitleProps } from './HeaderSubtitle.types';
 
 export function HeaderSubtitle({ text }: HeaderSubtitleProps) {
-    return (
-        <h3 className={s.subtitle}>{text}</h3>
-    );
-};
+    return <h3 className={s.subtitle}>{text}</h3>;
+}

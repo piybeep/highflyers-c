@@ -1,5 +1,5 @@
-import { FullScreenLoader } from "@/components";
+import { FullScreenLoader } from '@/components';
 
 export default function Loading() {
-    return <FullScreenLoader />
+    return <FullScreenLoader />;
 }
