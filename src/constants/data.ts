@@ -1,6 +1,34 @@
-import { TedTalksProps } from '@/modules/TedTalksList/TedTalksList.types'
 import img from '../../public/img/cover.png'
-import { LearningListProps } from '@/modules/LearningList/LearningList.types'
+
+export interface TedTalksProps {
+    id: string,
+    name: string,
+    theme: string,
+    read_time: string,
+    link: string,
+    preview: string,
+    tags: TedTalksTags[]
+}
+
+export interface TedTalksTags {
+    id: string,
+    name: string,
+    value: string,
+}
+
+export interface LearningListProps {
+    id: string
+    title: string
+    available: boolean
+    materials: ElementLearningProps[]
+}
+
+export interface ElementLearningProps {
+    id: string
+    title: string
+    time: string
+    img: string
+}
 
 export const dataTedTalks: TedTalksProps[] = [
     {
