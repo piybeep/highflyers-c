@@ -28,3 +28,4 @@ export * from './ArticleHeader';
 export * from './ArticleList';
 export * from './Training'
 export * from './TrainingList'
+export * from './PopupChecklists'
