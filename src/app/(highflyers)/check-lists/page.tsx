@@ -7,7 +7,7 @@ import { CHECKLISTS_LITERATULE } from '@/constants/checklists';
 import { useCallback } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
-export default function page() {
+export default function CheckListPage() {
     const res = CHECKLISTS_LITERATULE
 
     const router = useRouter()
