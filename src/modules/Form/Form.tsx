@@ -61,6 +61,7 @@ export function Form() {
                             <FormInput
                                 value={value ?? ''}
                                 onChange={onChange}
+                                required
                                 placeholder={'Какой у вас вопрос?'}
                                 icon={'question'}
                             />
