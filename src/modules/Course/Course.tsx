@@ -1,7 +1,7 @@
 import { Title } from '@/components';
 import s from './Course.module.scss';
-import { COURSE_LIST } from '@/constants/course';
 import Link from 'next/link';
+import { COURSE_LIST } from '@/constants';
 
 export function Course() {
     return (

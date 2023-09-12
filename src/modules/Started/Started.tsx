@@ -7,8 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import s from './Started.module.scss';
-import { SLIDER__WORDS } from '@/constants/started';
-import { PAGES_LINK } from '@/constants';
+import { PAGES_LINK, SLIDER__WORDS } from '@/constants';
 
 export function Started() {
     return (
