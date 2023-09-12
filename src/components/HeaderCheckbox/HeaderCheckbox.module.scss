@@ -11,11 +11,11 @@
 
     &:hover {
         .label__checkbox {
-            border-color: #06F;
+            border-color: #06f;
         }
 
         .label__text {
-            color: #06F;
+            color: #06f;
         }
     }
 
@@ -23,14 +23,12 @@
         display: none;
 
         &:checked {
-
-            ~.label__text {
-                color: #06F;
+            ~ .label__text {
+                color: #06f;
             }
 
-            ~.label__checkbox {
-
-                border-color: #06F;
+            ~ .label__checkbox {
+                border-color: #06f;
 
                 &::before {
                     opacity: 1;
@@ -47,7 +45,7 @@
         font-weight: 400;
         line-height: normal;
 
-        transition: .3s;
+        transition: 0.3s;
     }
 
     &__checkbox {
@@ -61,7 +59,7 @@
         align-items: center;
         justify-content: center;
 
-        transition: .3s;
+        transition: 0.3s;
 
         &::before {
             content: '';
@@ -76,7 +74,7 @@
 
             opacity: 0;
 
-            transition: .3s;
+            transition: 0.3s;
         }
     }
 }

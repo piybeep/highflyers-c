@@ -1,3 +1,3 @@
 export interface HeaderSubtitleProps {
-    text: string,
+    text: string;
 }

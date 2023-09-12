@@ -1,1 +1,1 @@
-export * from './TedTalksList'
+export * from './TedTalksList';

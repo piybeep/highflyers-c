@@ -1,0 +1,53 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 17px;
+
+    padding: 34px 30px;
+    border-radius: 77px;
+    border: 1px solid #252525;
+
+    &_name {
+        &::before {
+            content: url('../../../public/svg/form/name.svg');
+        }
+    }
+
+    &_email {
+        &::before {
+            content: url('../../../public/svg/form/email.svg');
+        }
+    }
+
+    &_question {
+        &::before {
+            content: url('../../../public/svg/form/question.svg');
+        }
+    }
+
+    &:hover {
+        border-color: #06f;
+    }
+
+    width: 100%;
+
+    cursor: text;
+}
+
+.input {
+    color: #06f;
+    font-family: Golos UI VF;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    &::placeholder {
+        color: #666;
+    }
+}

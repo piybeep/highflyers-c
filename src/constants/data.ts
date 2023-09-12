@@ -48,8 +48,8 @@ export const dataTedTalks: TedTalksProps[] = [
                 id: '2',
                 name: 'about language',
                 value: 'about language',
-            }
-        ]
+            },
+        ],
     },
     {
         id: '2',
@@ -68,8 +68,8 @@ export const dataTedTalks: TedTalksProps[] = [
                 id: '2',
                 name: 'about language',
                 value: 'about language',
-            }
-        ]
+            },
+        ],
     },
     {
         id: '3',
@@ -88,8 +88,8 @@ export const dataTedTalks: TedTalksProps[] = [
                 id: '2',
                 name: 'about language',
                 value: 'about language',
-            }
-        ]
+            },
+        ],
     },
     {
         id: '4',
@@ -108,8 +108,8 @@ export const dataTedTalks: TedTalksProps[] = [
                 id: '2',
                 name: 'about language',
                 value: 'about language',
-            }
-        ]
+            },
+        ],
     },
 ]
 

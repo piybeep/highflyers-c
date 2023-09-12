@@ -1,3 +1,3 @@
 export interface HeaderThemeProps {
-    text: string
+    text: string;
 }

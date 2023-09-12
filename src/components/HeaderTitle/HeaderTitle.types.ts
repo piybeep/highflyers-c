@@ -1,3 +1,3 @@
 export interface HeaderTitleProps {
-    text: string
+    text: string;
 }

@@ -1,1 +1,1 @@
-export { HeaderText } from './HeaderText'
+export { HeaderText } from './HeaderText';

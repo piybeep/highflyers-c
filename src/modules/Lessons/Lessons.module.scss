@@ -1,0 +1,56 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 90px;
+
+    width: 100%;
+    max-width: 1180px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 33px;
+
+    &__img {
+        width: fit-content;
+        height: auto;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        width: 100%;
+        max-width: 220px;
+    }
+
+    &__title {
+        color: #e64f30;
+        font-family: Golos UI VF;
+        font-size: 1.375rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+
+    &__description {
+        color: #666;
+        font-family: Golos UI VF;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+}

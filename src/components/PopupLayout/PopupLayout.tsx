@@ -5,6 +5,7 @@ import { PropsWithChildren, useEffect } from 'react';
 import s from './PopupLayout.module.scss';
 import classNames from 'classnames';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { PAGES_LINK } from '@/constants';
 
 export function PopupLayout({ children }: PropsWithChildren) {
     const params = useSearchParams();
@@ -18,7 +19,7 @@ export function PopupLayout({ children }: PropsWithChildren) {
 
     return (
         <div
-            onClick={() => router.push('/profile')}
+            onClick={() => router.push(PAGES_LINK.PROFILE)}
             className={classNames(s.wrapper, {
                 [s.wrapper__show]: params.has('window'),
             })}

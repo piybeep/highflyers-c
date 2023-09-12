@@ -1,5 +1,5 @@
-import { ArticleHeader, ArticleList } from "@/modules";
-import s from './page.module.scss'
+import { ArticleHeader, ArticleList } from '@/modules';
+import s from './page.module.scss';
 
 export default function page() {
     return (
@@ -8,4 +8,4 @@ export default function page() {
             <ArticleList />
         </div>
     );
-};
+}
