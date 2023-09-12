@@ -2,10 +2,10 @@
 
 import { PopupChecklists } from '@/modules';
 import s from './page.module.scss'
-import { CHECKLISTS_LITERATULE } from '@/constants/checklists';
 
 import { useCallback } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { CHECKLISTS_LITERATULE } from '@/constants';
 
 export default function CheckListPage() {
     const res = CHECKLISTS_LITERATULE

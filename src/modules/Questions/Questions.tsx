@@ -3,12 +3,11 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import { GradientLink, Title } from '@/components';
-import { CHAT_LIST } from '@/constants/chat';
 
 import img from '../../../public/img/questions/questionsImg.png';
 
 import s from './Questions.module.scss';
-import { PAGES_LINK } from '@/constants';
+import { CHAT_LIST, PAGES_LINK } from '@/constants';
 
 export function Questions() {
     return (

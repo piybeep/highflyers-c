@@ -1,14 +1,13 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { CHECKLISTS_LITERATULE_PROPS } from '@/constants/checklists';
-
 import { ButtonBack, HeaderTitle } from '@/components';
 
 import s from './PopupChecklists.module.scss'
 import Link from 'next/link';
 import classNames from 'classnames';
 import { useCallback, useEffect } from 'react';
+import { CHECKLISTS_LITERATULE_PROPS } from '@/constants';
 
 export function PopupChecklists({ data }: { data: CHECKLISTS_LITERATULE_PROPS[] }) {
 
