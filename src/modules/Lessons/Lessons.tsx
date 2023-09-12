@@ -1,7 +1,7 @@
 import { Title } from '@/components';
 import s from './Lessons.module.scss';
 import Image from 'next/image';
-import { LESSON__CHOISE } from '@/constants/lessons';
+import { LESSON__CHOISE } from '@/constants';
 
 export function Lessons() {
     return (
