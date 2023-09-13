@@ -1,0 +1,1 @@
+export { LinkExams } from './LinkExams'

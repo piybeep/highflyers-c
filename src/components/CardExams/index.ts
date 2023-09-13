@@ -1,0 +1,1 @@
+export { CardExams } from './CardExams'

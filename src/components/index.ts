@@ -25,3 +25,5 @@ export * from './HeaderCheckbox';
 export * from './FullScreenLoader';
 export * from './Paralax'
 export * from './ButtonBack'
+export * from './LinkExams'
+export * from './CardExams'
