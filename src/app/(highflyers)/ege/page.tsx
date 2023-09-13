@@ -1,5 +1,5 @@
+import { EXAMS_EGE } from '@/constants';
 import { HeaderExams, ListExams } from '@/modules';
-import { EXAMS_EGE } from '@/constants/exams';
 
 export default function page() {
     const res = EXAMS_EGE
