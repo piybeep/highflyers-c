@@ -15,7 +15,6 @@ export function HeaderExams({ list, title, subtitle }: HeaderExamsProps) {
         .filter((v, i, a) => a.findIndex(v2 => (v2.group === v.group)) === i)
         .map(arrayList => ({
             tag: arrayList.tag,
-            // groups: list.filter(currentGroups => arrayList.tag === currentGroups.tag).filter((v, i, a) => a.findIndex(v2 => (v2.group === v.group)) === i)
             groups: list.filter(currentGroups => arrayList.tag === currentGroups.tag).filter((v, i, a) => a.findIndex(v2 => (v2.group === v.group)) === i).map(i => i.group)
         })).filter((v, i, a) => a.findIndex(v2 => (v2.tag === v.tag)) === i).sort((a, b) => a.tag.localeCompare(b.tag))
 
@@ -23,7 +22,7 @@ export function HeaderExams({ list, title, subtitle }: HeaderExamsProps) {
         const getElement = document.getElementById(scrollToElement)
         getElement?.scrollIntoView({
             behavior: 'smooth',
-            block: 'center'
+            block: 'center',
         })
     }
 
