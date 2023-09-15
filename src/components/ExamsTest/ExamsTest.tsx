@@ -14,6 +14,7 @@ export function ExamsTest({ question, answer, onChange, value, type = 'button', 
                             type={type}
                             onClick={() => { !isShow && onChange({ text: current.text, isRight: current.isRight }) }}
                             className={classNames(s.list__button, {
+                                [s.list__button_hover]: !isShow,
                                 [s.list__button_select]: !isShow && value.text === current.text,
                                 [s.list__button_correct]: isShow && (current.isRight == true),
                                 [s.list__button_incorrect]: isShow && value.isRight != true && value.text === current.text,
