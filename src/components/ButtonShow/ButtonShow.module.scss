@@ -1,0 +1,66 @@
+.button {
+    font-family: Golos UI VF;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    padding: 12px 22px;
+
+    border-radius: 45px;
+
+    border: 1px solid transparent;
+
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    &__show {
+        color: #fff;
+        background: #06F;
+
+        &:hover {
+            background: rgba(0, 102, 255, 0.80);
+        }
+
+        &::before {
+            content: 'Показать ответы';
+        }
+    }
+
+    &__hide {
+        color: #06F;
+        background-color: transparent;
+        border-color: #06F;
+
+        &:hover {
+            box-shadow: 0px 0px 3px 0px #4F86EC;
+        }
+
+        &::before {
+            content: 'Скрыть ответы';
+        }
+
+        .button__svg {
+            transform: rotate(-90deg);
+
+            &_fill {
+                fill: #0066FF;
+            }
+        }
+    }
+
+    &__svg {
+        transition: .3s;
+
+        &_fill {
+            fill: #fff;
+
+            transition: .3s;
+        }
+    }
+}

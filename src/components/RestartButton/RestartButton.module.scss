@@ -1,0 +1,22 @@
+.button {
+    color: #666;
+    font-family: Golos UI VF;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

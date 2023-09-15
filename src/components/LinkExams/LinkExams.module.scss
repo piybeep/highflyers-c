@@ -11,4 +11,21 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
+
+    transition: .3s;
+
+    width: fit-content;
+
+    &:hover {
+        color: #393939;
+
+        .link__svg {
+            fill: #393939;
+        }
+    }
+
+    &__svg {
+        transition: .3s;
+        fill: #666;
+    }
 }

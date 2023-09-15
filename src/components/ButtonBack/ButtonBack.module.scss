@@ -21,6 +21,8 @@
 
     transition: .3s;
 
+    width: fit-content;
+
     &::before {
         content: url('../../../public/svg/Arrow_Left.svg');
 

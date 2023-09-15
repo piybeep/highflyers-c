@@ -29,5 +29,13 @@
 
         border-radius: 45px;
         border: 1px solid #666;
+
+        transition: .3s;
+
+        &:hover {
+            background-color: #06F;
+            border-color: #06F;
+            color: #fff;
+        }
     }
 }

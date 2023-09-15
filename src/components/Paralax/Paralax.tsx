@@ -14,8 +14,8 @@ export function Paralax() {
     const refSite = useRef<any>()
 
     useEffect(() => {
-        if (window) {
-            window.addEventListener('scroll', () => {
+        const handleScroll = () => {
+            {
                 const wrapperScrollTop = refWrapper.current.offsetTop
 
                 const ipadHeight = refIpad.current.clientHeight
@@ -31,7 +31,11 @@ export function Paralax() {
                 if (topZero && topHeight) {
                     document.body.style.cssText = `--scrollTop: ${top}px`
                 }
-            })
+            }
+        }
+        window.addEventListener('scroll', handleScroll)
+        return function cleanUp() {
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 

@@ -1,3 +1,5 @@
+import { ExamsItem } from "@/types/exams.types"
+
 export interface EXAMS_EGE_PROPS {
     title: string
     group: string
@@ -81,3 +83,98 @@ export const EXAMS_EGE: EXAMS_EGE_PROPS[] = [
         tag: 'Устная часть',
     },
 ]
+
+export const itemExams: ExamsItem = {
+    id: '1',
+    name: 'Речевые обороты',
+    tags: [
+        {
+            id: '1',
+            name: 'theme_1',
+            value: 'tema'
+        },
+        {
+            id: '1',
+            name: 'theme_2',
+            value: 'tema'
+        }
+    ],
+    tests: [
+        {
+            title: 'Exercise 2. Multiple-choice exercise. Choose the correct one.',
+            list: [
+                {
+                    id: '1',
+                    question: '1. What is the name of the film mentioned in the video?',
+                    answer: [
+                        {
+                            text: 'Jesus of Paris',
+                            isRight: false
+                        },
+                        {
+                            text: 'Jesus of Montreal',
+                            isRight: true
+                        },
+                        {
+                            text: 'Jesus of Quebec',
+                            isRight: false
+                        },
+                        {
+                            text: 'Jesus of Toronto',
+                            isRight: false
+                        },
+                    ]
+                },
+                {
+                    id: '2',
+                    question: '2. What is the scene closest to the end of the film where the characters have to speak English?',
+                    answer: [
+                        {
+                            text: 'They go to a French-speaking hospital',
+                            isRight: false
+                        },
+                        {
+                            text: 'They go to an Anglophone hospital',
+                            isRight: true
+                        },
+                        {
+                            text: 'They go to a bilingual hospital',
+                            isRight: false
+                        },
+                        {
+                            text: `They don't go to a hospital`,
+                            isRight: false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            title: 'Exercise 3. Multiple-choice exercise. Choose the correct one.',
+            list: [
+                {
+                    id: '1',
+                    question: '3. What is the name of the film mentioned in the video?',
+                    answer: [
+                        {
+                            text: 'Jesus of Paris',
+                            isRight: false
+                        },
+                        {
+                            text: 'Jesus of Montreal',
+                            isRight: true
+                        },
+                        {
+                            text: 'Jesus of Quebec',
+                            isRight: false
+                        },
+                        {
+                            text: 'Jesus of Toronto',
+                            isRight: false
+                        },
+                    ]
+                },
+            ]
+        }
+    ]
+}
