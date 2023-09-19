@@ -7,12 +7,14 @@ export interface ExamsItem {
 
 export interface ExamsTests {
     title: string
+    type: 'test' | 'testInput' | 'testCheckbox' | 'testInputs'
     list: Test[]
 }
 
 export interface Test {
     id: string
     question: string
+    isSeveral?: boolean
     answer: {
         text: string
         isRight: boolean

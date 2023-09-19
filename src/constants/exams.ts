@@ -101,6 +101,7 @@ export const itemExams: ExamsItem = {
     ],
     tests: [
         {
+            type: 'test',
             title: 'Exercise 2. Multiple-choice exercise. Choose the correct one.',
             list: [
                 {
@@ -150,11 +151,13 @@ export const itemExams: ExamsItem = {
             ]
         },
         {
+            type: 'testCheckbox',
             title: 'Exercise 3. Multiple-choice exercise. Choose the correct one.',
             list: [
                 {
                     id: '1',
-                    question: '3. What is the name of the film mentioned in the video?',
+                    question: 'Can you take it to the {}? Peter is in there, cooking dinner.',
+                    isSeveral: false,
                     answer: [
                         {
                             text: 'Jesus of Paris',
@@ -170,6 +173,29 @@ export const itemExams: ExamsItem = {
                         },
                         {
                             text: 'Jesus of Toronto',
+                            isRight: false
+                        },
+                    ]
+                },
+                {
+                    id: '2',
+                    question: 'Can you take it to the {}? Peter is in there, cooking dinner. isSeveral-more',
+                    isSeveral: true,
+                    answer: [
+                        {
+                            text: 'variant_1',
+                            isRight: true
+                        },
+                        {
+                            text: 'variant_2',
+                            isRight: true
+                        },
+                        {
+                            text: 'variant_3',
+                            isRight: false
+                        },
+                        {
+                            text: 'variant_4',
                             isRight: false
                         },
                     ]

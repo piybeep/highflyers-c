@@ -1,4 +1,4 @@
 export interface CorrectParagrafProps {
-    correctAnswer: string
+    correctAnswer: number | string
     total: number
 }
