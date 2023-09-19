@@ -1,10 +1,11 @@
 export interface ExamsTestProps {
-    onChange: ({ text, isRight }: { text: string, isRight: boolean }) => void
-    isShow: boolean
-    value: { isRight: boolean, text: string }
-    question: string
+    onChange: ({ text, isRight }: { text: string; isRight: boolean }) => void;
+    isShow: boolean;
+    description: string;
+    value: { isRight: boolean; text: string };
+    question: string;
     answer: {
-        text: string
-        isRight: boolean
-    }[]
+        text: string;
+        isRight?: boolean;
+    }[];
 }

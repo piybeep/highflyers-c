@@ -1,1 +1,1 @@
-export { SubtitleTheme } from './SubtitleTheme'
+export { SubtitleTheme } from './SubtitleTheme';

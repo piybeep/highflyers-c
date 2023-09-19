@@ -1,1 +1,1 @@
-export { CorrectParagraf } from './CorrectParagraf'
+export { CorrectParagraf } from './CorrectParagraf';

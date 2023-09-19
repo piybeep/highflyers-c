@@ -1,3 +1,3 @@
 export interface LinkExamsProps {
-    link: string
+    link: string;
 }

@@ -26,41 +26,41 @@
     padding: 8px 16px;
 
     border-radius: 5px;
-    border: 1px solid #B3B3B3;
+    border: 1px solid #b3b3b3;
     box-shadow: 0px 0px 3px 0px transparent;
 
-    transition: .3s;
+    transition: 0.3s;
 
     &__hover:hover {
-        box-shadow: 0px 0px 3px 0px #4F86EC;
+        box-shadow: 0px 0px 3px 0px #4f86ec;
     }
 
     &__select {
         &:has(.input__checkbox:checked) {
-            border-color: #4F86EC;
+            border-color: #4f86ec;
 
-            color: #4F86EC;
+            color: #4f86ec;
         }
     }
 
     &__incorrect {
-        border-color: #F27D7D;
+        border-color: #f27d7d;
 
-        color: #F27D7D;
+        color: #f27d7d;
 
         &_isSeveral {
             &:has(.input__checkbox:checked) {
-                border-color: #F27D7D;
+                border-color: #f27d7d;
 
-                color: #F27D7D;
+                color: #f27d7d;
             }
         }
     }
 
     &__correct {
-        border-color: #46AE44;
+        border-color: #46ae44;
 
-        color: #46AE44;
+        color: #46ae44;
     }
 
     cursor: pointer;

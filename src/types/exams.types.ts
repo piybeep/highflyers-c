@@ -1,28 +1,29 @@
 export interface ExamsItem {
-    id: string
-    name: string
-    tags: Tags[]
-    tests: ExamsTests[]
+    id: string;
+    name: string;
+    tags: Tags[];
+    tests: ExamsTests[];
 }
 
 export interface ExamsTests {
-    title: string
-    type: 'test' | 'testInput' | 'testCheckbox' | 'testInputs'
-    list: Test[]
+    title: string;
+    type: 'select' | 'insert' | 'question' | 'text';
+    list: Test[];
 }
 
 export interface Test {
-    id: string
-    question: string
-    isSeveral?: boolean
+    id: string;
+    question: string;
+    isSeveral?: boolean;
+    description?: string;
     answer: {
-        text: string
-        isRight: boolean
-    }[]
+        text: string;
+        isRight?: boolean;
+    }[];
 }
 
 export interface Tags {
-    id: string,
-    name: string,
-    value: string,
+    id: string;
+    name: string;
+    value: string;
 }

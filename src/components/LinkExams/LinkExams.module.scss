@@ -12,7 +12,7 @@
     align-items: center;
     column-gap: 10px;
 
-    transition: .3s;
+    transition: 0.3s;
 
     width: fit-content;
 
@@ -25,7 +25,7 @@
     }
 
     &__svg {
-        transition: .3s;
+        transition: 0.3s;
         fill: #666;
     }
 }

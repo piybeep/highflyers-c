@@ -1,5 +1,5 @@
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react';
 
 export interface RestartButtonProps extends ComponentProps<'button'> {
-    text: string
+    text: string;
 }

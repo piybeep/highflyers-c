@@ -1,9 +1,9 @@
 export interface ListExamsProps {
-    list: ListExamsElement[]
+    list: ListExamsElement[];
 }
 
 interface ListExamsElement {
-    title: string
-    group: string
-    tag: string
+    title: string;
+    group: string;
+    tag: string;
 }

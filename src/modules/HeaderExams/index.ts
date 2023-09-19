@@ -1,1 +1,1 @@
-export { HeaderExams } from './HeaderExams'
+export { HeaderExams } from './HeaderExams';

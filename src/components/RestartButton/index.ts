@@ -1,1 +1,1 @@
-export { RestartButton } from './RestartButton'
+export { RestartButton } from './RestartButton';

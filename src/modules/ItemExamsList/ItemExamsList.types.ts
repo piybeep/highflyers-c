@@ -1,10 +1,10 @@
 export interface ItemExamsListProps {
-    title: string
+    title: string;
     list: {
-        question: string
+        question: string;
         answer: {
-            text: string
-            isRight: boolean
-        }[]
-    }
+            text: string;
+            isRight: boolean;
+        }[];
+    };
 }

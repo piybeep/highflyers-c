@@ -1,0 +1,103 @@
+.question {
+    color: #252525;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Golos UI VF;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    &__container {
+        width: 100%;
+        max-width: 120px;
+
+        display: inline-block;
+
+        position: relative;
+    }
+
+    &__span {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+
+        transform: translateY(-50%);
+
+        color: #666;
+        font-family: Golos UI VF;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        transition: 0.3s;
+    }
+
+    &__input {
+        color: #252525;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+
+        border: none;
+        outline: none;
+
+        border-bottom: 2px solid #666;
+
+        width: 100%;
+
+        transition: 0.3s;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:hover {
+            border-color: #b3b3b3;
+
+            + .question__span {
+                color: #b3b3b3;
+            }
+        }
+
+        &:focus {
+            border-color: #4f86ec;
+
+            + .question__span {
+                color: #4f86ec;
+            }
+        }
+
+        &:not(:placeholder-shown) {
+            border-color: #4f86ec;
+
+            + .question__span {
+                color: #4f86ec;
+            }
+        }
+    }
+}
+
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    &__text {
+        color: #252525;
+        font-variant-numeric: lining-nums proportional-nums;
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+
+        padding: 3px 6px;
+
+        border-radius: 4px;
+        background-color: #c3f2c2;
+    }
+}

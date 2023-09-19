@@ -1,1 +1,1 @@
-export { LinkExams } from './LinkExams'
+export { LinkExams } from './LinkExams';

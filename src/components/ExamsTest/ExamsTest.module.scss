@@ -34,36 +34,36 @@
         padding: 8px 16px;
 
         border-radius: 5px;
-        border: 1px solid #B3B3B3;
+        border: 1px solid #b3b3b3;
         background-color: transparent;
 
         cursor: pointer;
 
-        transition: .3s;
+        transition: 0.3s;
 
         box-shadow: 0px 0px 3px 0px transparent;
 
         &_hover:hover {
-            border-color: #4F86EC;
-            box-shadow: 0px 0px 3px 0px #4F86EC;
+            border-color: #4f86ec;
+            box-shadow: 0px 0px 3px 0px #4f86ec;
         }
 
         &_select {
-            color: #4F86EC;
+            color: #4f86ec;
 
-            border-color: #4F86EC;
+            border-color: #4f86ec;
         }
 
         &_correct {
-            color: #46AE44;
+            color: #46ae44;
 
-            border-color: #46AE44;
+            border-color: #46ae44;
         }
 
         &_incorrect {
-            color: #F27D7D;
+            color: #f27d7d;
 
-            border-color: #F27D7D;
+            border-color: #f27d7d;
         }
     }
 }

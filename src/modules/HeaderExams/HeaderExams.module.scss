@@ -58,11 +58,11 @@
         text-transform: uppercase;
 
         &_write {
-            color: #4F86EC;
+            color: #4f86ec;
         }
 
         &_verbal {
-            color: #E64F30;
+            color: #e64f30;
         }
     }
 
@@ -87,16 +87,16 @@
         padding: 9px 18px;
 
         border-radius: 6px;
-        border: 1px solid #EEE;
+        border: 1px solid #eee;
 
-        transition: .3s;
+        transition: 0.3s;
 
         background-color: transparent;
 
         cursor: pointer;
 
         &:hover {
-            background-color: #F5F5F5;
+            background-color: #f5f5f5;
         }
     }
 }

@@ -1,1 +1,1 @@
-export { HeaderItem } from './HeaderItem'
+export { HeaderItem } from './HeaderItem';
