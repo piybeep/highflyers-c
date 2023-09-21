@@ -47,6 +47,10 @@
 
         border-color: #06f;
     }
+
+    &:disabled {
+        background-color: transparent;
+    }
 }
 
 .list {

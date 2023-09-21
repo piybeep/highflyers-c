@@ -18,6 +18,7 @@ export function TestQuestion({
                 placeholder='Your answer here...'
                 type='text'
                 required
+                disabled={isShow}
                 onChange={(e) => onChange(e.target.value)}
                 value={value}
                 className={s.input}

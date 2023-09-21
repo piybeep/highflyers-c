@@ -51,6 +51,12 @@
 
         transition: 0.3s;
 
+        padding-right: 22px;
+
+        &:disabled {
+            background-color: transparent;
+        }
+
         &::placeholder {
             color: transparent;
         }
@@ -58,7 +64,7 @@
         &:hover {
             border-color: #b3b3b3;
 
-            + .question__span {
+            +.question__span {
                 color: #b3b3b3;
             }
         }
@@ -66,7 +72,7 @@
         &:focus {
             border-color: #4f86ec;
 
-            + .question__span {
+            +.question__span {
                 color: #4f86ec;
             }
         }
@@ -74,7 +80,7 @@
         &:not(:placeholder-shown) {
             border-color: #4f86ec;
 
-            + .question__span {
+            +.question__span {
                 color: #4f86ec;
             }
         }

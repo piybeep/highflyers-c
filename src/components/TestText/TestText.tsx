@@ -52,6 +52,7 @@ export function TestText({
                             <span className={s.question__container}>
                                 <input
                                     placeholder='Test'
+                                    disabled={isShow}
                                     className={s.question__input}
                                     onChange={(e) => {
                                         handleChangeInput(
