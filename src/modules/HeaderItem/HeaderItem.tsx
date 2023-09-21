@@ -10,7 +10,7 @@ export function HeaderItem({ title, tags }: HeaderItemProps) {
                 <h2 className={s.info__title}>{title}</h2>
                 <div className={s.info__list}>
                     {tags.map((current) => (
-                        <SubtitleTheme theme={current.name} />
+                        <SubtitleTheme key={current.id} theme={current.name} />
                     ))}
                 </div>
             </div>
