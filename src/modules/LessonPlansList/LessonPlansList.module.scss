@@ -1,0 +1,55 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 100px auto 0px auto;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    column-gap: 26px;
+
+    &__title {
+        color: #252525;
+        font-family: Golos UI VF;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        &_span {
+            color: #E64F30;
+        }
+    }
+
+    &__slogan {
+        color: #FFF;
+        font-family: Golos UI VF;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        padding: 2px 6px;
+
+        border-radius: 5px;
+        background-color: #06F;
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, auto));
+    gap: 60px;
+}
