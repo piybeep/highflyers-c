@@ -26,7 +26,6 @@ export function ItemExamsList({ tests }: { tests: ExamsTests[] }) {
         const onSubmit = async (values: any) => {
             setIshow(!isShow);
 
-            console.log(values);
             if (values)
                 if (!isShow) {
                     let correctAnswer = [];
