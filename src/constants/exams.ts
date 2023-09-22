@@ -103,6 +103,7 @@ export const itemExams: ExamsItem = {
         {
             type: 'select',
             title: 'Exercise 2. Multiple-choice exercise. Choose the correct one.',
+            subtitle: 'test subtitle',
             list: [
                 {
                     id: '1',
