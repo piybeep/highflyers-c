@@ -1,0 +1,16 @@
+.paragraf {
+    color: #329c30;
+    font-family: Golos UI VF;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+
+    &__correct {
+        font-size: 2.25rem;
+    }
+}

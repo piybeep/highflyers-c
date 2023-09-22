@@ -23,5 +23,15 @@ export * from './HeaderTheme';
 export * from './HeaderText';
 export * from './HeaderCheckbox';
 export * from './FullScreenLoader';
-export * from './Paralax'
-export * from './ButtonBack'
+export * from './Paralax';
+export * from './ButtonBack';
+export * from './LinkExams';
+export * from './CardExams';
+export * from './SubtitleTheme';
+export * from './ExamsTest';
+export * from './RestartButton';
+export * from './ButtonShow';
+export * from './CorrectParagraf';
+export * from './TestChoose';
+export * from './TestText';
+export * from './TestQuestion';

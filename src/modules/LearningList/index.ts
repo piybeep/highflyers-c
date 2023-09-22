@@ -1,1 +1,1 @@
-export { LearningList } from './LearningList'
+export { LearningList } from './LearningList';

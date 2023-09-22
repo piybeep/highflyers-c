@@ -1,0 +1,31 @@
+.link {
+    color: #666;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: Golos UI VF;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    transition: 0.3s;
+
+    width: fit-content;
+
+    &:hover {
+        color: #393939;
+
+        .link__svg {
+            fill: #393939;
+        }
+    }
+
+    &__svg {
+        transition: 0.3s;
+        fill: #666;
+    }
+}

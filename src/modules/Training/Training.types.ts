@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren } from 'react';
 
 export interface TrainingProps extends PropsWithChildren {
-    title: string
-    description: string
-    direction?: 'left' | 'right'
+    title: string;
+    description: string;
+    direction?: 'left' | 'right';
 }

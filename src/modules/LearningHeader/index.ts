@@ -1,1 +1,1 @@
-export { LearningHeader } from './LearningHeader'
+export { LearningHeader } from './LearningHeader';

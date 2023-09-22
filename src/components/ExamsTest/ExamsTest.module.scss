@@ -1,0 +1,69 @@
+.title {
+    color: #252525;
+    font-family: Golos UI VF;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    &__radio {
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        opacity: 0;
+
+        z-index: -5;
+    }
+
+    &__button {
+        color: #666;
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        padding: 8px 16px;
+
+        border-radius: 5px;
+        border: 1px solid #b3b3b3;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+
+        box-shadow: 0px 0px 3px 0px transparent;
+
+        &_hover:hover {
+            border-color: #4f86ec;
+            box-shadow: 0px 0px 3px 0px #4f86ec;
+        }
+
+        &_select {
+            color: #4f86ec;
+
+            border-color: #4f86ec;
+        }
+
+        &_correct {
+            color: #46ae44;
+
+            border-color: #46ae44;
+        }
+
+        &_incorrect {
+            color: #f27d7d;
+
+            border-color: #f27d7d;
+        }
+    }
+}

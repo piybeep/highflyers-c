@@ -1,12 +1,11 @@
-import { LearningHeader, LearningList } from "@/modules";
+import { LearningHeader, LearningList } from '@/modules';
 
-import s from './page.module.scss'
+import s from './page.module.scss';
 
-import { dataLearning } from "@/constants/data";
+import { dataLearning } from '@/constants/data';
 
 export default function page() {
-
-    const data = dataLearning
+    const data = dataLearning;
 
     return (
         <div className={s.wrapper}>
@@ -14,4 +13,4 @@ export default function page() {
             <LearningList data={data} />
         </div>
     );
-};
+}
