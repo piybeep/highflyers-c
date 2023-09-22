@@ -1,1 +1,1 @@
-export { Paralax } from './Paralax'
+export { Paralax } from './Paralax';

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { AuthButton, FormInput, Privacy } from '@/components';
 import s from './Form.module.scss';
@@ -6,19 +6,18 @@ import { Controller, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 export function Form() {
-
-    const { handleSubmit, control, reset } = useForm()
+    const { handleSubmit, control, reset } = useForm();
 
     const onSubmit = async (values: any) => {
         if (values.privacy) {
-            console.log(values)
-            toast.success('Форма успешно отправлена')
-            reset()
+            console.log(values);
+            toast.success('Форма успешно отправлена');
+            reset();
         } else {
-            toast.error('Примите политику конфиденциальности')
-            console.log(values)
+            toast.error('Примите политику конфиденциальности');
+            console.log(values);
         }
-    }
+    };
 
     return (
         <div className={s.wrapper}>
@@ -31,18 +30,28 @@ export function Form() {
                 </p>
             </div>
 
-            <form action='#' className={s.form} onSubmit={handleSubmit(onSubmit)}>
+            <form
+                action='#'
+                className={s.form}
+                onSubmit={handleSubmit(onSubmit)}
+            >
                 <div className={s.form__inputs}>
                     <Controller
                         control={control}
-                        name="name"
+                        name='name'
                         render={({ field: { onChange, value } }) => (
-                            <FormInput placeholder={'Имя'} icon={'name'} value={value ?? ''} onChange={onChange} required />
+                            <FormInput
+                                placeholder={'Имя'}
+                                icon={'name'}
+                                value={value ?? ''}
+                                onChange={onChange}
+                                required
+                            />
                         )}
                     />
                     <Controller
                         control={control}
-                        name="email"
+                        name='email'
                         render={({ field: { onChange, value } }) => (
                             <FormInput
                                 value={value ?? ''}
@@ -56,7 +65,7 @@ export function Form() {
                     />
                     <Controller
                         control={control}
-                        name="question"
+                        name='question'
                         render={({ field: { onChange, value } }) => (
                             <FormInput
                                 value={value ?? ''}
@@ -71,7 +80,7 @@ export function Form() {
                 <div className={s.form__info}>
                     <Controller
                         control={control}
-                        name="privacy"
+                        name='privacy'
                         defaultValue={false}
                         render={({ field: { onChange, value } }) => (
                             <Privacy onChange={onChange} checked={value} />
@@ -85,6 +94,6 @@ export function Form() {
                     />
                 </div>
             </form>
-        </div >
+        </div>
     );
 }

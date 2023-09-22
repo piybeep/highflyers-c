@@ -1,0 +1,1 @@
+export { SubtitleTheme } from './SubtitleTheme';

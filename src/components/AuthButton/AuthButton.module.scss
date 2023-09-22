@@ -57,7 +57,7 @@
 
         border: 1px solid #0066ff;
 
-        transition: .3s;
+        transition: 0.3s;
 
         &:hover {
             background-color: transparent;
@@ -73,6 +73,6 @@
     &__svg {
         fill: #fff;
 
-        transition: .3s;
+        transition: 0.3s;
     }
 }

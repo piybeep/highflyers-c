@@ -1,1 +1,1 @@
-export { PopupChecklists } from './PopupChecklists'
+export { PopupChecklists } from './PopupChecklists';

@@ -1,12 +1,12 @@
 export interface CHECKLISTS_LITERATULE_PROPS {
-    title: string,
-    materials: CHECKLISTS_ELEMENT[]
+    title: string;
+    materials: CHECKLISTS_ELEMENT[];
 }
 
 interface CHECKLISTS_ELEMENT {
-    title: string,
-    subtitle?: string,
-    link: string
+    title: string;
+    subtitle?: string;
+    link: string;
 }
 
 export const CHECKLISTS_LITERATULE = [
@@ -16,119 +16,117 @@ export const CHECKLISTS_LITERATULE = [
             {
                 title: 'Над пропастью во ржи',
                 subtitle: 'Джером Сэлинджер',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'В дороге',
                 subtitle: 'Джек Керуак',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Гордость и предубеждение',
                 subtitle: 'Джейн Остин',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Форрест Гамп',
                 subtitle: 'Джон Эскотт',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Приключения Шерлока Холмса',
                 subtitle: 'Артур Конан Дойль',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'По ком звонит колокол',
                 subtitle: 'Эрнест Хемингуэй',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Великий Гэтсби',
                 subtitle: 'Фрэнсис Скотт Фицджеральд',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Портрет Дориана Грея',
                 subtitle: 'Оскар Уайльд',
-                link: '#'
+                link: '#',
             },
-
-        ]
+        ],
     },
     {
         title: 'Подкасты (iTunes)',
         materials: [
             {
                 title: 'Learn English Podcasts от British Council',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Voice of America: Learning English',
-                link: '#'
+                link: '#',
             },
             {
                 title: '6-Minute English',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'The English We Speak',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Podcasts in English',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'This American Life',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Science Friday',
-                link: '#'
+                link: '#',
             },
-        ]
+        ],
     },
     {
         title: 'YotTube-каналы',
         materials: [
             {
                 title: 'Puzzle English',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Albert Kakhnovskiy',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Английский как по нотам',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Канал Ирины Шипиловой — Мовсесян',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Инглиш Шоу',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Oxana Dolinka',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Английский с TreeWords',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'Real English',
-                link: '#'
+                link: '#',
             },
             {
                 title: 'British Council: Learn English Kids',
-                link: '#'
+                link: '#',
             },
-
-        ]
-    }
-]
+        ],
+    },
+];

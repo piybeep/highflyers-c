@@ -1,9 +1,8 @@
-import { LearningList } from "@/modules";
+import { HeaderItem, LearningList } from "@/modules";
 
-import s from './page.module.scss'
+import s from './page.module.scss';
 
 import { dataLearning } from "@/constants/data";
-import { HeaderItem } from "@/modules/HeaderItem";
 
 export default function page() {
 
@@ -25,4 +24,4 @@ export default function page() {
             <LearningList data={res} />
         </div>
     );
-};
+}

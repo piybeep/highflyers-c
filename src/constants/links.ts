@@ -18,7 +18,6 @@ export const PAGES_LINK = {
     POLICY: '#',
     PERSONAL_DATA: '#',
 };
-
 export const NAVIGATION__PREVIEW = [
     {
         title: 'Обучение по карточкам',
@@ -47,7 +46,7 @@ export const NAVIGATION__PREVIEW = [
     },
     {
         title: 'Подготовка к ОГЭ/ЕГЭ',
-        href: PAGES_LINK.EXAMS,
+        href: PAGES_LINK.EGE,
         videoHref: '/video/testVideo5.mp4',
     },
 ];
@@ -107,7 +106,7 @@ export const NAVIGATION = [
         id: 5,
         text: 'ОГЭ',
         type: 'link',
-        link: PAGES_LINK.EXAMS,
+        link: PAGES_LINK.OGE,
     },
     {
         id: 6,

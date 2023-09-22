@@ -1,0 +1,1 @@
+export { CorrectParagraf } from './CorrectParagraf';

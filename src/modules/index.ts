@@ -24,11 +24,15 @@ export * from './Course';
 export * from './Questions';
 export * from './Form';
 export * from './Session';
-export * from './LearningHeader'
-export * from './LearningList'
+export * from './LearningHeader';
+export * from './LearningList';
 export * from './ArticleHeader';
 export * from './ArticleList';
 export * from './Training'
 export * from './TrainingList'
 export * from './PopupChecklists'
 export * from './LessonPlansHeader'
+export * from './HeaderExams';
+export * from './ListExams';
+export * from './HeaderItem';
+export * from './ItemExamsList';
