@@ -12,8 +12,6 @@ export default function page() {
 
     return (
         <div className={s.wrapper}>
-            {/* Потом удалить */}
-            {/* <LearningHeader/> */}
             <HeaderItem
                 data={data}
                 title={"Обучение по карточкам"}

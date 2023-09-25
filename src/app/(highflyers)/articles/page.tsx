@@ -1,6 +1,5 @@
-import { ArticleList } from '@/modules';
+import { ArticleList, HeaderItem } from '@/modules';
 import s from './page.module.scss';
-import { HeaderItem } from '@/modules/HeaderItem';
 
 export default function page() {
     const data = [
@@ -12,8 +11,6 @@ export default function page() {
 
     return (
         <div className={s.wrapper}>
-            {/* Потом удалить */}
-            {/* <ArticleHeader /> */}
             <HeaderItem
                 data={data}
                 title={'Полезные статьи'}

@@ -1,7 +1,6 @@
-import { TedTalksList } from '@/modules';
+import { HeaderItem, TedTalksList } from '@/modules';
 import s from './page.module.scss';
 import { dataTedTalks } from '@/constants';
-import { HeaderItem } from '@/modules/HeaderItem';
 
 export default function page() {
     const res = dataTedTalks;
@@ -10,8 +9,6 @@ export default function page() {
 
     return (
         <div className={s.wrapper}>
-            {/* Потом удалить */}
-            {/* <TedTalksHeader /> */}
             <HeaderItem
                 data={data}
                 title={'TedTalks'}

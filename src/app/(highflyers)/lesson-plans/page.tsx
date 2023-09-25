@@ -1,6 +1,5 @@
 import { dataLearning } from "@/constants";
-import { HeaderItem } from "@/modules/HeaderItem";
-import { LessonPlansList } from "@/modules/LessonPlansList";
+import { HeaderItem, LessonPlansList } from "@/modules";
 
 export default function page() {
 
@@ -10,8 +9,6 @@ export default function page() {
 
     return (
         <>
-            {/* Потом удалить */}
-            {/* <LessonPlansHeader /> */}
             <HeaderItem
                 data={data}
                 title={"Планы уроков"}
