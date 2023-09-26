@@ -1,1 +1,0 @@
-export { TedTalksHeader } from './TedTalksHeader';

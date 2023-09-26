@@ -1,26 +1,78 @@
-.header {
+.wrapper {
+    display: grid;
+    grid-template-areas:
+        'title description'
+        'info description';
+    row-gap: 54px;
+    column-gap: 30px;
+    justify-content: space-between;
+
+    padding: 50px;
+
+    border-radius: 18px;
+    background: #EDF8FF;
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
+}
+
+.title {
+    grid-area: title;
+
     display: flex;
     flex-direction: column;
-    row-gap: 50px;
+    row-gap: 10px;
 }
 
 .info {
-    display: flex;
-    align-items: center;
-    column-gap: 23px;
+    grid-area: info;
 
-    &__title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.description {
+    grid-area: description;
+
+    width: 100%;
+    max-width: 516px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 480px;
+
+    &__button {
+        border-radius: 38px;
+        border: 1px solid #B3B3B3;
+
+        padding: 8px 16px;
+
+        background-color: transparent;
+
         color: #252525;
         font-family: Golos UI VF;
-        font-size: 2rem;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-    }
 
-    &__list {
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
+        cursor: pointer;
+
+        user-select: none;
+
+        transition: .3s;
+
+        &_active {
+            color: #06F;
+            border-color: #06F;
+        }
     }
 }

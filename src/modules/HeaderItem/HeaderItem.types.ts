@@ -1,8 +1,8 @@
 export interface HeaderItemProps {
-    title: string;
-    tags: {
-        id: string;
-        name: string;
-        value: string;
-    }[];
+    data: string[]
+    title: string
+    subtitle?: string
+    theme?: string
+    checkbox?: string
+    text: string
 }

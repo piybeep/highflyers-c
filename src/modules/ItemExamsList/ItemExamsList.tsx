@@ -44,7 +44,13 @@ export function ItemExamsList({ tests }: { tests: ExamsTests[] }) {
                 key={test.title}
                 className={s.info__list}
             >
-                <h2 className={s.info__title}>{test.title}</h2>
+                <div className={s.info__header}>
+                    <h2 className={s.info__title}>{test.title}</h2>
+                    {
+                        test.subtitle &&
+                        <p className={s.info__subtitle}>{test.subtitle}</p>
+                    }
+                </div>
                 <div className={s.list}>
                     {test.type === 'select' &&
                         test.list.map((current) => (

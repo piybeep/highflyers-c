@@ -1,16 +1,25 @@
-import { LearningHeader, LearningList } from '@/modules';
+import { HeaderItem, LearningList } from "@/modules";
 
 import s from './page.module.scss';
 
-import { dataLearning } from '@/constants/data';
+import { dataLearning } from "@/constants/data";
 
 export default function page() {
-    const data = dataLearning;
+
+    const res = dataLearning
+
+    const data = ['A1', 'A2', 'A3', 'B1', 'B2', 'C1', 'C2']
 
     return (
         <div className={s.wrapper}>
-            <LearningHeader />
-            <LearningList data={data} />
+            <HeaderItem
+                data={data}
+                title={"Обучение по карточкам"}
+                theme="Выбор уровня"
+                checkbox="Показать доступные"
+                text={"На компьютере, телефоне или любом другом устройстве - смотрите обучающие карточки, изучайте информацию, учите английский в том месте и в том темпе, в котором вам удобно."}
+            />
+            <LearningList data={res} />
         </div>
     );
 }
