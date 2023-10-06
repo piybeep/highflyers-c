@@ -10,6 +10,7 @@ export function CardCheck({
     youtube,
     iTunes,
     books,
+    open,
 }: CardCheckProps) {
     return (
         <MaterialLayout>
@@ -47,9 +48,9 @@ export function CardCheck({
                         </p>
                     )}
                 </div>
-                <Link className={s.button} href={'#'}>
+                <button className={s.button} onClick={() => open()}>
                     Открыть
-                </Link>
+                </button>
             </div>
         </MaterialLayout>
     );

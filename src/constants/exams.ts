@@ -103,7 +103,6 @@ export const itemExams: ExamsItem = {
         {
             type: 'select',
             title: 'Exercise 2. Multiple-choice exercise. Choose the correct one.',
-            subtitle: 'test subtitle',
             list: [
                 {
                     id: '1',
@@ -210,7 +209,7 @@ export const itemExams: ExamsItem = {
         },
 
         {
-            type: 'text',
+            type: 'insert',
             title: 'Exercise 4. Multiple-choice exercise. Choose the correct one.',
             list: [
                 {
@@ -249,6 +248,26 @@ export const itemExams: ExamsItem = {
                             text: `English is becoming the world's universal language and is used in various fields such as finance, air traffic control, popular music, and diplomacy.`,
                         },
                     ],
+                },
+            ],
+        },
+
+        {
+            type: 'text',
+            title: 'Exercise 5. Read the dialogue. Mind the words from the previous exercise. Create your own dialogue with the targeted vocabulary.',
+            topic: 'Learning English at a language school',
+            list: [
+                {
+                    id: '1test',
+                    question: `Teacher: Good morning class, welcome to our English lesson. Today we'll be talking about the target vocabulary of learning a new language.`,
+                    isSeveral: false,
+                    answer: [],
+                },
+                {
+                    id: '1test',
+                    question: `Student 1: Excuse me teacher, what do you mean by "universal language"?`,
+                    isSeveral: false,
+                    answer: [],
                 },
             ],
         },

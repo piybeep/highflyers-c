@@ -6,7 +6,7 @@ import { CardTedTalksProps } from './CardTedTalks.types';
 
 export function CardTedTalks({ video, title, time, link }: CardTedTalksProps) {
     return (
-        <Link href={link} className={s.wrapper}>
+        <Link href={`/tedtalks/${link}`} className={s.wrapper}>
             <Image
                 className={s.img}
                 src={video}
