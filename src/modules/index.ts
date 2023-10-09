@@ -34,3 +34,6 @@ export * from './HeaderItem';
 export * from './ItemExamsList';
 export * from './ItemNavigation'
 export * from './LessonPlansList'
+export * from './PopupFreeContent'
+export * from './PopupNewPay'
+export * from './PopupDeleteAccount'

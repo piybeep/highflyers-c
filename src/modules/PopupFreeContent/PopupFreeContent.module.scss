@@ -1,0 +1,53 @@
+.wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba($color: #000000, $alpha: .7);
+
+    z-index: 99;
+
+    transition: .3s;
+
+    visibility: hidden;
+    opacity: 0;
+
+    &__open {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 25px;
+
+    padding: 20px 25px;
+
+    width: 100%;
+    max-width: 460px;
+
+    border-radius: 10px;
+    background-color: #FFF;
+
+    &__text {
+        color: #252525;
+        text-align: center;
+        font-variant-numeric: lining-nums proportional-nums;
+
+        font-family: Golos UI VF;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+}

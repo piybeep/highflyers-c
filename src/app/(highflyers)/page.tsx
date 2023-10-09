@@ -1,8 +1,13 @@
+'use client'
+
 import { MATERIALS_LIST } from '@/constants';
 import {
     Course,
     Form,
     Lessons,
+    PopupDeleteAccount,
+    PopupFreeContent,
+    PopupNewPay,
     Preview,
     Questions,
     Showcase,
@@ -18,7 +23,6 @@ export const metadata = {
 
 export default function Home() {
     const res = MATERIALS_LIST;
-
     return (
         <main className={s.wrapper}>
             <Preview />
@@ -29,6 +33,9 @@ export default function Home() {
             <Questions />
             <Showcase materials={res} />
             <Form />
+            <PopupFreeContent />
+            <PopupNewPay />
+            <PopupDeleteAccount />
         </main>
     );
 }
