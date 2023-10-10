@@ -12,7 +12,7 @@ export function PopupNewPay() {
     const router = useRouter()
     const pathname = usePathname()
 
-    const open = searchParams.get('popupNewPay') === 'open' ? true : false
+    const open = searchParams.get('popupNewPay') === 'open'
 
     useEffect(() => {
         open

@@ -11,7 +11,7 @@ export function PopupDeleteAccount() {
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const router = useRouter()
-    const open = searchParams.get('popupDeleteAccount') === 'open' ? true : false
+    const open = searchParams.get('popupDeleteAccount') === 'open'
 
     useEffect(() => {
         open

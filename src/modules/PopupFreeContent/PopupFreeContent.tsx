@@ -7,8 +7,8 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
 export function PopupFreeContent() {
-    const searchParams = useSearchParams()!;
-    const open = searchParams.get('popupFreeContent') === 'open' ? true : false
+    const searchParams = useSearchParams()
+    const open = searchParams.get('popupFreeContent') === 'open'
 
     useEffect(() => {
         open
