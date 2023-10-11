@@ -5,6 +5,7 @@ import { Fragment, useEffect, useState } from 'react';
 import s from './TestText.module.scss';
 import { TestLayout } from '@/layout';
 import { TestTextProps } from './TestText.types';
+import classNames from 'classnames';
 
 interface inputsStateProps {
     textUser: string;
@@ -51,9 +52,10 @@ export function TestText({
                         {questionArray.length - 1 != index && (
                             <span className={s.question__container}>
                                 <input
-                                    placeholder='Test'
                                     disabled={isShow}
-                                    className={s.question__input}
+                                    className={classNames(s.question__input, {
+                                        [s.question__input_written]: value[index].textUser
+                                    })}
                                     onChange={(e) => {
                                         handleChangeInput(
                                             index,
@@ -65,7 +67,9 @@ export function TestText({
                                     required
                                     type='text'
                                 />
-                                <span className={s.question__span}>
+                                <span className={classNames(s.question__span, {
+                                    [s.question__input_written]: value[index].textUser
+                                })}>
                                     ({index + 1})
                                 </span>
                             </span>

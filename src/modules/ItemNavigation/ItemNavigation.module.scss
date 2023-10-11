@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     row-gap: 50px;
+
+    width: 100%;
+    max-width: 1420px;
+
+    margin: 0 auto;
 }
 
 .info {

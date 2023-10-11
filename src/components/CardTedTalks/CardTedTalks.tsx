@@ -3,10 +3,11 @@ import Link from 'next/link';
 
 import s from './CardTedTalks.module.scss';
 import { CardTedTalksProps } from './CardTedTalks.types';
+import { PAGES_LINK } from '@/constants';
 
 export function CardTedTalks({ video, title, time, link }: CardTedTalksProps) {
     return (
-        <Link href={link} className={s.wrapper}>
+        <Link href={PAGES_LINK.TEDTALKS + `/${link}`} className={s.wrapper}>
             <Image
                 className={s.img}
                 src={video}

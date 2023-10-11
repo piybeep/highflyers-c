@@ -57,10 +57,6 @@
             background-color: transparent;
         }
 
-        &::placeholder {
-            color: transparent;
-        }
-
         &:hover {
             border-color: #b3b3b3;
 
@@ -77,12 +73,9 @@
             }
         }
 
-        &:not(:placeholder-shown) {
+        &_written {
             border-color: #4f86ec;
-
-            +.question__span {
-                color: #4f86ec;
-            }
+            color: #4f86ec;
         }
     }
 }

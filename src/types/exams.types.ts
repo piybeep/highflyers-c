@@ -7,7 +7,7 @@ export interface ExamsItem {
 
 export interface ExamsTests {
     title: string;
-    subtitle?: string
+    topic?: string
     type: 'select' | 'insert' | 'question' | 'text';
     list: Test[];
 }

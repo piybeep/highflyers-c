@@ -27,7 +27,7 @@ export function TedTalksList({ data }: { data: TedTalksProps[] }) {
                                     video={current.preview}
                                     title={current.name}
                                     time={current.read_time}
-                                    link={'#'}
+                                    link={current.id}
                                 />
                             ))}
                         </div>
