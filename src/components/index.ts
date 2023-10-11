@@ -35,3 +35,4 @@ export * from './CorrectParagraf';
 export * from './TestChoose';
 export * from './TestText';
 export * from './TestQuestion';
+export * from './CardText'

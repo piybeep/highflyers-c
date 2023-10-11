@@ -2,6 +2,7 @@
 
 import {
     ButtonShow,
+    CardText,
     CorrectParagraf,
     ExamsTest,
     RestartButton,
@@ -47,8 +48,8 @@ export function ItemExamsList({ tests }: { tests: ExamsTests[] }) {
                 <div className={s.info__header}>
                     <h2 className={s.info__title}>{test.title}</h2>
                     {
-                        test.subtitle &&
-                        <p className={s.info__subtitle}>{test.subtitle}</p>
+                        test.topic &&
+                        <p className={s.info__subtitle}>Topic: {test.topic}</p>
                     }
                 </div>
                 <div className={s.list}>
@@ -71,7 +72,7 @@ export function ItemExamsList({ tests }: { tests: ExamsTests[] }) {
                                 )}
                             />
                         ))}
-                    {test.type === 'text' &&
+                    {test.type === 'insert' &&
                         test.list.map((current) => (
                             <Controller
                                 key={current.question}
@@ -110,53 +111,45 @@ export function ItemExamsList({ tests }: { tests: ExamsTests[] }) {
                                 )}
                             />
                         ))}
-                    {/* Пока тестовый вариант выборки нескольких, не совсем рабочий
                     {
-                        test.type === 'testCheckbox' && test.list.map(current => (
-                            <Controller
-                                key={current.question}
-                                control={control}
-                                name={current.id}
-                                render={({ field: { onChange, value } }) => (
-                                    <TestChoose
-                                        isSeveral={current.isSeveral ?? false}
-                                        onChange={onChange}
-                                        isShow={isShow}
-                                        question={current.question}
-                                        answer={current.answer}
-                                        value={value} />
-                                )}
-                            />
-                        ))
-                    } 
-                    */}
-                    {test.type === 'select' ? (
-                        <div className={s.buttons}>
-                            <RestartButton
-                                onClick={() => {
-                                    reset(), setIshow(false);
-                                }}
-                                type='button'
-                                text={'Пройти заново'}
-                            />
-                            <ButtonShow type='submit' isShow={isShow} />
-                            <CorrectParagraf
-                                correctAnswer={isShow ? correctAnswer! : ''}
-                                total={test.list.length}
-                            />
+                        test.type === 'text' &&
+                        <div className={s.list__wrapper}>
+                            {
+                                test.list.map(current => (
+                                    <CardText key={current.id} question={current.question} />
+                                ))
+                            }
                         </div>
-                    ) : (
-                        <div className={s.buttons}>
-                            <RestartButton
-                                onClick={() => {
-                                    reset(), setIshow(false);
-                                }}
-                                type='button'
-                                text={'Пройти заново'}
-                            />
-                            <ButtonShow type='submit' isShow={isShow} />
-                        </div>
-                    )}
+                    }
+                    {
+                        test.type === 'select' ? (
+                            <div className={s.buttons}>
+                                <RestartButton
+                                    onClick={() => {
+                                        reset(), setIshow(false);
+                                    }}
+                                    type='button'
+                                    text={'Пройти заново'}
+                                />
+                                <ButtonShow type='submit' isShow={isShow} />
+                                <CorrectParagraf
+                                    correctAnswer={isShow ? correctAnswer! : ''}
+                                    total={test.list.length}
+                                />
+                            </div>
+                        ) : test.type != 'text' && (
+                            <div className={s.buttons}>
+                                <RestartButton
+                                    onClick={() => {
+                                        reset(), setIshow(false);
+                                    }}
+                                    type='button'
+                                    text={'Пройти заново'}
+                                />
+                                <ButtonShow type='submit' isShow={isShow} />
+                            </div>
+                        )
+                    }
                 </div>
             </form>
         );

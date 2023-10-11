@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    max-width: 1420px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+
+    margin: 100px auto auto;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 60px;
+    }
+}
+
+.title {
+    color: #252525;
+
+    font-family: Golos UI VF;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+
+    &__text {
+        list-style-type: disc;
+        list-style-position: inside;
+
+        color: #252525;
+        font-family: Golos UI VF;
+        font-size: 1.375rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 136%;
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 460px));
+    gap: 20px;
+}

@@ -4,4 +4,5 @@ export interface CardCheckProps {
     youtube?: string;
     iTunes?: string;
     books?: string;
+    open: () => void
 }

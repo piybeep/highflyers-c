@@ -34,3 +34,4 @@ export * from './HeaderItem';
 export * from './ItemExamsList';
 export * from './ItemNavigation'
 export * from './LessonPlansList'
+export * from './CheckLists'
