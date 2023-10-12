@@ -6,6 +6,7 @@ export function AuthButton({
     value,
     isOutline = false,
     size = 'default',
+    isArrow = true,
     ...props
 }: AuthButtonProps) {
     return (
@@ -16,7 +17,7 @@ export function AuthButton({
             })}
         >
             {value}
-            {isOutline && (
+            {isOutline && isArrow && (
                 <svg
                     width='14'
                     height='14'

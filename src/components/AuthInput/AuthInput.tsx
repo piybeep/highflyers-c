@@ -17,10 +17,10 @@ export function AuthInput({
             <input
                 id={placeholder}
                 className={s.input}
-                {...props}
                 required
                 placeholder={placeholder}
                 type={password ? (!isPassword ? 'password' : 'text') : 'email'}
+                {...props}
             />
             <label htmlFor={placeholder} className={s.input__text}>
                 {placeholder}

@@ -25,7 +25,11 @@
 
     color: #252525;
 
-    &:focus + .input__text {
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    &:focus+.input__text {
         bottom: 31px;
 
         font-size: 0.75rem;
@@ -40,7 +44,7 @@
         color: transparent;
     }
 
-    &:not(:placeholder-shown) + .input__text {
+    &:not(:placeholder-shown)+.input__text {
         bottom: 31px;
 
         font-size: 0.75rem;
