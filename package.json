@@ -12,7 +12,7 @@
   "dependencies": {
     "@prisma/client": "^5.4.2",
     "@react-oauth/google": "^0.11.1",
-    "@types/node": "20.8.10",
+    "@types/node": "20.9.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "18.2.14",
     "axios": "^1.5.1",
