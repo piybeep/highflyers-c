@@ -26,7 +26,7 @@ export function Showcase({ materials }: { materials: Material[] }) {
     const left = num / (sumAllCard / countServices);
     const right = sumAllChapter / lengthMaterial;
 
-    const discount = Math.round(left * right).toLocaleString();
+    const discount = Math.round(left * right).toLocaleString('ru');
 
     return (
         <div className={s.wrapper}>
@@ -47,11 +47,13 @@ export function Showcase({ materials }: { materials: Material[] }) {
                     <span className={s.info__button_span}>
                         Выгода {discount}%
                     </span>
-                    {`Приобрести все разделы за ${materials.reduce(
-                        (accumulator, currentValue) =>
-                            accumulator + currentValue.fullPrice,
-                        0,
-                    )} ₽`}
+                    {`Приобрести все разделы за ${materials
+                        .reduce(
+                            (accumulator, currentValue) =>
+                                accumulator + currentValue.fullPrice,
+                            0,
+                        )
+                        .toLocaleString('ru')} ₽`}
                 </Link>
             </div>
         </div>

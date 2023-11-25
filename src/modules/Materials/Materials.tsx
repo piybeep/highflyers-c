@@ -79,7 +79,10 @@ export function Materials({ materials }: { materials: Material[] }) {
                                         }}
                                         className={s.header__price}
                                     >
-                                        {current.priceForOne.toLocaleString()} ₽
+                                        {current.priceForOne.toLocaleString(
+                                            'ru',
+                                        )}{' '}
+                                        ₽
                                     </p>
                                 </div>
                                 <div className={s.items}>
@@ -158,7 +161,11 @@ export function Materials({ materials }: { materials: Material[] }) {
                                             s.buttons__button_chapter,
                                         )}
                                     >
-                                        Весь раздел за {current.priceForOne} ₽
+                                        Весь раздел за{' '}
+                                        {current.priceForOne.toLocaleString(
+                                            'ru',
+                                        )}{' '}
+                                        ₽
                                     </Link>
                                 ) : (
                                     <div
@@ -177,7 +184,9 @@ export function Materials({ materials }: { materials: Material[] }) {
                                             )}
                                         >
                                             Каждый чек-лист за{' '}
-                                            {current.priceForOne}
+                                            {current.priceForOne.toLocaleString(
+                                                'ru',
+                                            )}
                                         </Link>
                                         <Link
                                             href={{ pathname: PAGES_LINK.BUY }}
@@ -198,10 +207,14 @@ export function Materials({ materials }: { materials: Material[] }) {
                                                         current.priceForOne) *
                                                         (current.fullPrice /
                                                             current.total),
-                                                )}{' '}
+                                                ).toLocaleString('ru')}{' '}
                                                 %
                                             </span>
-                                            Весь раздел за {current.fullPrice} ₽
+                                            Весь раздел за{' '}
+                                            {current.fullPrice.toLocaleString(
+                                                'ru',
+                                            )}{' '}
+                                            ₽
                                         </Link>
                                     </div>
                                 )}

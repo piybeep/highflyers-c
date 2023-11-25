@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { MATERIALS_LIST } from '@/constants';
 import {
@@ -16,10 +16,6 @@ import {
 } from '@/modules';
 
 import s from './page.module.scss';
-
-export const metadata = {
-    title: 'Highflyers - школа английского языка',
-};
 
 export default function Home() {
     const res = MATERIALS_LIST;
