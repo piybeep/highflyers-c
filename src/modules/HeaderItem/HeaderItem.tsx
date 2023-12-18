@@ -16,9 +16,11 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
             key={current}
             text={current}
             isActive={searchParams.get('list')?.includes(current) ? true : false}
-            onClick={() => pushQueryString(current)}
+            onClick={() => pushQueryString(current, 'list')}
         />
     ))
+
+    let checkboxValue = Boolean(searchParams.get('checkbox')?.replace(',', ''))
 
     return (
         <div className={s.wrapper}>
@@ -36,7 +38,10 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
                 }
                 {
                     checkbox &&
-                    <HeaderCheckbox text={checkbox} />
+                    <HeaderCheckbox
+                        checked={checkboxValue}
+                        onClick={() => pushQueryString('true', 'checkbox')}
+                        text={checkbox} />
                 }
                 <div className={s.list}>
                     {resultData}

@@ -20,14 +20,16 @@ export const useMutateQuery = () => {
         [searchParams],
     );
 
-    const pushQueryString = (currentValue: string) => {
+    // const pushQueryString = (currentValue: string) => {
+    const pushQueryString = (currentValue: string, name: string) => {
         router.push(
             pathname +
-                '?' +
-                mutateQueryString({
-                    name: 'list',
-                    value: currentValue,
-                }),
+            '?' +
+            mutateQueryString({
+                // name: 'list',
+                name: name,
+                value: currentValue,
+            }),
             { scroll: false },
         );
     };

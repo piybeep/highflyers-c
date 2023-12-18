@@ -1,13 +1,16 @@
 export interface LessonPlansListProps {
-    id: string
-    title: string
-    available: boolean
+    isFree: boolean,
+    level: string,
     materials: ElementLessonPlansListProps[]
 }
 
 export interface ElementLessonPlansListProps {
-    id: string
-    title: string
-    time: string
-    img: string
+    isFree: boolean
+    level: string
+    name: string
+    time: number
+    img: {
+        url: string
+    }
+    source: string
 }
