@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 
 import s from './HeaderItem.module.scss'
 import { HeaderItemProps } from './HeaderItem.types';
+import { useEffect } from 'react';
 
 export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: HeaderItemProps) {
     const searchParams = useSearchParams()
@@ -19,6 +20,13 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
             onClick={() => pushQueryString(current, 'list')}
         />
     ))
+
+    useEffect(() => {
+        if (!data.includes(searchParams.get('list')!)) {
+            const notExistLevel = data.filter(level => searchParams.get('list')?.includes(level)).join(',')
+            pushQueryString(notExistLevel, 'list', true)
+        }
+    }, [resultData])
 
     let checkboxValue = Boolean(searchParams.get('checkbox')?.replace(',', ''))
 

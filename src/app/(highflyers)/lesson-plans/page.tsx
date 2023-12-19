@@ -12,8 +12,8 @@ export default async function page({ searchParams }: { searchParams: any }) {
         searchParams.list
             .split(',')
             .filter((level: string) => level != '')
-            .map((level: string) => 'filters[level][$in]=' + level + '&')
-            .join('')
+            .map((level: string) => 'filters[level][$in]=' + level)
+            .join('&')
     // Вывод значений А1, А2, и.т.д 
 
     // Запрос к базе для взятия нужных нам карточек, и есть сортировка отдельно чекбокса и отдельно значений из listValues
