@@ -57,30 +57,30 @@ export const NAVIGATION = [
         text: 'Обучение',
         type: 'list',
         link: PAGES_LINK.LEARNING,
-        level: [
+        levels: [
             {
                 id: 0,
-                text: 'a1',
+                text: 'A1',
             },
             {
                 id: 1,
-                text: 'a2',
+                text: 'A2',
             },
             {
                 id: 2,
-                text: 'b1',
+                text: 'B1',
             },
             {
                 id: 3,
-                text: 'b2',
+                text: 'B2',
             },
             {
                 id: 4,
-                text: 'c1',
+                text: 'C1',
             },
             {
                 id: 5,
-                text: 'c2',
+                text: 'C2',
             },
         ],
     },

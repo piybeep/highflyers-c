@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { MaterialLayout } from '@/layout';
 
-export function CardPlans({ name, free, time, img }: CardPlansProps) {
+export function CardPlans({ name, free, time, img, source }: CardPlansProps) {
     return (
         <MaterialLayout>
             <div className={s.wrapper}>
@@ -21,7 +21,7 @@ export function CardPlans({ name, free, time, img }: CardPlansProps) {
                             {free ? 'Бесплатно' : 'Доступно'}
                         </p>
                     )}
-                    <Link href={'#'} className={s.info__button}>
+                    <Link href={source} target='_blank' className={s.info__button}>
                         Читать
                     </Link>
                 </div>

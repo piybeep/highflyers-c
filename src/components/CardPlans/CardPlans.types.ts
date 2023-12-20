@@ -4,4 +4,5 @@ export interface CardPlansProps {
     free: boolean;
     time: string;
     img: string;
+    source: string
 }

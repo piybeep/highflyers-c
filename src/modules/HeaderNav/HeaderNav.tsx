@@ -55,7 +55,7 @@ export function HeaderNav() {
                         <div className={s.info}>
                             <h2 className={s.info__header}>уровень</h2>
                             <div className={s.info__list}>
-                                {menu_item.level?.map((list_item, index) =>
+                                {menu_item.levels?.map((list_item, index) =>
                                     index % 2 != 0 ? (
                                         <div
                                             key={list_item.text}
@@ -65,7 +65,7 @@ export function HeaderNav() {
                                                 className={s.info__link}
                                                 href={{
                                                     query: {
-                                                        level: list_item.text,
+                                                        list: list_item.text,
                                                     },
                                                     pathname: menu_item.link,
                                                 }}
@@ -92,7 +92,7 @@ export function HeaderNav() {
                                             className={s.info__link}
                                             href={{
                                                 query: {
-                                                    level: list_item.text,
+                                                    list: list_item.text,
                                                 },
                                                 pathname: menu_item.link,
                                             }}

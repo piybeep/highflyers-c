@@ -39,6 +39,7 @@ export function LessonPlansList({ data, levels }: { data: ElementLessonPlansList
                                         free={current.isFree}
                                         time={preparedTime(current.time)}
                                         img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
+                                        source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
                                     />
                                 ))
                             }

@@ -12,5 +12,7 @@ export interface ElementLessonPlansListProps {
     img: {
         url: string
     }
-    source: string
+    source: {
+        url: string
+    }
 }
