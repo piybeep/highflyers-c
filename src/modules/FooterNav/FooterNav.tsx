@@ -43,12 +43,12 @@ export function FooterNav() {
                             {menu_item.text}
                         </Link>
                         <div className={s.list}>
-                            {menu_item.level?.map((list_item) => (
+                            {menu_item.levels?.map((list_item) => (
                                 <Link
                                     key={list_item.text}
                                     className={s.list__link}
                                     href={{
-                                        query: { level: list_item.text },
+                                        query: { list: list_item.text },
                                         pathname: menu_item.link,
                                     }}
                                 >
