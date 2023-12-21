@@ -9,6 +9,7 @@ import { AuthInputProps } from './AuthInput.types';
 export function AuthInput({
     placeholder,
     password = false,
+    isText = false,
     ...props
 }: AuthInputProps) {
     const [isPassword, setIsPassword] = useState(false);
@@ -19,7 +20,7 @@ export function AuthInput({
                 className={s.input}
                 required
                 placeholder={placeholder}
-                type={password ? (!isPassword ? 'password' : 'text') : 'email'}
+                type={isText ? 'text' : password ? (!isPassword ? 'password' : 'text') : 'email'}
                 {...props}
             />
             <label htmlFor={placeholder} className={s.input__text}>

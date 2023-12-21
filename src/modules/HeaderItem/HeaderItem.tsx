@@ -21,14 +21,15 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
         />
     ))
 
+    let checkboxValue = Boolean(searchParams.get('checkbox')?.replace(',', ''))
+
     useEffect(() => {
         if (!data.includes(searchParams.get('list')!)) {
             const notExistLevel = data.filter(level => searchParams.get('list')?.includes(level)).join(',')
             pushQueryString(notExistLevel, 'list', true)
         }
-    }, [resultData])
+    }, [checkboxValue])
 
-    let checkboxValue = Boolean(searchParams.get('checkbox')?.replace(',', ''))
 
     return (
         <div className={s.wrapper}>

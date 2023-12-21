@@ -5,9 +5,9 @@ import s from './LearningList.module.scss';
 import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
 
-export function LearningList({ data, levels }: { data: ElementLearningProps[], levels: string[] }) {
+export function LearningList({ data, levels, userLevels }: { data: ElementLearningProps[], levels: string[], userLevels?: string[] }) {
     const dataCards = levels.map((level: string) => ({
-        isFree: data.filter(card => card.level === level).every(i => i.isFree),
+        isFree: userLevels?.includes(level),
         level: level,
         cardsList: data.filter(card => card.level === level)
     }))
@@ -31,15 +31,15 @@ export function LearningList({ data, levels }: { data: ElementLearningProps[], l
                             )}
                         </div>
                         <div className={s.list}>
-                            {current.cardsList.map((current, index) => (
+                            {current.cardsList.map((card, index) => (
                                 <CardPlans
-                                    source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
+                                    source={process.env.NEXT_PUBLIC_STATIC + card.source.url}
                                     key={index}
                                     id={String(index)}
-                                    name={current.title}
-                                    free={current.isFree}
-                                    time={preparedTime(current.time)}
-                                    img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
+                                    name={card.title}
+                                    free={card.isFree}
+                                    time={preparedTime(card.time)}
+                                    img={process.env.NEXT_PUBLIC_STATIC + card.img.url}
                                 />
                             ))}
                         </div>

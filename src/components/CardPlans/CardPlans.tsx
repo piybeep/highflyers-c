@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { MaterialLayout } from '@/layout';
 
-export function CardPlans({ name, free, time, img, source }: CardPlansProps) {
+export function CardPlans({ name, free, time, img, source, isBuy = false }: CardPlansProps) {
     return (
         <MaterialLayout>
             <div className={s.wrapper}>
                 <div className={s.info}>
                     <h2 className={s.info__title}>{name}</h2>
                     <p className={s.info__time}>{time}</p>
-                    {free && (
+                    {(free || isBuy) && (
                         <p
                             className={classNames(s.info__status, {
                                 [s.info__status_free]: free,

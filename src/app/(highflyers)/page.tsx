@@ -1,5 +1,3 @@
-'use client';
-
 import { MATERIALS_LIST } from '@/constants';
 import {
     Course,
@@ -17,7 +15,7 @@ import {
 
 import s from './page.module.scss';
 
-export default function Home() {
+export default async function Home() {
     const res = MATERIALS_LIST;
     return (
         <main className={s.wrapper}>

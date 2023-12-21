@@ -5,8 +5,10 @@ export interface LessonPlansListProps {
 }
 
 export interface ElementLessonPlansListProps {
+    id: number
     isFree: boolean
     level: string
+    isBuy?: boolean
     name: string
     time: number
     img: {

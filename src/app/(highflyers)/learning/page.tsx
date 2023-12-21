@@ -4,6 +4,7 @@ import { HeaderItem, LearningList } from "@/modules";
 import s from './page.module.scss';
 
 import api from "@/utils/api";
+import { useUser } from "@/store";
 
 export default async function page({ searchParams }: { searchParams: any }) {
 
@@ -33,6 +34,10 @@ export default async function page({ searchParams }: { searchParams: any }) {
             .sort((a: string, b: string) => a.localeCompare(b)))
     // Взятие всех существующих level-ов из базы
 
+    // Взятие level-ов у пользователя
+    const userLevels = useUser.getState().user?.level
+    // Взятие level-ов у пользователя
+
     return (
         <div className={s.wrapper}>
             <HeaderItem
@@ -42,7 +47,10 @@ export default async function page({ searchParams }: { searchParams: any }) {
                 checkbox="Показать доступные"
                 text={"На компьютере, телефоне или любом другом устройстве - смотрите обучающие карточки, изучайте информацию, учите английский в том месте и в том темпе, в котором вам удобно."}
             />
-            <LearningList levels={dataCardsLevels} data={dataCardsFilters} />
+            <LearningList
+                userLevels={userLevels}
+                levels={dataCardsLevels}
+                data={dataCardsFilters} />
         </div>
     );
 }
