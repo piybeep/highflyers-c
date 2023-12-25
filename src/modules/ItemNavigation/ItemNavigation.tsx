@@ -5,7 +5,7 @@ import s from './ItemNavigation.module.scss'
 import { ButtonBack } from "@/components";
 import { useRouter } from "next/navigation";
 
-export function ItemNavigation({ title, tags }: ItemNavigationProps) {
+export function ItemNavigation({ title, tags, text }: ItemNavigationProps) {
     const router = useRouter()
     return (
         <div className={s.wrapper}>
@@ -20,6 +20,7 @@ export function ItemNavigation({ title, tags }: ItemNavigationProps) {
                     }
                 </div>
             </div>
+            <h2 className={s.info__text}>{text}</h2>
         </div>
     );
 };

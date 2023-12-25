@@ -1,5 +1,6 @@
 export interface CardArticleProps {
-    id: string;
+    id: number;
+    href: string
     name: string;
     description: string;
 }

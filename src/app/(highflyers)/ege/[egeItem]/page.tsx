@@ -5,7 +5,7 @@ export default function egeItem() {
     const res = itemExams;
     return (
         <>
-            <ItemNavigation title={res.name} tags={res.tags} />
+            <ItemNavigation title={res.name} tags={res.tags} text={'test'} />
             <ItemExamsList tests={res.tests} />
         </>
     );
