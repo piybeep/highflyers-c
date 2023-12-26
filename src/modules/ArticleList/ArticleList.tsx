@@ -5,13 +5,10 @@ import s from './ArticleList.module.scss';
 import { ArticleProps } from '@/types';
 
 export function ArticleList({ articlesData, articlesThemes }: { articlesData: ArticleProps[], articlesThemes: string[] }) {
-    const articlesDataType = articlesData.map(i => i?.article_type?.type ? i : { ...i, article_type: { type: 'Другое' } })
     const dataFilter = articlesThemes.map((theme: string) => ({
-        theme: theme ?? 'Другое',
-        materials: articlesDataType.filter(article => article?.article_type?.type === theme)
+        theme: theme,
+        materials: articlesData.filter(article => article?.article_type?.type === theme)
     })).filter(item => Object.keys(item.materials).length !== 0)
-
-    console.log(articlesData)
 
     return (
         <div className={s.list}>

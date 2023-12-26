@@ -7,22 +7,22 @@ export default async function page({ searchParams }: { searchParams: any }) {
         searchParams.list
             .split(',')
             .filter((theme: string) => theme != '')
-            .map((theme: string) => theme === 'Другое' ? 'filters[article_type][type][$in]=null' : 'filters[article_type][type][$in]=' + theme)
+            .map((theme: string) => 'filters[article_type][type][$in]=' + theme)
             .join('&')
 
     const [resArticles, resArticlesThemes] = await Promise.all([
         // Взятие карточек
-        api.get(`articles?populate=*&${listValues}`).then(res => res.data.data),
+        api.get(`articles?populate=*&${listValues}`).then(res => res.data.data.filter((item: any) => item.article_type != null)),
         // Взятие карточек
 
         // Взятие тем у карточек
         api.get(`articles?populate=*`).then(res => res.data.data
-            .map((i: any) => i.article_type?.type ?? 'Другое')
+            .filter((i: any) => i.article_type != null)
+            .map((i: any) => i.article_type?.type)
             .filter((item: any, pos: any, self: string | any[]) => self.indexOf(item) == pos))
         // Взятие тем у карточек
     ])
 
-    console.log(listValues)
     return (
         <div className={s.wrapper}>
             <HeaderItem
