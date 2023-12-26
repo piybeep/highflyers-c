@@ -13,11 +13,12 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    await apiAuth.get(`users/me?populate=*`)
-        .then(res => {
-            useUser.setState({ user: res.data })
-        })
-        .catch(error => console.error(error))
+    // Всё так же не работает
+    // await apiAuth.get(`users/me?populate=*`)
+    //     .then(res => {
+    //         useUser.setState({ user: res.data })
+    //     })
+    //     .catch(error => console.error(error))
     return (
         <html lang='ru'>
             <body>
