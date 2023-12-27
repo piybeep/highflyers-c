@@ -14,9 +14,24 @@ export function Input({
     isEdit = false,
     inputType = 'text',
     className,
+    submit,
+    isDisable,
+    isError,
+    setIsDisable,
+    isFormValidate,
     ...props
 }: InputProps) {
     const [isType, setIsType] = useState(!isPassword);
+
+    // Проверка было ли отключено поле для ввода или нет и отправить запрос
+    const handleSubmitForm = () => {
+        if (!isDisable) {
+            isFormValidate && setIsDisable(true)
+            submit()
+        } else {
+            setIsDisable(false)
+        }
+    }
 
     return (
         <div className={classNames(s.wrapper, s[`wrapper__${className}`])}>
@@ -32,7 +47,10 @@ export function Input({
                     <input
                         className={classNames(s.input, {
                             [s.input__bordered]: isBordered,
+                            [s.input__bordered_error]: isError
                         })}
+                        {...props}
+                        disabled={isDisable}
                         placeholder={placeholder}
                         type={
                             isPassword
@@ -82,7 +100,9 @@ export function Input({
                         />
                     </svg>
                 </div>
-                <div
+                <button
+                    type='button'
+                    onClick={() => handleSubmitForm()}
                     className={classNames(s.edit, {
                         [s.edit__none]: isEdit,
                     })}
@@ -103,7 +123,7 @@ export function Input({
                             fill='#666666'
                         />
                     </svg>
-                </div>
+                </button>
             </div>
         </div>
     );

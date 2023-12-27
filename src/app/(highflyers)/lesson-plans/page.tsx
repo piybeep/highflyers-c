@@ -18,7 +18,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             .join('&')
     // Вывод значений А1, А2, и.т.д 
 
-    const [lessonPlansData, lessonPlansLevels, userLessonPlansId] = await Promise.all([
+    const [lessonPlansData, lessonPlansLevels, user] = await Promise.all([
         // // Запрос к базе для взятия нужных нам карточек, и есть сортировка отдельно чекбокса и отдельно значений из listValues
         api.get(`lesson-plans?populate=*&${checkboxValue && 'filters[isFree][$eq]=true'}&${listValues}`).then(res => res.data.data),
         // // Запрос к базе для взятия нужных нам карточек, и есть сортировка отдельно чекбокса и отдельно значений из listValues
@@ -27,8 +27,14 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
         api.get(`lesson-plans?${checkboxValue && 'filters[isFree][$eq]=true'}`).then(res => res.data.data),
         // // Запрос к базе для взятия всех level-ов у карточек
 
-        apiAuth.get(`users/me?populate=*`).then(res => res.data.lesson_plans.map((i: any) => i.id))
+        // Запрос на взятие пользователя
+        apiAuth.get(`users/me?populate=*`).then(res => res.data)
+        // Запрос на взятие пользователя
     ])
+
+    const userLessonPlansId = user.lesson_plans.map((i: any) => i.id)
+
+    console.log(user.lesson_plans)
 
     const levels = lessonPlansLevels
         .map((i: any) => i.level)
@@ -36,7 +42,6 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
         .sort((a: string, b: string) => a.localeCompare(b))
     // Запрос к базе для взятия всех level-ов у карточек
 
-    console.log(userLessonPlansId)
     return (
         <>
             <HeaderItem
@@ -50,7 +55,8 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             <LessonPlansList
                 userLessonPlansId={userLessonPlansId}
                 levels={levels}
-                data={lessonPlansData} />
+                data={lessonPlansData}
+            />
         </>
     );
 };

@@ -6,4 +6,9 @@ export interface InputProps extends ComponentProps<'input'> {
     isBordered?: boolean;
     isEdit?: boolean;
     inputType?: string;
+    isDisable: boolean;
+    setIsDisable: (value: boolean) => void
+    submit: () => void;
+    isError: boolean;
+    isFormValidate: boolean
 }

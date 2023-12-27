@@ -1,6 +1,7 @@
 import { MATERIALS_LIST } from '@/constants';
 
 import { Profile } from '@/modules';
+import apiAuth from '@/utils/apiAuth';
 
 export const metadata = {
     title: 'Профиль - Higthflyers',
@@ -10,9 +11,11 @@ export const metadata = {
 export default async function page() {
     const res = await MATERIALS_LIST;
 
+    const userData = await apiAuth.get(`users/me`).then(res => res.data)
+
     return (
         <>
-            <Profile materials={res} />
+            <Profile user={userData} materials={res} />
         </>
     );
 }
