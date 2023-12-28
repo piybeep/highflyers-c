@@ -9,7 +9,7 @@ import { HeaderNav } from '@/modules';
 import { PAGES_LINK } from '@/constants';
 import Link from 'next/link';
 
-export function Header() {
+export function Header({ isAuth }: { isAuth: boolean }) {
     return (
         <header className={s.wrapper}>
             <div className={s.info}>
@@ -38,7 +38,7 @@ export function Header() {
                 </div>
             </div>
             <div className={s.nav}>
-                <HeaderNav />
+                <HeaderNav isAuth={isAuth} />
             </div>
         </header>
     );

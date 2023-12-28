@@ -1,3 +1,5 @@
+'use client'
+
 import { AuthButton, PopupLayout } from '@/components';
 
 import s from './RemoveProfile.module.scss';
@@ -9,11 +11,11 @@ import { getCookie } from 'cookies-next';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
-export async function RemoveProfile({ id }: { id: number }) {
+export function RemoveProfile({ id }: { id: number }) {
     const router = useRouter()
-    const handleRemoveAccount = () => {
+    const handleRemoveAccount = async () => {
         const token = getCookie('token')
-        axios.delete(`${process.env.NEXT_PUBLIC_HOST}users/${id}`, {
+        await axios.delete(`${process.env.NEXT_PUBLIC_HOST}users/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

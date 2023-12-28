@@ -9,12 +9,10 @@ import { NAVIGATION, PAGES_LINK } from '@/constants';
 
 import s from './HeaderNav.module.scss';
 
-export function HeaderNav() {
-    const status = useUser((state) => state.status);
-
+export function HeaderNav({ isAuth }: { isAuth: boolean }) {
     return (
         <div className={s.menu}>
-            {status === 'authenticated' ? (
+            {isAuth ? (
                 <Link href={PAGES_LINK.MY_MATERIALS} className={s.menu__link}>
                     Мои материалы
                 </Link>
@@ -108,7 +106,7 @@ export function HeaderNav() {
             )}
             <Link
                 href={
-                    status === 'authenticated'
+                    isAuth
                         ? PAGES_LINK.PROFILE
                         : PAGES_LINK.LOGIN
                 }

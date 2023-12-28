@@ -10,6 +10,7 @@ export function AuthInput({
     placeholder,
     password = false,
     isText = false,
+    isError,
     ...props
 }: AuthInputProps) {
     const [isPassword, setIsPassword] = useState(false);
@@ -17,7 +18,9 @@ export function AuthInput({
         <div className={s.wrapper}>
             <input
                 id={placeholder}
-                className={s.input}
+                className={classNames(s.input, {
+                    [s.input__error]: isError
+                })}
                 required
                 placeholder={placeholder}
                 type={isText ? 'text' : password ? (!isPassword ? 'password' : 'text') : 'email'}

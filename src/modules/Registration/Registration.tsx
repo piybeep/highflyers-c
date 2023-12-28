@@ -18,7 +18,15 @@ import { PAGES_LINK } from '@/constants';
 import { setCookie } from 'cookies-next';
 
 export function Registration() {
-    const { control, handleSubmit, reset } = useForm();
+    const { control, handleSubmit, reset, formState: { errors } } = useForm({
+        defaultValues: {
+            lastName: '',
+            name: '',
+            email: '',
+            password: '',
+            checkbox: false
+        }
+    });
 
     const { setUser } = useUser();
 
@@ -56,9 +64,25 @@ export function Registration() {
             <div className={s.form__header}>
                 <AuthTitle value={'Зарегистрироваться'} />
                 <AuthAccount />
-                <AuthGoogle />
+                {/* <AuthGoogle /> */}
             </div>
             <div className={s.form__info}>
+                <Controller
+                    render={({ field: { onChange, value } }) => (
+                        <AuthInput
+                            name='lastName'
+                            placeholder={'Фамилия'}
+                            isText
+                            onChange={onChange}
+                            value={value}
+                            isError={!!errors.lastName}
+                        />
+                    )}
+                    name='lastName'
+                    control={control}
+                    defaultValue=''
+                    rules={{ minLength: 3 }}
+                />
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
@@ -67,11 +91,13 @@ export function Registration() {
                             isText
                             onChange={onChange}
                             value={value}
+                            isError={!!errors.name}
                         />
                     )}
                     name='name'
                     control={control}
                     defaultValue=''
+                    rules={{ minLength: 3 }}
                 />
                 <Controller
                     render={({ field: { onChange, value } }) => (
@@ -80,6 +106,7 @@ export function Registration() {
                             placeholder={'Почта'}
                             onChange={onChange}
                             value={value}
+                            isError={!!errors.email}
                         />
                     )}
                     name='email'
@@ -94,6 +121,7 @@ export function Registration() {
                             password
                             onChange={onChange}
                             value={value}
+                            isError={!!errors.password}
                         />
                     )}
                     name='password'
@@ -105,7 +133,7 @@ export function Registration() {
                     control={control}
                     defaultValue={false}
                     render={({ field: { value, onChange } }) => (
-                        <Privacy name='checkbox' value={value} onChange={onChange} />
+                        <Privacy name='checkbox' checked={value} onChange={onChange} />
                     )}
                 />
             </div>

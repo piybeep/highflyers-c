@@ -7,11 +7,11 @@ import { SOCIAL } from '@/constants';
 
 import s from './Footer.module.scss';
 
-export function Footer() {
+export function Footer({ isAuth }: { isAuth: boolean }) {
     return (
         <footer className={s.wrapper}>
             <div className={s.info}>
-                <FooterNav />
+                <FooterNav isAuth={isAuth} />
                 <div className={s.info__list}>
                     {SOCIAL.map((current) => (
                         <Link

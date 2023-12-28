@@ -4,4 +4,5 @@ export interface AuthInputProps
     placeholder: string;
     password?: boolean;
     isText?: boolean
+    isError: boolean
 }

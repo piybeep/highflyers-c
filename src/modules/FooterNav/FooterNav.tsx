@@ -3,17 +3,14 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 
-import { useUser } from '@/store';
 import { NAVIGATION, PAGES_LINK } from '@/constants';
 
 import s from './FooterNav.module.scss';
 
-export function FooterNav() {
-    const status = useUser((state) => state.status);
-
+export function FooterNav({ isAuth }: { isAuth: boolean }) {
     return (
         <div className={s.menu}>
-            {status === 'authenticated' ? (
+            {isAuth ? (
                 <Link href={PAGES_LINK.MY_MATERIALS} className={s.menu__link}>
                     Мои материалы
                 </Link>
@@ -61,7 +58,7 @@ export function FooterNav() {
             )}
             <Link
                 href={
-                    status === 'authenticated'
+                    isAuth
                         ? PAGES_LINK.PROFILE
                         : PAGES_LINK.LOGIN
                 }
