@@ -5,43 +5,76 @@ import s from './page.module.scss';
 
 import api from "@/utils/api";
 import { useUser } from "@/store";
+import axios from "axios";
+import { cookies } from "next/headers";
 
 export default async function page({ searchParams }: { searchParams: any }) {
 
-    // Взятие level-ов из query
-    const listLevels = searchParams.list &&
-        searchParams.list
-            .split(',')
-            .filter((level: string) => level != '')
-            .map((level: string) => 'filters[level][$in]=' + level)
-            .join('&')
-    // Взятие level-ов из query
-
-    // Взятие чекбокса из query
-    let checkboxValue = searchParams.checkbox && Boolean(searchParams.checkbox.replace(',', ''))
-    // Взятие чекбокса из query
-
-    // Взятие карточек из базы
-    const dataCardsFilters = await api.get(`cards?populate=*&${checkboxValue && 'filters[isFree][$in]=true'}&${listLevels}`)
-        .then(res => res.data.data)
-    // Взятие карточек из базы
-
-    // Взятие всех существующих level-ов из базы
-    const dataCardsLevels = await api.get(`cards?populate=*&${checkboxValue && 'filters[isFree][$in]=true'}`)
-        .then(res => res.data.data
-            .map((i: any) => i.level)
-            .filter((item: any, index: number, self: string | any[]) => self.indexOf(item) === index)
-            .sort((a: string, b: string) => a.localeCompare(b)))
-    // Взятие всех существующих level-ов из базы
+    // Взятие пользователя из базы
+    const user = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me`, {
+        headers: {
+            Authorization: `Bearer ${cookies().get('token')?.value}`
+        }
+    })
+    // Взятие пользователя из базы
 
     // Взятие level-ов у пользователя
-    const userLevels = useUser.getState().user?.level
+    const userLevels = user.data.level
     // Взятие level-ов у пользователя
+
+
+    // Для взятие всех карточек по параметрам в query
+    const qs = require('qs')
+    const queryLearning = qs.stringify({
+        filters: {
+            level: {
+                $in: searchParams?.list?.split(',')
+            }
+        },
+    }, {
+        encodeValuesOnly: true,
+    });
+    // Для взятие всех карточек по параметрам в query
+
+    // Взятие только купленных карточек пользователем
+    const queryLearningBuy = qs.stringify({
+        filters: {
+            $or: [
+                {
+                    level: {
+                        $in: userLevels
+                    }
+                }
+            ]
+        },
+    }, {
+        encodeValuesOnly: true,
+    });
+    // Взятие только купленных карточек пользователем
+
+    // Показать доступные
+    const checkboxValue = searchParams.checkbox
+    // Показать доступные
+
+    // Взятие отфильтрованных карточек и взятие level-ов у всех карточек которые пришли
+    const [resLearning, resCardsLevels] = await Promise.all([
+        api.get(`/cards?populate=*&${queryLearning}&${checkboxValue && queryLearningBuy}`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+
+        api.get(`/cards?populate=*&${checkboxValue && queryLearningBuy}`)
+            .then(res => res.data.data
+                .map((i: any) => i.level)
+                .filter((v: any, i: any, a: any[]) => a.findIndex(v2 => (v2 === v)) === i)
+                .sort())
+            .catch(error => console.error(error))
+    ])
+    // Взятие отфильтрованных карточек и взятие level-ов у всех карточек которые пришли
 
     return (
         <div className={s.wrapper}>
             <HeaderItem
-                data={dataCardsLevels}
+                data={resCardsLevels}
                 title={"Обучение по карточкам"}
                 theme="Выбор уровня"
                 checkbox="Показать доступные"
@@ -49,8 +82,8 @@ export default async function page({ searchParams }: { searchParams: any }) {
             />
             <LearningList
                 userLevels={userLevels}
-                levels={dataCardsLevels}
-                data={dataCardsFilters} />
+                levels={resCardsLevels}
+                data={resLearning} />
         </div>
     );
 }

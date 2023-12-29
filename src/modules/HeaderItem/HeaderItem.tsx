@@ -10,9 +10,8 @@ import { useEffect } from 'react';
 
 export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: HeaderItemProps) {
     const searchParams = useSearchParams()
-
     const { pushQueryString } = useMutateQuery()
-    const resultData = data.map(current => (
+    const resultData = data?.map(current => (
         <HeaderButton
             key={current}
             text={current}
@@ -24,8 +23,8 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
     let checkboxValue = Boolean(searchParams.get('checkbox')?.replace(',', ''))
 
     useEffect(() => {
-        if (!data.includes(searchParams.get('list')!)) {
-            const notExistLevel = data.filter(level => searchParams.get('list')?.includes(level)).join(',')
+        if (!data?.includes(searchParams.get('list')!)) {
+            const notExistLevel = data?.filter(level => searchParams.get('list')?.includes(level)).join(',')
             pushQueryString(notExistLevel, 'list', true)
         }
     }, [checkboxValue])

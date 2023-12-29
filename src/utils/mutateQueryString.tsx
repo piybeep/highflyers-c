@@ -12,7 +12,7 @@ export const useMutateQuery = () => {
             let list = params.has(name) ? params.get(name)!.split(',') : [];
             if (rewrite) {
                 params.delete(name)
-                list = value.split(',')
+                list = value?.split(',')
             }
             else {
                 if (list.includes(value)) {
@@ -21,10 +21,10 @@ export const useMutateQuery = () => {
                     list.push(value);
                 }
             }
-            if (value === '' || list.length === 0) {
+            if (value === '' || list?.length === 0) {
                 params.delete(name)
             } else {
-                params.set(name, list.join(','))
+                params.set(name, list?.join(','))
             }
             return params
         },
