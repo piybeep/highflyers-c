@@ -1,51 +1,76 @@
 import { dataLearning } from "@/constants";
 import { HeaderItem, LessonPlansList } from "@/modules";
-import { useUser } from "@/store";
 import api from "@/utils/api";
 import apiAuth from "@/utils/apiAuth";
 
 export default async function LessonPlansPage({ searchParams }: { searchParams: any }) {
-    // Вывод чекбокса - его значение
+    // Вывод чекбокса - его значение показать доступные
     let checkboxValue = searchParams.checkbox && Boolean(searchParams.checkbox.replace(',', ''))
-    // Вывод чекбокса - его значение
+    // Вывод чекбокса - его значение показать доступные
 
-    // Вывод значений А1, А2, и.т.д 
-    let listValues = searchParams.list &&
-        searchParams.list
-            .split(',')
-            .filter((level: string) => level != '')
-            .map((level: string) => 'filters[level][$in]=' + level)
-            .join('&')
-    // Вывод значений А1, А2, и.т.д 
+    // Запрос на взятие пользователя
+    const resUser = await apiAuth.get(`users/me?populate=*`)
+        .then(res => res.data)
+        .catch(error => console.error(error))
+    // Запрос на взятие пользователя
 
-    const [lessonPlansData, lessonPlansLevels, user] = await Promise.all([
-        // // Запрос к базе для взятия нужных нам карточек, и есть сортировка отдельно чекбокса и отдельно значений из listValues
-        api.get(`lesson-plans?populate=*&${checkboxValue && 'filters[isFree][$eq]=true'}&${listValues}`).then(res => res.data.data),
-        // // Запрос к базе для взятия нужных нам карточек, и есть сортировка отдельно чекбокса и отдельно значений из listValues
+    // Для взятие всех карточек по параметрам в query
+    const qs = require('qs')
+    const queryLearning = qs.stringify({
+        filters: {
+            level: {
+                $in: searchParams?.list?.split(',')
+            }
+        },
+    }, {
+        encodeValuesOnly: true,
+    });
+    // Для взятие всех карточек по параметрам в query
 
-        // // Запрос к базе для взятия всех level-ов у карточек
-        api.get(`lesson-plans?${checkboxValue && 'filters[isFree][$eq]=true'}`).then(res => res.data.data),
-        // // Запрос к базе для взятия всех level-ов у карточек
+    // Для взятия карточек, которые либо бесплатные, либо доступные пользователю
+    const queryLearningBuyOrFree = qs.stringify({
+        filters: {
+            $or: [
+                {
+                    id: {
+                        $in: resUser.lesson_plans.map((i: any) => i.id)
+                    }
+                },
+                {
+                    isFree: true
+                }
+            ]
+        },
+    }, {
+        encodeValuesOnly: true,
+    });
+    // Для взятия карточек, которые либо бесплатные, либо доступные пользователю
 
-        // Запрос на взятие пользователя
-        apiAuth.get(`users/me?populate=*`).then(res => res.data)
-        // Запрос на взятие пользователя
+    const [resLessonPlans, resLessonPlansLevels] = await Promise.all([
+        // Взятие всех планов уроков (карточек)
+        api.get(`lesson-plans?populate=*&${queryLearning}&${checkboxValue && queryLearningBuyOrFree}`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+        // Взятие всех планов уроков (карточек)
+
+        // Взятие всех уровней планов уроков
+        api.get(`lesson-plans?populate=*&${checkboxValue && queryLearningBuyOrFree}`)
+            .then(res => res.data.data
+                .map((i: any) => i.level)
+                .filter((v: any, i: any, a: any[]) => a.findIndex(v2 => (v2 === v)) === i)
+                .sort((a: string, b: string) => a.localeCompare(b)))
+            .catch(error => console.error(error))
+        // Взятие всех уровней планов уроков
     ])
 
-    const userLessonPlansId = user.lesson_plans.map((i: any) => i.id)
-
-    console.log(user.lesson_plans)
-
-    const levels = lessonPlansLevels
-        .map((i: any) => i.level)
-        .filter((item: any, pos: any, self: string | any[]) => self.indexOf(item) == pos)
-        .sort((a: string, b: string) => a.localeCompare(b))
-    // Запрос к базе для взятия всех level-ов у карточек
+    // Взятие id купленных планов уроков у пользователя
+    const userLessonPlansId = resUser.lesson_plans.map((i: any) => i.id)
+    // Взятие id купленных планов уроков у пользователя
 
     return (
         <>
             <HeaderItem
-                data={levels}
+                data={resLessonPlansLevels}
                 title={"Планы уроков"}
                 subtitle="Материал для преподавателей"
                 theme="Выбор уровня"
@@ -54,8 +79,8 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             />
             <LessonPlansList
                 userLessonPlansId={userLessonPlansId}
-                levels={levels}
-                data={lessonPlansData}
+                levels={resLessonPlansLevels}
+                data={resLessonPlans}
             />
         </>
     );

@@ -12,7 +12,6 @@ export function LearningList({ data, levels, userLevels }: { data: ElementLearni
         cardsList: data?.filter(card => card.level === level)
     }))
         .filter(item => Object.keys(item.cardsList).length != 0)
-        .sort((a, b) => a.level.localeCompare(b.level))
 
     return (
         <div className={s.wrapper}>
@@ -36,7 +35,6 @@ export function LearningList({ data, levels, userLevels }: { data: ElementLearni
                                     source={process.env.NEXT_PUBLIC_STATIC + card.source.url}
                                     key={index}
                                     name={card.title}
-                                    // free={card.isFree}
                                     free={false}
                                     time={preparedTime(card.time)}
                                     img={process.env.NEXT_PUBLIC_STATIC + card.img.url}

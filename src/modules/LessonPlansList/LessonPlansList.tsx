@@ -4,20 +4,16 @@ import { ElementLessonPlansListProps, LessonPlansListProps } from './LessonPlans
 import s from './LessonPlansList.module.scss'
 import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
-import { useSearchParams } from 'next/navigation';
 
 export function LessonPlansList({ data, levels, userLessonPlansId }: { data: ElementLessonPlansListProps[], levels: string[], userLessonPlansId?: number[] }) {
-    const lessonPlansData = levels.map((level: string) => ({
-        isFree: data.filter(material => material.level === level).every(i => i.isFree),
+    const lessonPlansData = levels?.map((level: string) => ({
+        isFree: data?.filter(material => material.level === level).every(i => i.isFree),
         level: level,
         materials: data
-            .filter((material: ElementLessonPlansListProps) => material.level === level)
+            ?.filter((material: ElementLessonPlansListProps) => material.level === level)
             .map((material: ElementLessonPlansListProps) => ({ ...material, isBuy: userLessonPlansId?.includes(material.id) }))
     }))
         .filter(item => Object.keys(item.materials).length !== 0)
-        .sort((a, b) => a.level.localeCompare(b.level))
-
-    const searchParams = useSearchParams()
 
     return (
         <div className={s.wrapper}>
@@ -26,12 +22,6 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Ele
                     <div key={index} className={s.info}>
                         <div className={s.header}>
                             <h2 className={s.header__title}>Карточки уровня <span className={s.header__title_span}>{current.level}</span></h2>
-                            {/* Пока не нужна */}
-                            {/* 
-                            {
-                                !searchParams.get('checkbox') && current.isFree && <span className={s.header__slogan}>Доступно</span>
-                            } 
-                            */}
                         </div>
                         <div className={s.list}>
                             {
@@ -40,7 +30,6 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Ele
                                     <CardPlans
                                         key={index}
                                         isBuy={current.isBuy}
-                                        id={current.name}
                                         name={current.name}
                                         free={current.isFree}
                                         time={preparedTime(current.time)}

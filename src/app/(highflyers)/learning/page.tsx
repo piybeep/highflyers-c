@@ -4,18 +4,12 @@ import { HeaderItem, LearningList } from "@/modules";
 import s from './page.module.scss';
 
 import api from "@/utils/api";
-import { useUser } from "@/store";
-import axios from "axios";
-import { cookies } from "next/headers";
+import apiAuth from "@/utils/apiAuth";
 
 export default async function page({ searchParams }: { searchParams: any }) {
 
     // Взятие пользователя из базы
-    const user = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me`, {
-        headers: {
-            Authorization: `Bearer ${cookies().get('token')?.value}`
-        }
-    })
+    const user = await apiAuth.get(`${process.env.NEXT_PUBLIC_HOST}users/me`)
     // Взятие пользователя из базы
 
     // Взятие level-ов у пользователя
