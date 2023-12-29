@@ -1,33 +1,39 @@
 export interface Category {
-    id: string;
     name: string;
     count: number;
-    materials:
-        | CardPlansProps[]
-        | CardCheckProps[]
-        | CardArticleProps[]
-        | CardTedTalksProps[];
+    list:
+    | CardPlansProps[]
+    | CardCheckProps[]
+    | CardArticleProps[]
+    | CardTedTalksProps[];
 }
 
 export interface CardPlansProps {
-    id: string;
+    id: number;
+    level: string,
     name: string;
-    free: boolean;
-    time: string;
-    img: string;
+    time: number
+    isFree: boolean
+    img: {
+        url: string
+    }
+    source: {
+        url: string
+    }
 }
 export interface CardCheckProps {
-    id: string;
-    name: string;
-    youtube?: string;
-    iTunes?: string;
-    books?: string;
+    id: Number,
+    title: string,
+    check_list_sources: {
+        type: string
+    }[]
 }
 
 export interface CardArticleProps {
-    id: string;
-    name: string;
+    id: number;
+    title: string;
     description: string;
+    text: string,
 }
 
 export interface CardTedTalksProps {

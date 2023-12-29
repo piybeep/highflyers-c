@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+
+import { useCallback, useState } from 'react';
 
 import classNames from 'classnames';
 import declOfNum from '@/utils/declOfNum';
@@ -14,8 +15,25 @@ import {
 import { CardArticle, CardCheck, CardPlans, CardTedTalks } from '@/components';
 
 import s from './MyMaterials.module.scss';
+import { preparedTime } from '@/utils/time';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { PAGES_LINK } from '@/constants';
 
 export function MyMaterials({ list }: { list: Category[] }) {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const createQueryString = useCallback(
+        (value: string) => {
+            const params = new URLSearchParams(searchParams);
+            params.set('popup', value);
+
+            return params.toString();
+        },
+        [searchParams],
+    );
+
     const names = ['материал', 'материала', 'материалов'];
 
     const [isOpen, setIsOpen] = useState('');
@@ -37,35 +55,34 @@ export function MyMaterials({ list }: { list: Category[] }) {
 
             {list.map((current) => (
                 <div
-                    key={current.id}
+                    key={current.name}
                     className={classNames(s.item, {
-                        [s.item_active]: isOpen === current.id,
+                        [s.item_active]: isOpen === current.name,
                     })}
                 >
                     <div
-                        onClick={() => handleClickItem(current.id)}
+                        onClick={() => handleClickItem(current.name)}
                         className={classNames(s.item__header, {
-                            [s.item__header_active]: isOpen === current.id,
+                            [s.item__header_active]: isOpen === current.name,
                         })}
                     >
                         <h2 className={s.item__title}>{current.name}</h2>
                         <p
                             className={classNames(s.item__count, {
                                 [s.item__count_all]:
-                                    current.count === current.materials.length,
+                                    current.count === current.list.length,
                             })}
                         >
-                            {`${
-                                current.materials.length != current.count
-                                    ? current.materials.length +
-                                      ' ' +
-                                      declOfNum(current.materials.length, names)
-                                    : 'доступен весь'
-                            }`}
+                            {`${current.list.length != current.count
+                                ? current.list.length +
+                                ' ' +
+                                declOfNum(current.list.length, names)
+                                : 'доступен весь'
+                                }`}
                         </p>
                         <svg
                             className={classNames(s.item__arrow, {
-                                [s.item__arrow_active]: isOpen === current.id,
+                                [s.item__arrow_active]: isOpen === current.name,
                             })}
                             width='20'
                             height='21'
@@ -84,7 +101,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                     </div>
                     <div
                         className={classNames(s.item__info, {
-                            [s.item__info_open]: isOpen === current.id,
+                            [s.item__info_open]: isOpen === current.name,
                         })}
                     >
                         <div
@@ -101,44 +118,54 @@ export function MyMaterials({ list }: { list: Category[] }) {
                             style={{ minHeight: 0 }}
                         >
                             {current.name === 'Планы уроков' &&
-                                (current.materials as CardPlansProps[]).map(
+                                (current.list as CardPlansProps[]).map(
                                     (current) => (
                                         <CardPlans
                                             key={current.id}
                                             id={current.id}
                                             name={current.name}
-                                            free={current.free}
-                                            time={current.time}
-                                            img={current.img}
+                                            free={current.isFree}
+                                            isBuy={!current.isFree}
+                                            time={preparedTime(current.time)}
+                                            img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
+                                            source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
                                         />
                                     ),
                                 )}
                             {current.name === 'Чек-листы' &&
-                                (current.materials as CardCheckProps[]).map(
-                                    (current) => (
-                                        <CardCheck
-                                            key={current.id}
-                                            id={current.id}
-                                            name={current.name}
-                                            youtube={current.youtube}
-                                            iTunes={current.iTunes}
-                                            books={current.books}
-                                        />
-                                    ),
+                                (current.list as CardCheckProps[]).map(
+                                    (current) => {
+                                        const YouTube = current.check_list_sources.find(item => item.type === 'YouTube-каналы') ? true : false
+                                        const iTunes = current.check_list_sources.find(item => item.type === 'Подкасты (iTunes)') ? true : false
+                                        const books = current.check_list_sources.find(item => item.type === 'Книги') ? true : false
+                                        return (
+                                            <CardCheck
+                                                key={current.title}
+                                                name={current.title}
+                                                youtube={YouTube}
+                                                iTunes={iTunes}
+                                                books={books}
+                                                open={() => {
+                                                    router.push(`${PAGES_LINK.CHECK_LISTS}?${createQueryString('open')}`, { scroll: false })
+                                                }}
+                                            />
+                                        )
+                                    },
                                 )}
                             {current.name === 'Полезные статьи' &&
-                                (current.materials as CardArticleProps[]).map(
+                                (current.list as CardArticleProps[]).map(
                                     (current) => (
                                         <CardArticle
                                             key={current.id}
-                                            id={current.id}
-                                            name={current.name}
+                                            id={Number(current.id)}
+                                            name={current.title}
                                             description={current.description}
+                                            href='articles'
                                         />
                                     ),
                                 )}
                             {current.name === 'TedTalks' &&
-                                (current.materials as CardTedTalksProps[]).map(
+                                (current.list as CardTedTalksProps[]).map(
                                     (current) => (
                                         <CardTedTalks
                                             key={current.id}

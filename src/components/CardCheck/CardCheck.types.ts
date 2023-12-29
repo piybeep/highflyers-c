@@ -1,8 +1,7 @@
 export interface CardCheckProps {
-    id: string;
     name: string;
-    youtube?: string;
-    iTunes?: string;
-    books?: string;
+    youtube?: boolean;
+    iTunes?: boolean;
+    books?: boolean;
     open: () => void
 }

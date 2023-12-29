@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { MaterialLayout } from '@/layout';
 
 export function CardCheck({
-    id,
     name,
     youtube,
     iTunes,
@@ -24,7 +23,7 @@ export function CardCheck({
                                 s.list__text_youtube,
                             )}
                         >
-                            {youtube}
+                            YouTube-каналы
                         </p>
                     )}
                     {books && (
@@ -34,7 +33,7 @@ export function CardCheck({
                                 s.list__text_books,
                             )}
                         >
-                            {books}
+                            Книги
                         </p>
                     )}
                     {iTunes && (
@@ -44,7 +43,7 @@ export function CardCheck({
                                 s.list__text_iTunes,
                             )}
                         >
-                            {iTunes}
+                            Подкасты (iTunes)
                         </p>
                     )}
                 </div>

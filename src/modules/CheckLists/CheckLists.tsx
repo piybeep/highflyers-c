@@ -38,12 +38,12 @@ export function CheckLists({ list, setLiterature }: {
                         <div className={s.list}>
                             {
                                 current.cards.map(current => (
-                                    <CardCheck open={() => {
-                                        setLiterature(current.resources)
-                                        router.push(`${pathname}?${createQueryString('open')}`, { scroll: false })
-                                    }}
+                                    <CardCheck
+                                        open={() => {
+                                            setLiterature(current.resources)
+                                            router.push(`${pathname}?${createQueryString('open')}`, { scroll: false })
+                                        }}
                                         key={current.name}
-                                        id={current.name}
                                         name={current.name} />
                                 ))
                             }

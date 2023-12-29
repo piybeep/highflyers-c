@@ -1,5 +1,5 @@
 export interface CardPlansProps {
-    id: string;
+    id: number;
     name: string;
     free: boolean;
     isBuy?: boolean;
