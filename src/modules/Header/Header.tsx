@@ -8,8 +8,9 @@ import { Logo } from '@/components';
 import { HeaderNav } from '@/modules';
 import { PAGES_LINK } from '@/constants';
 import Link from 'next/link';
+import { headerInfoViewKeys } from '@/types';
 
-export function Header({ isAuth }: { isAuth: boolean }) {
+export function Header({ isAuth, headerInfoView }: { isAuth: boolean, headerInfoView: Record<headerInfoViewKeys, boolean> }) {
     return (
         <header className={s.wrapper}>
             <div className={s.info}>
@@ -38,7 +39,7 @@ export function Header({ isAuth }: { isAuth: boolean }) {
                 </div>
             </div>
             <div className={s.nav}>
-                <HeaderNav isAuth={isAuth} />
+                <HeaderNav headerInfoView={headerInfoView} isAuth={isAuth} />
             </div>
         </header>
     );

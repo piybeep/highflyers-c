@@ -21,7 +21,7 @@ import { setCookie } from 'cookies-next';
 export function Authorization() {
     const router = useRouter();
 
-    const { handleSubmit, control } = useForm({
+    const { handleSubmit, control, formState: { errors } } = useForm({
         defaultValues: {
             name: '',
             email: '',
@@ -30,20 +30,21 @@ export function Authorization() {
     });
 
     const submitForm = handleSubmit(async (data) => {
-        axios
+        await axios
             .post(`${process.env.NEXT_PUBLIC_HOST}auth/local`,
                 {
                     identifier: data.email,
                     password: data.password,
                 })
             .then(res => {
-                toast.success('Вы успешно вошли');
-                router.push(PAGES_LINK.HOME);
+                toast.success('Вы успешно вошли')
+                router.push(PAGES_LINK.HOME + '?action=refresh')
                 setCookie('token', res.data.jwt)
+                router.refresh()
             })
             .catch((error: any) => {
                 toast.error(error?.response?.data?.error?.message ?? 'Неизвестная ошибка')
-            });
+            })
     });
 
     return (
@@ -57,6 +58,7 @@ export function Authorization() {
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            isError={!!errors.email}
                             name='email'
                             placeholder={'Почта'}
                             onChange={onChange}
@@ -69,6 +71,7 @@ export function Authorization() {
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            isError={!!errors.password}
                             name='password'
                             placeholder={'Пароль'}
                             password

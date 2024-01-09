@@ -4,10 +4,13 @@ import s from './layout.module.scss';
 import { Footer, Header } from '@/modules';
 import axios from 'axios';
 import { cookies } from 'next/headers';
+import api from '@/utils/api';
+import { headerInfoViewKeys } from '@/types';
 
 export const metadata = {
     title: 'Highflyers - школа английского языка',
 };
+
 
 export default async function layout({ children }: PropsWithChildren) {
     const token = cookies().get('token')?.value
@@ -20,9 +23,34 @@ export default async function layout({ children }: PropsWithChildren) {
         .then(res => res.data)
         .catch(error => console.error(error))
 
+    const [resLearning, resArticles, resLessonPlans, resCheckLists] = await Promise.all([
+        api.get(`cards`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+
+        api.get(`articles`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+
+        api.get(`lesson-plans`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+
+        api.get(`check-lists`)
+            .then(res => res.data.data)
+            .catch(error => console.error(error)),
+    ])
+
+    const headerInfoView: Record<headerInfoViewKeys, boolean> = {
+        'Обучение': !!resLearning,
+        'Полезные статьи': !!resArticles,
+        'Планы уроков': !!resLessonPlans,
+        'Чек-листы': !!resCheckLists,
+    }
+
     return (
         <div className={s.wrapper}>
-            <Header isAuth={!!user} />
+            <Header headerInfoView={headerInfoView} isAuth={!!user} />
             {children}
             <Footer isAuth={!!user} />
         </div>
