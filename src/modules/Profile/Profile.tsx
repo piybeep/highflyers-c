@@ -1,7 +1,7 @@
 'use client';
 
 import { Material, UserProps } from '@/types';
-import { Materials, ProfileData, RemoveProfile } from '@/modules';
+import { ConfirmChange, Materials, ProfileData, RemoveProfile } from '@/modules';
 
 import s from './Profile.module.scss';
 

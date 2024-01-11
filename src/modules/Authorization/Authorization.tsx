@@ -38,7 +38,7 @@ export function Authorization() {
                 })
             .then(res => {
                 toast.success('Вы успешно вошли')
-                router.push(PAGES_LINK.HOME + '?action=refresh')
+                router.push(PAGES_LINK.HOME)
                 setCookie('token', res.data.jwt)
                 router.refresh()
             })

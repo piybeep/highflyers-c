@@ -7,4 +7,5 @@ export interface InputProps extends ComponentProps<'input'> {
     idUser: number
     initialValue?: string
     validation?: RegisterOptions
+    isConfirm?: boolean
 }

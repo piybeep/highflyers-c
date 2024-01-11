@@ -10,6 +10,7 @@ import { getCookie } from 'cookies-next';
 import { useForm } from 'react-hook-form';
 import { EditButton } from './button/button';
 import toast from 'react-hot-toast';
+import { ConfirmChange } from '@/modules';
 
 export function Input({
     placeholder,
@@ -20,6 +21,7 @@ export function Input({
     name,
     initialValue = '',
     validation,
+    isConfirm = false,
     ...props
 }: InputProps) {
     const [localType, setLocalType] = useState(type);
@@ -31,9 +33,12 @@ export function Input({
         }
     })
 
-    // Проверка было ли отключено поле для ввода или нет и отправить запрос
-    const handleSubmitForm = (value: any) => {
-        const token = getCookie('token')
+    // Для открытия/закрытия попапа
+    const [handlePopupInfo, setHandlePopupInfo] = useState({ value: '', isOpen: false })
+    // Для открытия/закрытия попапа
+
+    // Запрос за изменение пользователя
+    const handleEditProfile = (value: string, token: any) => {
         axios.put(`${process.env.NEXT_PUBLIC_HOST}users/${idUser}`, value, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -48,6 +53,18 @@ export function Input({
                 toast.error('Произошла ошибка')
             })
     }
+    // Запрос за изменение пользователя
+
+    // Проверка было ли отключено поле для ввода или нет и отправить запрос
+    const handleSubmitForm = (value: any) => {
+        const token = getCookie('token')
+        if (isConfirm) {
+            setHandlePopupInfo({ value: value, isOpen: true })
+        }
+        else {
+            handleEditProfile(value, token)
+        }
+    }
 
     const handleResetValue = () => {
         setIsDisable(true)
@@ -56,6 +73,16 @@ export function Input({
 
     return (
         <>
+            {
+                isConfirm &&
+                <ConfirmChange
+                    setIsDisabelInput={() => setIsDisable(true)}
+                    handleResetValue={() => handleResetValue()}
+                    idUser={idUser} token={getCookie('token')}
+                    formValue={handlePopupInfo.value}
+                    isVisible={handlePopupInfo.isOpen}
+                    setIsVisible={setHandlePopupInfo} />
+            }
             <form onSubmit={handleSubmit(handleSubmitForm)} className={classNames(s.wrapper, s[`wrapper__${className}`])}>
                 <p
                     className={classNames(s.placeholder, {
