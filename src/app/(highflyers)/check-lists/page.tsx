@@ -25,17 +25,6 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
         encode: false
     })
 
-    // Реди вариант
-    // const queryAccessCheckLists = qs.stringify({
-    //     filters: {
-    //         id: {
-    //             $in: resUserIdCheckList,
-    //         }
-    //     },
-    // }, {
-    //     encodeValuesOnly: true,
-    // })
-
     const queryAccessCheckLists = qs.stringify({
         filters: {
             $and: [
