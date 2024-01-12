@@ -27,15 +27,11 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
 
     const queryAccessCheckLists = qs.stringify({
         filters: {
-            $and: [
-                {
-                    id: {
-                        // Костыль
-                        $in: resUserIdCheckList.length !== 0 ? resUserIdCheckList : [-99],
-                        // Костыль
-                    }
-                },
-            ]
+            id: {
+                // Костыль
+                $in: resUserIdCheckList.length !== 0 ? resUserIdCheckList : [-99],
+                // Костыль
+            }
         },
     }, {
         encodeValuesOnly: true,
@@ -54,10 +50,6 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
             .then(res => res.data.data)
             .catch(error => error),
     ])
-
-    // Почему-то оно не убирает все, когда у пользователя ничего не куплено, не понимаю почему
-    console.log(resUserIdCheckList.length, queryAccessCheckLists)
-    // Почему-то оно не убирает все, когда у пользователя ничего не куплено, не понимаю почему
 
     return (
         <div className={s.wrapper}>
