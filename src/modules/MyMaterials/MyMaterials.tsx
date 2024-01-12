@@ -21,18 +21,6 @@ import { PAGES_LINK } from '@/constants';
 
 export function MyMaterials({ list }: { list: Category[] }) {
     const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-
-    const createQueryString = useCallback(
-        (value: string) => {
-            const params = new URLSearchParams(searchParams);
-            params.set('popup', value);
-
-            return params.toString();
-        },
-        [searchParams],
-    );
 
     const names = ['материал', 'материала', 'материалов'];
 
@@ -122,7 +110,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                     (current) => (
                                         <CardPlans
                                             key={current.id}
-                                            id={current.id}
+                                            // id={current.id}
                                             name={current.name}
                                             free={current.isFree}
                                             isBuy={!current.isFree}
@@ -146,7 +134,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                                 iTunes={iTunes}
                                                 books={books}
                                                 open={() => {
-                                                    router.push(`${PAGES_LINK.CHECK_LISTS}?${createQueryString('open')}`, { scroll: false })
+                                                    router.push(PAGES_LINK.CHECK_LISTS + `?id=${current.id}&popup=open`)
                                                 }}
                                             />
                                         )

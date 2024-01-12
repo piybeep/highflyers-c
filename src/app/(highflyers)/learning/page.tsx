@@ -33,13 +33,9 @@ export default async function page({ searchParams }: { searchParams: any }) {
     // Взятие только купленных карточек пользователем
     const queryLearningBuy = qs.stringify({
         filters: {
-            $or: [
-                {
-                    level: {
-                        $in: userLevels
-                    }
-                }
-            ]
+            level: {
+                $in: userLevels
+            }
         },
     }, {
         encodeValuesOnly: true,

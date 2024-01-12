@@ -2,49 +2,41 @@
 
 import { CardCheck } from '@/components';
 import s from './CheckLists.module.scss'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
-import { CheckListDataProps, CheckListResourcesProps } from '@/constants';
+import { CheckListsProps } from '@/types';
+import MDEditor from '@uiw/react-md-editor';
+import { usePathname, useRouter } from 'next/navigation';
 
-export function CheckLists({ list, setLiterature }: {
-    list: CheckListDataProps[], setLiterature: (value: CheckListResourcesProps[]) => void
+export function CheckLists({ checkLists, themes }: {
+    checkLists: any,
+    themes: string[],
 }) {
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const router = useRouter()
+    const pathname = usePathname()
+    const data = themes.map(theme => ({
+        title: theme,
+        description: checkLists.filter((item: any) => item.theme.title === theme)
+            .map((desc: any) => desc.theme.description)
+            .filter((value: any, index: any, array: any[]) => array.findIndex(v2 => (v2 === value)) === index).toString(),
+        materials: checkLists.filter((item: any) => item.theme.title === theme)
+    })).filter(item => Object.keys(item.materials).length !== 0)
 
-    const createQueryString = useCallback(
-        (value: string) => {
-            const params = new URLSearchParams(searchParams);
-            params.set('popup', value);
-
-            return params.toString();
-        },
-        [searchParams],
-    );
     return (
         <div className={s.wrapper}>
             {
-                list.map(current => (
-                    <div className={s.wrapper__item} key={current.theme}>
-                        <h2 className={s.title}>{current.theme}</h2>
-                        <ul className={s.info}>
-                            {
-                                current.points.map(current => (
-                                    <li key={current} className={s.info__text}>{current}</li>
-                                ))
-                            }
-                        </ul>
+                data.map((current: CheckListsProps) => (
+                    <div className={s.wrapper__item} key={current.title}>
+                        <h2 className={s.title}>{current.title}</h2>
+                        <MDEditor.Markdown className={s.description} source={current.description} />
                         <div className={s.list}>
                             {
-                                current.cards.map(current => (
+                                current.materials.map(material => (
                                     <CardCheck
-                                        open={() => {
-                                            setLiterature(current.resources)
-                                            router.push(`${pathname}?${createQueryString('open')}`, { scroll: false })
-                                        }}
-                                        key={current.name}
-                                        name={current.name} />
+                                        open={() => router.push(pathname + `?id=${material.id}&popup=open`)}
+                                        youtube={material.check_list_sources.map(i => i.type).includes('YouTube-каналы')}
+                                        iTunes={material.check_list_sources.map(i => i.type).includes('Подкасты (iTunes)')}
+                                        books={material.check_list_sources.map(i => i.type).includes('Книги')}
+                                        key={material.title}
+                                        name={material.title} />
                                 ))
                             }
                         </div>
