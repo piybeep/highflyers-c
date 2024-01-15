@@ -36,7 +36,7 @@ export default async function page({ searchParams }: { searchParams: any }) {
     const queryLearningBuy = qs.stringify({
         filters: {
             level: {
-                $in: userLevels
+                $in: userLevels ?? ''
             }
         },
     }, {

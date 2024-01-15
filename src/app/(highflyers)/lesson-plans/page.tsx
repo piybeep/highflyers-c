@@ -33,7 +33,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             $or: [
                 {
                     id: {
-                        $in: resUser?.lesson_plans.map((i: any) => i.id)
+                        $in: resUser?.lesson_plans.map((i: any) => i.id) ?? ''
                     }
                 },
                 {

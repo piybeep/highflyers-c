@@ -18,7 +18,7 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Ele
     return (
         <div className={s.wrapper}>
             {
-                lessonPlansData.map((current: LessonPlansListProps, index: number) => (
+                lessonPlansData?.map((current: LessonPlansListProps, index: number) => (
                     <div key={index} className={s.info}>
                         <div className={s.header}>
                             <h2 className={s.header__title}>Карточки уровня <span className={s.header__title_span}>{current.level}</span></h2>
