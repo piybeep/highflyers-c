@@ -29,7 +29,7 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
         filters: {
             id: {
                 // Костыль
-                $in: resUserIdCheckList.length !== 0 ? resUserIdCheckList : [-99],
+                $in: resUserIdCheckList?.length !== 0 ? resUserIdCheckList : [-99],
                 // Костыль
             }
         },

@@ -10,10 +10,12 @@ export default async function page({ searchParams }: { searchParams: any }) {
 
     // Взятие пользователя из базы
     const user = await apiAuth.get(`${process.env.NEXT_PUBLIC_HOST}users/me`)
+        .then(res => res)
+        .catch(error => console.error(error))
     // Взятие пользователя из базы
 
     // Взятие level-ов у пользователя
-    const userLevels = user.data.level
+    const userLevels = user?.data?.level
     // Взятие level-ов у пользователя
 
 

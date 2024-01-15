@@ -33,7 +33,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             $or: [
                 {
                     id: {
-                        $in: resUser.lesson_plans.map((i: any) => i.id)
+                        $in: resUser?.lesson_plans.map((i: any) => i.id)
                     }
                 },
                 {
@@ -64,7 +64,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
     ])
 
     // Взятие id купленных планов уроков у пользователя
-    const userLessonPlansId = resUser.lesson_plans.map((i: any) => i.id)
+    const userLessonPlansId = resUser?.lesson_plans.map((i: any) => i.id)
     // Взятие id купленных планов уроков у пользователя
 
     return (
