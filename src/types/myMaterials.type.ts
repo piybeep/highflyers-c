@@ -12,6 +12,7 @@ export interface CardPlansProps {
     id: number;
     level: string,
     name: string;
+    title: string
     time: number
     isFree: boolean
     img: {

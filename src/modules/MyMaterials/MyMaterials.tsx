@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import classNames from 'classnames';
 import declOfNum from '@/utils/declOfNum';
@@ -16,7 +16,7 @@ import { CardArticle, CardCheck, CardPlans, CardTedTalks } from '@/components';
 
 import s from './MyMaterials.module.scss';
 import { preparedTime } from '@/utils/time';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { PAGES_LINK } from '@/constants';
 
 export function MyMaterials({ list }: { list: Category[] }) {
@@ -105,12 +105,28 @@ export function MyMaterials({ list }: { list: Category[] }) {
                             })}
                             style={{ minHeight: 0 }}
                         >
+
+                            {current.name === 'Обучение' &&
+                                (current.list as CardPlansProps[]).map(
+                                    (current) => (
+                                        <CardPlans
+                                            key={current.id}
+                                            name={current.title}
+                                            free={current.isFree}
+                                            isBuy={!current.isFree}
+                                            time={preparedTime(current.time)}
+                                            img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
+                                            source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
+                                            target='_blank'
+                                        />
+                                    ),
+                                )}
+
                             {current.name === 'Планы уроков' &&
                                 (current.list as CardPlansProps[]).map(
                                     (current) => (
                                         <CardPlans
                                             key={current.id}
-                                            // id={current.id}
                                             name={current.name}
                                             free={current.isFree}
                                             isBuy={!current.isFree}

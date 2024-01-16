@@ -40,6 +40,22 @@ export default async function page() {
         encodeValuesOnly: true,
     });
 
+    // Взятие доступных карточек обучения
+    const userLearningLevel = resUser.level
+    const queryLearning = qs.stringify({
+        filters: {
+            $or: [
+                {
+                    level: userLearningLevel
+                },
+                {
+                    isFree: true
+                }
+            ]
+        }
+    })
+    // Взятие доступных карточек обучения
+
     // Взятие id доступных у пользователя чек-листов
     const userCheckListId = resUser.check_lists.map((i: any) => i.id)
     const queryCheckList = qs.stringify({
@@ -48,7 +64,7 @@ export default async function page() {
         }
     })
 
-    const [resLessonPlans, resCheckLists, resArticles, resCountLessonPlans, resCountCheckLists] = await Promise.all([
+    const [resLessonPlans, resCheckLists, resArticles, resCountLessonPlans, resCountCheckLists, resLearning, resLearningCount] = await Promise.all([
         api.get(`lesson-plans?populate=*&${queryLessonPlans}`)
             .then(res => res.data)
             .catch(error => console.error(error)),
@@ -70,10 +86,24 @@ export default async function page() {
         api.get(`check-lists`)
             .then(res => res.data.meta.pagination.total)
             .catch(error => console.error(error)),
+
+        // Взятие обучение по карточкам
+        api.get(`cards?populate=*&${queryLearning}`)
+            .then(res => res.data)
+            .catch(error => console.error(error)),
+
+        api.get(`cards?populate=*`)
+            .then(res => res.data)
+            .catch(error => console.error(error))
     ])
 
     const materials = [
         // Не уверен нужно ли обучение по карточкам, если нужно, то добавлю
+        {
+            name: 'Обучение',
+            count: resLearningCount.meta.pagination.total,
+            list: resLearning.data
+        },
         {
             name: 'Планы уроков',
             count: resCountLessonPlans,

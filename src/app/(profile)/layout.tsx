@@ -5,7 +5,7 @@ import { Footer, Header } from '@/modules';
 import axios from 'axios';
 import { cookies } from 'next/headers';
 import api from '@/utils/api';
-import { headerInfoViewKeys } from '@/types';
+import { infoViewKeys } from '@/types';
 
 export default async function layout({ children }: PropsWithChildren) {
     const token = cookies().get('token')?.value
@@ -36,7 +36,7 @@ export default async function layout({ children }: PropsWithChildren) {
             .catch(error => console.error(error)),
     ])
 
-    const headerInfoView: Record<headerInfoViewKeys, boolean> = {
+    const infoView: Record<infoViewKeys, boolean> = {
         'Обучение': !!resLearning,
         'Полезные статьи': !!resArticles,
         'Планы уроков': !!resLessonPlans,
@@ -45,9 +45,9 @@ export default async function layout({ children }: PropsWithChildren) {
 
     return (
         <div className={s.wrapper}>
-            <Header isAuth={!!user} headerInfoView={headerInfoView} />
+            <Header isAuth={!!user} headerInfoView={infoView} />
             <div className={s.wrapper__content}>{children}</div>
-            <Footer isAuth={!!user} />
+            <Footer isAuth={!!user} footerInfoView={infoView} />
         </div>
     );
 }
