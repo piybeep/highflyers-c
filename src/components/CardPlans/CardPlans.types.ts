@@ -5,4 +5,5 @@ export interface CardPlansProps {
     time: string;
     img: string;
     source: string;
+    target: '_blank' | '_self'
 }

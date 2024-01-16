@@ -7,9 +7,9 @@ import { NAVIGATION, PAGES_LINK } from '@/constants';
 import { CustomLink, CustomLinkDrop } from './components';
 
 import s from './HeaderNav.module.scss';
-import { headerInfoViewKeys } from '@/types';
+import { infoViewKeys } from '@/types';
 
-export function HeaderNav({ isAuth, headerInfoView }: { isAuth: boolean, headerInfoView: Record<headerInfoViewKeys, boolean> }) {
+export function HeaderNav({ isAuth, headerInfoView }: { isAuth: boolean, headerInfoView: Record<infoViewKeys, boolean> }) {
     return (
         <div className={s.menu}>
             {isAuth ? (
@@ -22,7 +22,7 @@ export function HeaderNav({ isAuth, headerInfoView }: { isAuth: boolean, headerI
                 </Link>
             )}
             {
-                NAVIGATION.map(menu_item => headerInfoView[menu_item.text as headerInfoViewKeys] && (
+                NAVIGATION.map(menu_item => headerInfoView[menu_item.text as infoViewKeys] && (
                     menu_item.type === 'link'
                         ? <CustomLink key={menu_item.text} text={menu_item.text} link={menu_item.link} img={menu_item.img} />
                         : <CustomLinkDrop key={menu_item.text} text={menu_item.text} link={menu_item.link} levels={menu_item.levels} />

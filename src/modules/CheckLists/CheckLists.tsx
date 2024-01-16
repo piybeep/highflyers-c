@@ -6,9 +6,10 @@ import { CheckListsProps } from '@/types';
 import MDEditor from '@uiw/react-md-editor';
 import { usePathname, useRouter } from 'next/navigation';
 
-export function CheckLists({ checkLists, themes }: {
+export function CheckLists({ checkLists, themes, userChecklists }: {
     checkLists: any,
     themes: string[],
+    userChecklists: number[],
 }) {
     const router = useRouter()
     const pathname = usePathname()
@@ -31,7 +32,11 @@ export function CheckLists({ checkLists, themes }: {
                             {
                                 current.materials.map(material => (
                                     <CardCheck
-                                        open={() => router.push(pathname + `?id=${material.id}&popup=open`)}
+                                        open={() => {
+                                            userChecklists?.includes(material.id)
+                                                ? router.push(pathname + `?id=${material.id}&popup=open`, { scroll: false })
+                                                : router.push(`${pathname}?popup=access`, { scroll: false })
+                                        }}
                                         youtube={material.check_list_sources.map(i => i.type).includes('YouTube-каналы')}
                                         iTunes={material.check_list_sources.map(i => i.type).includes('Подкасты (iTunes)')}
                                         books={material.check_list_sources.map(i => i.type).includes('Книги')}

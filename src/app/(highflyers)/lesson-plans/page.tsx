@@ -1,5 +1,5 @@
 import { dataLearning } from "@/constants";
-import { HeaderItem, LessonPlansList } from "@/modules";
+import { HeaderItem, LessonPlansList, PopupContent } from "@/modules";
 import api from "@/utils/api";
 import apiAuth from "@/utils/apiAuth";
 
@@ -69,6 +69,9 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
 
     return (
         <>
+            <PopupContent
+                text={"Этот материал для вас пока не доступен. Чтобы его разблокировать - нужно оформить подписку."}
+                link={"#"} />
             <HeaderItem
                 data={resLessonPlansLevels}
                 title={"Планы уроков"}

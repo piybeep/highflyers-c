@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { NAVIGATION, PAGES_LINK } from '@/constants';
 
 import s from './FooterNav.module.scss';
+import { infoViewKeys } from '@/types';
+import { CustomLink, CustomLinkDrop } from './components';
 
-export function FooterNav({ isAuth }: { isAuth: boolean }) {
+export function FooterNav({ isAuth, footerInfoView }: { isAuth: boolean, footerInfoView: Record<infoViewKeys, boolean> }) {
     return (
         <div className={s.menu}>
             {isAuth ? (
@@ -19,43 +21,15 @@ export function FooterNav({ isAuth }: { isAuth: boolean }) {
                     Главная
                 </Link>
             )}
-            {NAVIGATION.map((menu_item) =>
-                menu_item.type === 'link' ? (
-                    <Link
-                        key={menu_item.text}
-                        href={menu_item.link}
-                        className={s.menu__link}
-                    >
-                        {menu_item.text}
-                    </Link>
-                ) : (
-                    <div key={menu_item.text} className={s.menu__info}>
-                        <Link
-                            href={menu_item.link}
-                            className={classNames(
-                                s.menu__link,
-                                s.menu__link_drop,
-                            )}
-                        >
-                            {menu_item.text}
-                        </Link>
-                        <div className={s.list}>
-                            {menu_item.levels?.map((list_item) => (
-                                <Link
-                                    key={list_item.text}
-                                    className={s.list__link}
-                                    href={{
-                                        query: { list: list_item.text },
-                                        pathname: menu_item.link,
-                                    }}
-                                >
-                                    {list_item.text}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                ),
-            )}
+
+            {
+                NAVIGATION.map(menu_item => footerInfoView[menu_item.text as infoViewKeys] && (
+                    menu_item.type === 'link'
+                        ? <CustomLink key={menu_item.text} text={menu_item.text} link={menu_item.link} />
+                        : <CustomLinkDrop key={menu_item.text} text={menu_item.text} link={menu_item.link} levels={menu_item.levels} />
+                ))
+            }
+
             <Link
                 href={
                     isAuth

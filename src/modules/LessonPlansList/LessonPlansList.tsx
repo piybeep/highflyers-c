@@ -4,6 +4,7 @@ import { ElementLessonPlansListProps, LessonPlansListProps } from './LessonPlans
 import s from './LessonPlansList.module.scss'
 import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
+import { usePathname } from 'next/navigation';
 
 export function LessonPlansList({ data, levels, userLessonPlansId }: { data: ElementLessonPlansListProps[], levels: string[], userLessonPlansId?: number[] }) {
     const lessonPlansData = levels?.map((level: string) => ({
@@ -14,6 +15,8 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Ele
             .map((material: ElementLessonPlansListProps) => ({ ...material, isBuy: userLessonPlansId?.includes(material.id) }))
     }))
         .filter(item => Object.keys(item.materials).length !== 0)
+
+    const pathname = usePathname()
 
     return (
         <div className={s.wrapper}>
@@ -34,7 +37,8 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Ele
                                         free={current.isFree}
                                         time={preparedTime(current.time)}
                                         img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
-                                        source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
+                                        source={(current.isBuy || current.isFree) ? process.env.NEXT_PUBLIC_STATIC + current.source.url : `${pathname}?popup=access`}
+                                        target={(current.isBuy || current.isFree) ? '_blank' : '_self'}
                                     />
                                 ))
                             }

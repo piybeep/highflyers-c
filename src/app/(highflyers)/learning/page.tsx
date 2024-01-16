@@ -1,5 +1,5 @@
 import { dataLearning } from "@/constants/data";
-import { HeaderItem, LearningList } from "@/modules";
+import { HeaderItem, LearningList, PopupContent } from "@/modules";
 
 import s from './page.module.scss';
 
@@ -65,6 +65,9 @@ export default async function page({ searchParams }: { searchParams: any }) {
 
     return (
         <div className={s.wrapper}>
+            <PopupContent
+                text={"Этот материал для вас пока не доступен. Чтобы его разблокировать - нужно оформить подписку."}
+                link={"#"} />
             <HeaderItem
                 data={resCardsLevels}
                 title={"Обучение по карточкам"}

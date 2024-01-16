@@ -1,4 +1,4 @@
-import { CheckLists, HeaderItem, PopupChecklists } from '@/modules';
+import { CheckLists, HeaderItem, PopupChecklists, PopupContent } from '@/modules';
 import s from './page.module.scss';
 
 import apiAuth from '@/utils/apiAuth';
@@ -53,6 +53,9 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
 
     return (
         <div className={s.wrapper}>
+            <PopupContent
+                text={"Этот материал для вас пока не доступен. Чтобы его разблокировать - нужно оформить подписку."}
+                link={"#"} />
             <HeaderItem
                 data={resCheckListsTheme}
                 theme='Выбор темы'
@@ -61,7 +64,7 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
                 text={'То, что нужно, чтобы закреплять полученные знания. Тут вы найдете множество книг, аудиокниг, подкастов, YouTube-каналов, которые помогут погрузиться глубже в специфику английского и прокачают аудио-восприятие языка и словарный запас.'}
             />
 
-            <CheckLists themes={resCheckListsTheme} checkLists={resCheckLists} />
+            <CheckLists themes={resCheckListsTheme} checkLists={resCheckLists} userChecklists={resUserIdCheckList} />
 
             <PopupChecklists data={resIdCheckList.check_list_sources} />
         </div>

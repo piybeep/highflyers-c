@@ -4,6 +4,7 @@ import { ElementLearningProps } from './LearningList.types';
 import s from './LearningList.module.scss';
 import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
+import { usePathname } from 'next/navigation';
 
 export function LearningList({ data, levels, userLevels }: { data: ElementLearningProps[], levels: string[], userLevels?: string[] }) {
     const dataCards = levels?.map((level: string) => ({
@@ -12,6 +13,8 @@ export function LearningList({ data, levels, userLevels }: { data: ElementLearni
         cardsList: data?.filter(card => card.level === level)
     }))
         .filter(item => Object.keys(item.cardsList).length != 0)
+
+    const pathname = usePathname()
 
     return (
         <div className={s.wrapper}>
@@ -32,12 +35,13 @@ export function LearningList({ data, levels, userLevels }: { data: ElementLearni
                         <div className={s.list}>
                             {current?.cardsList?.map((card, index) => (
                                 <CardPlans
-                                    source={process.env.NEXT_PUBLIC_STATIC + card.source.url}
+                                    source={current.isFree ? process.env.NEXT_PUBLIC_STATIC + card.source.url : `${pathname}?popup=access`}
                                     key={index}
                                     name={card.title}
                                     free={false}
                                     time={preparedTime(card.time)}
                                     img={process.env.NEXT_PUBLIC_STATIC + card.img.url}
+                                    target={current.isFree ? '_blank' : '_self'}
                                 />
                             ))}
                         </div>
