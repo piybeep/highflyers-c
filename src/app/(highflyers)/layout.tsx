@@ -6,6 +6,7 @@ import axios from 'axios';
 import { cookies } from 'next/headers';
 import api from '@/utils/api';
 import { infoViewKeys } from '@/types';
+import { CheckToken } from '@/components';
 
 export const metadata = {
     title: 'Highflyers - школа английского языка',
@@ -51,6 +52,9 @@ export default async function layout({ children }: PropsWithChildren) {
     return (
         <div className={s.wrapper}>
             <Header headerInfoView={infoView} isAuth={!!user} />
+            {/* Пока так, если вдруг понадобится написать logOut */}
+            <CheckToken />
+            {/* Пока так, если вдруг понадобится написать logOut */}
             {children}
             <Footer footerInfoView={infoView} isAuth={!!user} />
         </div>

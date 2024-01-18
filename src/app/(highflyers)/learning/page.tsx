@@ -1,23 +1,23 @@
-import { dataLearning } from "@/constants/data";
 import { HeaderItem, LearningList, PopupContent } from "@/modules";
 
 import s from './page.module.scss';
 
 import api from "@/utils/api";
-import apiAuth from "@/utils/apiAuth";
+import axios from "axios";
+import { cookies } from "next/headers";
 
 export default async function page({ searchParams }: { searchParams: any }) {
-
+    const token = cookies().get('token')?.value
     // Взятие пользователя из базы
-    const user = await apiAuth.get(`${process.env.NEXT_PUBLIC_HOST}users/me`)
-        .then(res => res)
+    const user = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(res => res.data)
         .catch(error => console.error(error))
     // Взятие пользователя из базы
-
-    // Взятие level-ов у пользователя
-    const userLevels = user?.data?.level
-    // Взятие level-ов у пользователя
-
 
     // Для взятие всех карточек по параметрам в query
     const qs = require('qs')
@@ -36,7 +36,7 @@ export default async function page({ searchParams }: { searchParams: any }) {
     const queryLearningBuy = qs.stringify({
         filters: {
             level: {
-                $in: userLevels ?? ''
+                $in: user?.level ?? ''
             }
         },
     }, {
@@ -76,7 +76,7 @@ export default async function page({ searchParams }: { searchParams: any }) {
                 text={"На компьютере, телефоне или любом другом устройстве - смотрите обучающие карточки, изучайте информацию, учите английский в том месте и в том темпе, в котором вам удобно."}
             />
             <LearningList
-                userLevels={userLevels}
+                userLevels={user?.level}
                 levels={resCardsLevels}
                 data={resLearning} />
         </div>

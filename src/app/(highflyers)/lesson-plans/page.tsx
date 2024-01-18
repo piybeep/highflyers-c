@@ -1,7 +1,8 @@
 import { dataLearning } from "@/constants";
 import { HeaderItem, LessonPlansList, PopupContent } from "@/modules";
 import api from "@/utils/api";
-import apiAuth from "@/utils/apiAuth";
+import axios from "axios";
+import { cookies } from "next/headers";
 
 export default async function LessonPlansPage({ searchParams }: { searchParams: any }) {
     // Вывод чекбокса - его значение показать доступные
@@ -9,7 +10,13 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
     // Вывод чекбокса - его значение показать доступные
 
     // Запрос на взятие пользователя
-    const resUser = await apiAuth.get(`users/me?populate=*`)
+    const token = cookies().get('token')?.value
+    const resUser = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me?populate=*`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
         .then(res => res.data)
         .catch(error => console.error(error))
     // Запрос на взятие пользователя
@@ -19,8 +26,8 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
     const queryLearning = qs.stringify({
         filters: {
             level: {
-                $in: searchParams?.list?.split(',')
-            }
+                $in: searchParams?.list && searchParams?.list?.split(',')
+            },
         },
     }, {
         encodeValuesOnly: true,
@@ -33,7 +40,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
             $or: [
                 {
                     id: {
-                        $in: resUser?.lesson_plans.map((i: any) => i.id)
+                        $in: resUser?.lesson_plans?.map((i: any) => i.id) ?? undefined
                     }
                 },
                 {
@@ -63,12 +70,6 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
         // Взятие всех уровней планов уроков
     ])
 
-    // Взятие id купленных планов уроков у пользователя
-    const userLessonPlansId = resUser?.lesson_plans.map((i: any) => i.id)
-    // Взятие id купленных планов уроков у пользователя
-
-    console.log(resLessonPlans, queryLearningBuyOrFree)
-
     return (
         <>
             <PopupContent
@@ -83,7 +84,7 @@ export default async function LessonPlansPage({ searchParams }: { searchParams: 
                 text={"Материалы для преподавателей и педагогов, чтобы проводить уроки и курсы еще эффективнее и интереснее. Структура уроков, темы занятий, план проведения лекций и многое другое."}
             />
             <LessonPlansList
-                userLessonPlansId={userLessonPlansId}
+                userLessonPlansId={resUser?.lesson_plans?.map((i: any) => i.id)}
                 levels={resLessonPlansLevels}
                 data={resLessonPlans}
             />

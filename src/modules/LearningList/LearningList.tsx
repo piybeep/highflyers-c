@@ -4,11 +4,11 @@ import { ElementLearningProps } from './LearningList.types';
 import s from './LearningList.module.scss';
 import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function LearningList({ data, levels, userLevels }: { data: ElementLearningProps[], levels: string[], userLevels?: string[] }) {
     const dataCards = levels?.map((level: string) => ({
-        isFree: userLevels?.includes(level),
+        isFree: !!userLevels?.includes(level),
         level: level,
         cardsList: data?.filter(card => card.level === level)
     }))
@@ -33,7 +33,7 @@ export function LearningList({ data, levels, userLevels }: { data: ElementLearni
                             )}
                         </div>
                         <div className={s.list}>
-                            {current?.cardsList?.map((card, index) => (
+                            {current?.cardsList?.map((card: any, index: any) => (
                                 <CardPlans
                                     source={current.isFree ? process.env.NEXT_PUBLIC_STATIC + card.source.url : `${pathname}?popup=access`}
                                     key={index}

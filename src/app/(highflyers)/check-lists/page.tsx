@@ -1,14 +1,23 @@
 import { CheckLists, HeaderItem, PopupChecklists, PopupContent } from '@/modules';
 import s from './page.module.scss';
 
-import apiAuth from '@/utils/apiAuth';
 import api from '@/utils/api';
+import { cookies } from 'next/headers';
+import axios from 'axios';
 
 export default async function CheckListPage({ searchParams }: { searchParams: any }) {
     const checkboxAccess = !!searchParams.checkbox
-    const resUserIdCheckList = await apiAuth.get(`/users/me?populate=*`)
-        .then(res => res.data.check_lists?.map((i: any) => i.id))
+    // Запрос на взятие пользователя
+    const token = cookies().get('token')?.value
+    const resUser = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me?populate=*`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(res => res.data)
         .catch(error => console.error(error))
+    // Запрос на взятие пользователя
 
     const qs = require('qs')
 
@@ -29,7 +38,7 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
         filters: {
             id: {
                 // Костыль
-                $in: (resUserIdCheckList && resUserIdCheckList?.length !== 0) ? resUserIdCheckList : [-99],
+                $in: resUser?.check_lists.length !== 0 ? resUser?.check_lists?.map((i: any) => i.id) ?? [-99] : [-99],
                 // Костыль
             }
         },
@@ -64,7 +73,10 @@ export default async function CheckListPage({ searchParams }: { searchParams: an
                 text={'То, что нужно, чтобы закреплять полученные знания. Тут вы найдете множество книг, аудиокниг, подкастов, YouTube-каналов, которые помогут погрузиться глубже в специфику английского и прокачают аудио-восприятие языка и словарный запас.'}
             />
 
-            <CheckLists themes={resCheckListsTheme} checkLists={resCheckLists} userChecklists={resUserIdCheckList} />
+            <CheckLists
+                themes={resCheckListsTheme}
+                checkLists={resCheckLists}
+                userChecklists={resUser?.check_lists?.map((i: any) => i.id)} />
 
             <PopupChecklists data={resIdCheckList.check_list_sources} />
         </div>
