@@ -1,7 +1,7 @@
 export interface ArticlesProps {
     id: number;
     title: string;
-    text: string
+    text?: string
     description: string;
     article_type?: ArticleType;
     tags?: ArticleTags[]

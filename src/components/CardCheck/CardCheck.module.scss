@@ -4,6 +4,8 @@
     row-gap: 15px;
 
     padding: 30px;
+
+    height: 100%;
 }
 
 .title {
@@ -50,6 +52,8 @@
     align-items: center;
     justify-content: space-between;
 
+    margin-top: auto;
+
     &__button {
         color: #252525;
         font-family:
@@ -63,14 +67,20 @@
 
         padding: 7px 16px;
 
-        margin-top: auto;
-
         border-radius: 45px;
         border: 1px solid #666;
 
         width: fit-content;
 
         cursor: pointer;
+
+        transition: .2s;
+
+        &:hover {
+            color: #fff;
+            background-color: #06F;
+            border-color: transparent;
+        }
     }
 
     &__access {
