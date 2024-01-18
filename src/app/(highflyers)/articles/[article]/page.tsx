@@ -6,7 +6,7 @@ export default async function ArticlePage({ params }: { params: any }) {
     const resArticle = await api.get(`articles/${id}?populate=*`).then(res => res.data.data)
     return (
         <>
-            <ItemNavigation title={resArticle.title} tags={resArticle.tags} text={resArticle.text} />
+            <ItemNavigation article={resArticle} />
         </>
     );
 };

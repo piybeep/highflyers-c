@@ -2,12 +2,12 @@
 
 import { CardCheck } from '@/components';
 import s from './CheckLists.module.scss'
-import { CheckListsProps } from '@/types';
+import { CheckListCard } from '@/types';
 import MDEditor from '@uiw/react-md-editor';
 import { usePathname, useRouter } from 'next/navigation';
 
 export function CheckLists({ checkLists, themes, userChecklists }: {
-    checkLists: any,
+    checkLists: CheckListCard[],
     themes: string[],
     userChecklists: number[],
 }) {
@@ -15,16 +15,16 @@ export function CheckLists({ checkLists, themes, userChecklists }: {
     const pathname = usePathname()
     const data = themes.map(theme => ({
         title: theme,
-        description: checkLists.filter((item: any) => item.theme.title === theme)
-            .map((desc: any) => desc.theme.description)
-            .filter((value: any, index: any, array: any[]) => array.findIndex(v2 => (v2 === value)) === index).toString(),
-        materials: checkLists.filter((item: any) => item.theme.title === theme)
+        description: checkLists.filter((item) => item?.theme?.title === theme)
+            .map((desc) => desc?.theme?.description)
+            .filter((value, index, array) => array.findIndex(v2 => (v2 === value)) === index).toString(),
+        materials: checkLists.filter(item => item?.theme?.title === theme)
     })).filter(item => Object.keys(item.materials).length !== 0)
 
     return (
         <div className={s.wrapper}>
             {
-                data.map((current: CheckListsProps) => (
+                data.map((current) => (
                     <div className={s.wrapper__item} key={current.title}>
                         <h2 className={s.title}>{current.title}</h2>
                         <MDEditor.Markdown className={s.description} source={current.description} />
@@ -32,16 +32,15 @@ export function CheckLists({ checkLists, themes, userChecklists }: {
                             {
                                 current.materials.map(material => (
                                     <CardCheck
+                                        key={material.title}
                                         open={() => {
                                             userChecklists?.includes(material.id)
                                                 ? router.push(pathname + `?id=${material.id}&popup=open`, { scroll: false })
                                                 : router.push(`${pathname}?popup=access`, { scroll: false })
                                         }}
-                                        youtube={material.check_list_sources.map(i => i.type).includes('YouTube-каналы')}
-                                        iTunes={material.check_list_sources.map(i => i.type).includes('Подкасты (iTunes)')}
-                                        books={material.check_list_sources.map(i => i.type).includes('Книги')}
-                                        key={material.title}
-                                        name={material.title} />
+                                        isAccess={!!userChecklists?.includes(material.id)}
+                                        check_list_source={material.check_list_sources}
+                                        title={material.title} />
                                 ))
                             }
                         </div>

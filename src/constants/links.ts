@@ -54,7 +54,7 @@ export const NAVIGATION__PREVIEW = [
 export const NAVIGATION = [
     {
         id: 1,
-        text: 'Обучение',
+        text: 'Обучение по карточкам',
         type: 'list',
         link: PAGES_LINK.LEARNING,
         levels: [

@@ -43,7 +43,7 @@ export default async function layout({ children }: PropsWithChildren) {
     ])
 
     const infoView: Record<infoViewKeys, boolean> = {
-        'Обучение': !!resLearning,
+        'Обучение по карточкам': !!resLearning,
         'Полезные статьи': !!resArticles,
         'Планы уроков': !!resLessonPlans,
         'Чек-листы': !!resCheckLists,

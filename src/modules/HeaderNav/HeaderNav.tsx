@@ -36,7 +36,7 @@ export function HeaderNav({ isAuth, headerInfoView }: { isAuth: boolean, headerI
                 }
                 className={s.menu__link}
             >
-                {isAuth ? 'Профиль' : 'Войти'}
+                Профиль
             </Link>
         </div>
     );

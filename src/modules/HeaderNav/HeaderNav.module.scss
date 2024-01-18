@@ -1,12 +1,12 @@
 .menu {
     display: flex;
-    column-gap: 15px;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 29px;
 
     padding: 15px 0;
 
     width: 100%;
-    max-width: 1048px;
+    max-width: 1200px;
 
     &__link {
         height: fit-content;

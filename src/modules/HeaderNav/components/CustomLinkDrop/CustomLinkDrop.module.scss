@@ -36,6 +36,8 @@
         align-items: center;
         column-gap: 4px;
 
+        white-space: nowrap;
+
         &_drop {
             display: flex;
             align-items: center;
