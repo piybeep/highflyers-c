@@ -111,6 +111,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                         img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
                                         source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
                                         target='_blank'
+                                        level={current.level}
                                     />
                                 ),
                                 )}
@@ -126,6 +127,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                         img={process.env.NEXT_PUBLIC_STATIC + current.img.url}
                                         source={process.env.NEXT_PUBLIC_STATIC + current.source.url}
                                         target='_blank'
+                                        level={current.level}
                                     />
                                 ),
                                 )}

@@ -5,5 +5,6 @@ export interface CardPlansProps {
     time: string;
     img: string;
     source: string;
-    target: '_blank' | '_self'
+    target: '_blank' | '_self',
+    level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
 }

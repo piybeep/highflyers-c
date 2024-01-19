@@ -39,6 +39,7 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Les
                                         img={process.env.NEXT_PUBLIC_STATIC + material.img.url}
                                         source={(material.isBuy || material.isFree) ? process.env.NEXT_PUBLIC_STATIC + material.source.url : `${pathname}?popup=access`}
                                         target={(material.isBuy || material.isFree) ? '_blank' : '_self'}
+                                        level={material.level}
                                     />
                                 ))
                             }

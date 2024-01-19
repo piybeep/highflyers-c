@@ -1,15 +1,15 @@
 export interface LessonPlansTypes {
-    id:     number;
-    level:  string;
-    name:   string;
-    time:   number;
+    id: number;
+    level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+    name: string;
+    time: number;
     isFree: boolean;
-    img:    Img;
+    img: Img;
     source: Img;
 }
 
 export interface Img {
-    id:   number;
+    id: number;
     name: string;
-    url:  string;
+    url: string;
 }

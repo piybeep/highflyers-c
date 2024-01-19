@@ -33,10 +33,11 @@ export function LearningList({ data, levels, userLevels }: { data: LearningType[
                             )}
                         </div>
                         <div className={s.list}>
-                            {card?.cardsList?.map((item: any, index: any) => (
+                            {card?.cardsList?.map((item, index: number) => (
                                 <CardPlans
                                     source={card.isFree ? process.env.NEXT_PUBLIC_STATIC + item.source.url : `${pathname}?popup=access`}
                                     key={index}
+                                    level={item.level}
                                     name={item.title}
                                     free={false}
                                     time={preparedTime(item.time)}
