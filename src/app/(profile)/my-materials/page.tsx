@@ -10,8 +10,6 @@ export const metadata = {
 };
 
 export default async function page() {
-    const res = await LESSON_LIST;
-
     const resUser = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me?populate=*`, {
         headers: {
             Authorization: `Bearer ${cookies().get('token')?.value}`

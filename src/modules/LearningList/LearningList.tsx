@@ -2,11 +2,11 @@
 
 import s from './LearningList.module.scss';
 import { CardPlans } from '@/components';
-import { Learning } from '@/types';
+import { LearningType } from '@/types';
 import { preparedTime } from '@/utils/time';
 import { usePathname } from 'next/navigation';
 
-export function LearningList({ data, levels, userLevels }: { data: Learning[], levels: string[], userLevels?: string[] }) {
+export function LearningList({ data, levels, userLevels }: { data: LearningType[], levels: string[], userLevels?: string[] }) {
     const dataCards = levels?.map(level => ({
         isFree: !!userLevels?.includes(level),
         level: level,

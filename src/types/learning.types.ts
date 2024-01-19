@@ -1,4 +1,4 @@
-export interface Learning {
+export interface LearningType {
     id: number;
     title: string;
     time: number;

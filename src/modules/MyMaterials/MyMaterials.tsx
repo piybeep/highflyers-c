@@ -146,7 +146,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                         return (
                                             <CardCheck
                                                 key={current.title}
-                                                name={current.title}
+                                                title={current.title}
                                                 youtube={YouTube}
                                                 iTunes={iTunes}
                                                 books={books}
@@ -163,7 +163,7 @@ export function MyMaterials({ list }: { list: Category[] }) {
                                         <CardArticle
                                             key={current.id}
                                             id={Number(current.id)}
-                                            name={current.title}
+                                            title={current.title}
                                             description={current.description}
                                             href='articles'
                                         />
