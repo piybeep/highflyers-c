@@ -96,7 +96,6 @@ export default async function page() {
     ])
 
     const materials = [
-        // Не уверен нужно ли обучение по карточкам, если нужно, то добавлю
         {
             name: 'Обучение',
             count: resLearningCount.meta.pagination.total,
@@ -117,7 +116,6 @@ export default async function page() {
             count: resArticles.meta.pagination.total,
             list: resArticles.data
         },
-        // Тут ещё tedTalks должны быть, но их ещё не делали
     ]
 
     return <MyMaterials list={materials} />;
