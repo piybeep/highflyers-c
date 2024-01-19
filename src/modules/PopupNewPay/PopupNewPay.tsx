@@ -23,7 +23,7 @@ export function PopupNewPay() {
     const { handleSubmit, control } = useForm()
 
     const onSubmit = (value: any) => {
-        console.log(value)
+        // console.log(value)
     }
 
     return (

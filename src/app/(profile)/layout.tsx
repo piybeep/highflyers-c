@@ -6,6 +6,8 @@ import axios from 'axios';
 import { cookies } from 'next/headers';
 import api from '@/utils/api';
 import { infoViewKeys } from '@/types';
+import { redirect } from 'next/navigation';
+import { PAGES_LINK } from '@/constants';
 
 export default async function layout({ children }: PropsWithChildren) {
     const token = cookies().get('token')?.value
@@ -16,7 +18,8 @@ export default async function layout({ children }: PropsWithChildren) {
             }
         })
         .then(res => res.data)
-        .catch(error => console.error(error))
+        .catch(error => redirect(PAGES_LINK.LOGIN))
+
 
     const [resLearning, resArticles, resLessonPlans, resCheckLists] = await Promise.all([
         api.get(`cards`)
