@@ -61,7 +61,7 @@ export function PopupChecklists({
                             {
                                 currentData.list.map(currentList => (
                                     <div className={s.link} key={currentList.id}>
-                                        <Link href={currentList.link} className={s.link}>
+                                        <Link href={currentList.link} className={s.link} target='_blank'>
                                             {currentList.name}
                                             {
                                                 currentList.author ?
