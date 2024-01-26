@@ -5,11 +5,19 @@ import Link from 'next/link';
 
 import s from './PopupContent.module.scss'
 import classNames from 'classnames';
+import { useEffect } from 'react';
 
 export function PopupContent({ text, link }: { text: string, link: string }) {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
+
+    useEffect(() => {
+        searchParams.get('popup') === 'access'
+            ? document.body.style.overflow = 'hidden'
+            : document.body.style.overflow = 'auto'
+    }, [searchParams])
+
     return (
         <div className={classNames(s.wrapper, {
             [s.wrapper__visible]: searchParams.get('popup') === 'access'
