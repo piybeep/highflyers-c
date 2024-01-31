@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-    if: github.red == 'refs/heads/dev'
+    # if: github.red == 'refs/heads/dev'
     steps:
       - name: Run deploy on remote server
         uses: appleboy/ssh-action@v1.0.0
