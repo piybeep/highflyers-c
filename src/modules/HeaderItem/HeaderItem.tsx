@@ -27,7 +27,7 @@ export function HeaderItem({ data, title, subtitle, theme, checkbox, text, }: He
             const notExistLevel = data?.filter(level => searchParams.get('list')?.includes(level)).join(',')
             pushQueryString(notExistLevel, 'list', true)
         }
-    }, [checkboxValue])
+    }, [checkboxValue, data, searchParams])
 
 
     return (
