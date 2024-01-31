@@ -5,6 +5,7 @@ import s from './CheckLists.module.scss'
 import { CheckListCard } from '@/types';
 import MDEditor from '@uiw/react-md-editor';
 import { usePathname, useRouter } from 'next/navigation';
+import { NotContent } from '../NotContent';
 
 export function CheckLists({ checkLists, themes, userChecklists }: {
     checkLists: CheckListCard[],
@@ -24,7 +25,7 @@ export function CheckLists({ checkLists, themes, userChecklists }: {
     return (
         <div className={s.wrapper}>
             {
-                data.map((current) => (
+                data.length > 0 && data ? data.map((current) => (
                     <div className={s.wrapper__item} key={current.title}>
                         <h2 className={s.title}>{current.title}</h2>
                         <MDEditor.Markdown className={s.description} source={current.description} />
@@ -46,6 +47,7 @@ export function CheckLists({ checkLists, themes, userChecklists }: {
                         </div>
                     </div>
                 ))
+                    : <NotContent />
             }
         </div >
     );

@@ -5,6 +5,7 @@ import { CardPlans } from '@/components';
 import { LearningType } from '@/types';
 import { preparedTime } from '@/utils/time';
 import { usePathname } from 'next/navigation';
+import { NotContent } from '../NotContent';
 
 export function LearningList({ data, levels, userLevels }: { data: LearningType[], levels: string[], userLevels?: string[] }) {
     const dataCards = levels?.map(level => ({
@@ -19,7 +20,7 @@ export function LearningList({ data, levels, userLevels }: { data: LearningType[
     return (
         <div className={s.wrapper}>
             {
-                dataCards?.map((card, index) => (
+                dataCards.length > 0 && dataCards ? dataCards?.map((card, index) => (
                     <div key={index} className={s.info}>
                         <div className={s.header}>
                             <h2 className={s.header__title}>
@@ -48,6 +49,7 @@ export function LearningList({ data, levels, userLevels }: { data: LearningType[
                         </div>
                     </div>
                 ))
+                    : <NotContent />
             }
         </div>
     );

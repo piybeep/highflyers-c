@@ -3,6 +3,7 @@
 import { CardArticle } from '@/components';
 import s from './ArticleList.module.scss';
 import { ArticlesProps } from '@/types';
+import { NotContent } from '../NotContent';
 
 export function ArticleList({ articlesData, articlesThemes }: { articlesData: ArticlesProps[], articlesThemes: string[] }) {
     const dataFilter = articlesThemes.map(theme => ({
@@ -12,22 +13,25 @@ export function ArticleList({ articlesData, articlesThemes }: { articlesData: Ar
 
     return (
         <div className={s.list}>
-            {dataFilter?.map(article => (
-                <div key={article.theme} className={s.item}>
-                    <h2 className={s.item__title}>{article.theme}</h2>
-                    <div className={s.item__list}>
-                        {article.materials.map((material) => (
-                            <CardArticle
-                                key={material.id}
-                                href='articles'
-                                id={material.id}
-                                title={material.title}
-                                description={material.description}
-                            />
-                        ))}
+            {
+                dataFilter && dataFilter.length > 0 ? dataFilter?.map(article => (
+                    <div key={article.theme} className={s.item}>
+                        <h2 className={s.item__title}>{article.theme}</h2>
+                        <div className={s.item__list}>
+                            {article.materials.map((material) => (
+                                <CardArticle
+                                    key={material.id}
+                                    href='articles'
+                                    id={material.id}
+                                    title={material.title}
+                                    description={material.description}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))
+                    : <NotContent />
+            }
         </div>
     );
 }

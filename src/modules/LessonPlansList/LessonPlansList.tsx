@@ -5,6 +5,7 @@ import { CardPlans } from '@/components';
 import { preparedTime } from '@/utils/time';
 import { usePathname } from 'next/navigation';
 import { LessonPlansTypes } from '@/types/lessonPlans.types';
+import { NotContent } from '../NotContent';
 
 export function LessonPlansList({ data, levels, userLessonPlansId }: { data: LessonPlansTypes[], levels: string[], userLessonPlansId?: number[] }) {
     const lessonPlansData = levels?.map(level => ({
@@ -21,7 +22,7 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Les
     return (
         <div className={s.wrapper}>
             {
-                lessonPlansData?.map((card, index: number) => (
+                lessonPlansData && lessonPlansData.length > 0 ? lessonPlansData?.map((card, index: number) => (
                     <div key={index} className={s.info}>
                         <div className={s.header}>
                             <h2 className={s.header__title}>Карточки уровня <span className={s.header__title_span}>{card.level}</span></h2>
@@ -46,6 +47,7 @@ export function LessonPlansList({ data, levels, userLessonPlansId }: { data: Les
                         </div>
                     </div>
                 ))
+                    : <NotContent />
             }
         </div>
     );

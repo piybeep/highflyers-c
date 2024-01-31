@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        color: #252525;
+
+        font-family: "Golos UI VF";
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
