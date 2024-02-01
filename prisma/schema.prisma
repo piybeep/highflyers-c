@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  idUser String @unique
-  idToken String @unique
-  accessToken String @unique
+  idUser       String @unique
+  idToken      String @unique
+  accessToken  String @unique
   refreshToken String @unique
 }
