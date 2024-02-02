@@ -11,10 +11,10 @@ import { AuthGoogleProps } from './AuthGoogle.types';
 import { useUser } from '@/store';
 import { PAGES_LINK } from '@/constants';
 
-export function AuthGoogle({}: AuthGoogleProps) {
+export function AuthGoogle({ }: AuthGoogleProps) {
     const route = useRouter();
-    const setUser = useUser((state) => state.setUser);
-    const setStatus = useUser((state) => state.setStatus);
+    // const setUser = useUser((state) => state.setUser);
+    // const setStatus = useUser((state) => state.setStatus);
     return (
         <GoogleLogin
             onSuccess={async (credentialResponse) => {

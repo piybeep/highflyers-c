@@ -1,33 +1,24 @@
 'use client';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 import { ButtonBack, HeaderTitle } from '@/components';
 
 import s from './PopupChecklists.module.scss';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { CheckListResourcesProps } from '@/constants';
+import { useMutateQuery } from '@/utils/mutateQueryString';
 
 export function PopupChecklists({
     data,
 }: {
     data?: CheckListResourcesProps[];
 }) {
-    const router = useRouter();
-    const pathname = usePathname();
     const searchParams = useSearchParams()!;
     const open = searchParams.get('popup');
 
-    const createQueryString = useCallback(
-        (value: string) => {
-            const params = new URLSearchParams(searchParams);
-            params.set('popup', value);
-
-            return params.toString();
-        },
-        [searchParams],
-    );
+    const { pushQueryString } = useMutateQuery()
 
     useEffect(() => {
         open === 'open'
@@ -59,12 +50,7 @@ export function PopupChecklists({
                 <div className={s.header}>
                     <HeaderTitle text={'Литература'} />
                     <ButtonBack
-                        onClick={() =>
-                            router.push(
-                                pathname + '?' + createQueryString('close'),
-                                { scroll: false },
-                            )
-                        }
+                        onClick={() => pushQueryString('open', 'popup')}
                         text={'Закрыть'}
                     />
                 </div>
@@ -75,7 +61,7 @@ export function PopupChecklists({
                             {
                                 currentData.list.map(currentList => (
                                     <div className={s.link} key={currentList.id}>
-                                        <Link href={currentList.link} className={s.link}>
+                                        <Link href={currentList.link} className={s.link} target='_blank'>
                                             {currentList.name}
                                             {
                                                 currentList.author ?

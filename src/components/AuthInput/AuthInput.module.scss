@@ -25,6 +25,10 @@
 
     color: #252525;
 
+    &__error {
+        border-color: red;
+    }
+
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
     }

@@ -3,4 +3,6 @@ export interface AuthInputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
     placeholder: string;
     password?: boolean;
+    isText?: boolean
+    isError: boolean
 }

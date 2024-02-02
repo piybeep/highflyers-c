@@ -1,0 +1,41 @@
+.edit {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: transparent;
+    border: none;
+
+    position: relative;
+
+    &__none {
+        display: none;
+    }
+
+    &__svg {
+        width: fit-content;
+        height: auto;
+
+        * {
+            transition: .2s;
+        }
+    }
+
+    &:hover {
+        .edit__svg {
+
+            rect {
+                fill: #06F;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+    }
+}

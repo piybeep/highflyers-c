@@ -69,7 +69,6 @@ export function TestChoose({
                                         isRight: currentAnswer.isRight,
                                     });
                                 } else {
-                                    console.log(value);
                                     onChange(
                                         // Пока не знаю как пофиксить
                                         inputs

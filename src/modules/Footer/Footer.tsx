@@ -6,12 +6,13 @@ import { FooterNav, FooterSupport } from '@/modules';
 import { SOCIAL } from '@/constants';
 
 import s from './Footer.module.scss';
+import { infoViewKeys } from '@/types';
 
-export function Footer() {
+export function Footer({ isAuth, footerInfoView }: { isAuth: boolean, footerInfoView: Record<infoViewKeys, boolean> }) {
     return (
         <footer className={s.wrapper}>
             <div className={s.info}>
-                <FooterNav />
+                <FooterNav footerInfoView={footerInfoView} isAuth={isAuth} />
                 <div className={s.info__list}>
                     {SOCIAL.map((current) => (
                         <Link

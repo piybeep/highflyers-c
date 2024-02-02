@@ -26,8 +26,6 @@ export function HeaderExams({ list, title, subtitle }: HeaderExamsProps) {
         .filter((v, i, a) => a.findIndex((v2) => v2.tag === v.tag) === i)
         .sort((a, b) => a.tag.localeCompare(b.tag));
 
-    console.log(arrayList);
-
     const handleScrollTo = (scrollToElement: string) => {
         const getElement = document.getElementById(scrollToElement);
         getElement?.scrollIntoView({

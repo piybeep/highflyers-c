@@ -22,7 +22,7 @@ export * from './Lessons';
 export * from './Course';
 export * from './Questions';
 export * from './Form';
-export * from './Session';
+// export * from './Session';
 export * from './LearningList';
 export * from './ArticleList';
 export * from './Training'
@@ -38,3 +38,6 @@ export * from './PopupFreeContent'
 export * from './PopupNewPay'
 export * from './PopupDeleteAccount'
 export * from './CheckLists'
+export * from './ConfirmChange'
+export * from './PopupContent'
+export * from './NotContent'

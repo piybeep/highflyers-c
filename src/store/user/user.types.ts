@@ -1,18 +1,22 @@
-interface currentUser {
-    id: string;
-    first_name: string;
-    second_name: string;
-    email: string;
-    isAdmin: boolean;
+export interface currentUser {
+    id: number
+    level?: string[]
+    username: string
+    email: string
+    lesson_plans: {
+        id: number,
+        level: string,
+        name: string,
+        time: number,
+        isFree: boolean,
+    }[]
+    check_lists: {
+        id: number,
+        title: string,
+    }[]
 }
-
-type Status = 'unauthenticated' | 'loading' | 'authenticated';
 
 export interface userProps {
     user: currentUser | null;
-    accessToken?: string;
-    refreshToken?: string;
     setUser: (user: currentUser | null) => void;
-    status: Status;
-    setStatus: (status: Status) => void;
 }

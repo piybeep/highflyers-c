@@ -2,54 +2,52 @@
 
 import { CardCheck } from '@/components';
 import s from './CheckLists.module.scss'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
-import { CheckListDataProps, CheckListResourcesProps } from '@/constants';
+import { CheckListCard } from '@/types';
+import MDEditor from '@uiw/react-md-editor';
+import { usePathname, useRouter } from 'next/navigation';
+import { NotContent } from '../NotContent';
 
-export function CheckLists({ list, setLiterature }: {
-    list: CheckListDataProps[], setLiterature: (value: CheckListResourcesProps[]) => void
+export function CheckLists({ checkLists, themes, userChecklists }: {
+    checkLists: CheckListCard[],
+    themes: string[],
+    userChecklists: number[],
 }) {
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const router = useRouter()
+    const pathname = usePathname()
+    const data = themes.map(theme => ({
+        title: theme,
+        description: checkLists.filter((item) => item?.theme?.title === theme)
+            .map((desc) => desc?.theme?.description)
+            .filter((value, index, array) => array.findIndex(v2 => (v2 === value)) === index).toString(),
+        materials: checkLists.filter(item => item?.theme?.title === theme)
+    })).filter(item => Object.keys(item.materials).length !== 0)
 
-    const createQueryString = useCallback(
-        (value: string) => {
-            const params = new URLSearchParams(searchParams);
-            params.set('popup', value);
-
-            return params.toString();
-        },
-        [searchParams],
-    );
     return (
         <div className={s.wrapper}>
             {
-                list.map(current => (
-                    <div className={s.wrapper__item} key={current.theme}>
-                        <h2 className={s.title}>{current.theme}</h2>
-                        <ul className={s.info}>
-                            {
-                                current.points.map(current => (
-                                    <li key={current} className={s.info__text}>{current}</li>
-                                ))
-                            }
-                        </ul>
+                data.length > 0 && data ? data.map((current) => (
+                    <div className={s.wrapper__item} key={current.title}>
+                        <h2 className={s.title}>{current.title}</h2>
+                        <MDEditor.Markdown className={s.description} source={current.description} />
                         <div className={s.list}>
                             {
-                                current.cards.map(current => (
-                                    <CardCheck open={() => {
-                                        setLiterature(current.resources)
-                                        router.push(`${pathname}?${createQueryString('open')}`, { scroll: false })
-                                    }}
-                                        key={current.name}
-                                        id={current.name}
-                                        name={current.name} />
+                                current.materials.map(material => (
+                                    <CardCheck
+                                        key={material.title}
+                                        open={() => {
+                                            userChecklists?.includes(material.id)
+                                                ? router.push(pathname + `?id=${material.id}&popup=open`, { scroll: false })
+                                                : router.push(`${pathname}?popup=access`, { scroll: false })
+                                        }}
+                                        isAccess={!!userChecklists?.includes(material.id)}
+                                        check_list_source={material.check_list_sources}
+                                        title={material.title} />
                                 ))
                             }
                         </div>
                     </div>
                 ))
+                    : <NotContent />
             }
         </div >
     );

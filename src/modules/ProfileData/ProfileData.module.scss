@@ -43,20 +43,46 @@
     justify-content: space-between;
 }
 
-.remove {
+.buttons {
     display: flex;
     align-items: center;
-    align-self: flex-end;
-    column-gap: 6px;
-
-    text-decoration: none;
-
-    position: relative;
-    right: 45px;
-
-    cursor: pointer;
+    column-gap: 20px;
 
     width: fit-content;
+
+    &__logout {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        color: #666;
+        font-family: "Golos UI VF";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        padding: 6px 10px;
+
+        border: none;
+        border-radius: 6px;
+        background: #EEE;
+
+        cursor: pointer;
+    }
+
+    &__remove {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        width: fit-content;
+    }
+
 
     &__title {
         color: #b3b3b3;

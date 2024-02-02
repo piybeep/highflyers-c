@@ -15,9 +15,18 @@ import s from './Registration.module.scss';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/store';
 import { PAGES_LINK } from '@/constants';
+import { setCookie } from 'cookies-next';
 
 export function Registration() {
-    const { control, handleSubmit, reset } = useForm();
+    const { control, handleSubmit, reset, formState: { errors } } = useForm({
+        defaultValues: {
+            lastName: '',
+            name: '',
+            email: '',
+            password: '',
+            checkbox: false
+        }
+    });
 
     const { setUser } = useUser();
 
@@ -25,28 +34,27 @@ export function Registration() {
 
     const submitForm = handleSubmit(async (data) => {
         if (data.checkbox) {
-            try {
-                const response = await axios.post(
-                    `/api/register`,
-                    { email: data.email, password: data.password },
-                    { withCredentials: true },
-                );
-                toast.success('Пользователь зарегистрирован');
-                setUser(response.data);
-                reset();
-                router.push(PAGES_LINK.HOME);
-            } catch (error: any) {
-                if (Array.isArray(error?.response?.data?.message)) {
-                    error?.response?.data?.message.map((current: any) =>
-                        toast.error(current),
-                    );
-                } else {
-                    toast.error(
-                        error?.response?.data?.message ?? 'Неизвестная ошибка',
-                    );
-                }
-            }
-        } else {
+            axios
+                .post(`${process.env.NEXT_PUBLIC_HOST}auth/local/register`,
+                    {
+                        username: data.name,
+                        email: data.email,
+                        password: data.password
+                    })
+                .then(res => {
+                    toast.success('Пользователь зарегистрирован');
+                    setUser(res.data.user);
+                    reset();
+                    setCookie('token', res.data.jwt)
+                    router.push(PAGES_LINK.HOME);
+                })
+                .catch(error => {
+                    toast.error(error?.response?.data?.error?.details?.errors?.map((i: any) => i.message).join(', ')
+                        ?? error?.response?.data?.error?.message
+                        ?? 'Неизвестная ошибка')
+                })
+        }
+        else {
             toast.error('Примите политику конфиденциальности');
         }
     });
@@ -56,15 +64,49 @@ export function Registration() {
             <div className={s.form__header}>
                 <AuthTitle value={'Зарегистрироваться'} />
                 <AuthAccount />
-                <AuthGoogle />
+                {/* <AuthGoogle /> */}
             </div>
             <div className={s.form__info}>
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            name='lastName'
+                            placeholder={'Фамилия'}
+                            isText
+                            onChange={onChange}
+                            value={value}
+                            isError={!!errors.lastName}
+                        />
+                    )}
+                    name='lastName'
+                    control={control}
+                    defaultValue=''
+                    rules={{ minLength: 3 }}
+                />
+                <Controller
+                    render={({ field: { onChange, value } }) => (
+                        <AuthInput
+                            name='name'
+                            placeholder={'Имя'}
+                            isText
+                            onChange={onChange}
+                            value={value}
+                            isError={!!errors.name}
+                        />
+                    )}
+                    name='name'
+                    control={control}
+                    defaultValue=''
+                    rules={{ minLength: 3 }}
+                />
+                <Controller
+                    render={({ field: { onChange, value } }) => (
+                        <AuthInput
+                            name='email'
                             placeholder={'Почта'}
                             onChange={onChange}
                             value={value}
+                            isError={!!errors.email}
                         />
                     )}
                     name='email'
@@ -74,10 +116,12 @@ export function Registration() {
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            name='password'
                             placeholder={'Пароль'}
                             password
                             onChange={onChange}
                             value={value}
+                            isError={!!errors.password}
                         />
                     )}
                     name='password'
@@ -89,7 +133,7 @@ export function Registration() {
                     control={control}
                     defaultValue={false}
                     render={({ field: { value, onChange } }) => (
-                        <Privacy value={value} onChange={onChange} />
+                        <Privacy name='checkbox' checked={value} onChange={onChange} />
                     )}
                 />
             </div>

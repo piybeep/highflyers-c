@@ -1,0 +1,27 @@
+.link {
+    height: fit-content;
+
+    font-family: 'Golos UI VF', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 150%;
+    font-feature-settings:
+        'pnum' on,
+        'lnum' on;
+
+    color: #252525;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    white-space: nowrap;
+}
+
+.img {
+    width: 26px;
+    height: 9px;
+}
