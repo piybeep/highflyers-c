@@ -51,7 +51,7 @@ export default async function layout({ children }: PropsWithChildren) {
         <div className={s.wrapper}>
             <Header headerInfoView={infoView} isAuth={!!user} />
             {/* Пока так, если вдруг понадобится написать logOut */}
-            <CheckToken />
+            {/* <CheckToken /> */}
             {/* Пока так, если вдруг понадобится написать logOut */}
             {children}
             <Footer footerInfoView={infoView} isAuth={!!user} />
