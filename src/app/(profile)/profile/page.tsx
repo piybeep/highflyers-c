@@ -14,10 +14,13 @@ export default async function page() {
     const res = await MATERIALS_LIST;
 
     const token = cookies().get('token')?.value
-    // const userData = await apiAuth.get(`users/me`).then(res => res.data)
-    const userData = await axios.get(`users/me`, {
-        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) }
-    }).then(res => res.data)
+    const userData = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me`, {
+        headers: {
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        }
+    })
+        .then(res => res.data)
+        .catch(error => console.error(error))
 
     return (
         <>
