@@ -39,8 +39,7 @@ export function Recovery({ isSubmitted, setIsSubmitted }: RecoveryProps) {
                         <AuthInput
                             placeholder={'Введите почту для отправки ссылки'}
                             onChange={onChange}
-                            value={value}
-                        />
+                            value={value} isError={false} />
                     )}
                     name='email'
                     control={control}

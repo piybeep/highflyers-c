@@ -1,0 +1,1 @@
+export { NotContent } from './NotContent'

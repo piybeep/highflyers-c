@@ -16,44 +16,35 @@ import {
 } from '@/components';
 import s from './Authorization.module.scss';
 import { PAGES_LINK } from '@/constants';
+import { setCookie } from 'cookies-next';
 
 export function Authorization() {
     const router = useRouter();
 
-    const { handleSubmit, control } = useForm({
+    const { handleSubmit, control, formState: { errors } } = useForm({
         defaultValues: {
+            name: '',
             email: '',
             password: '',
         },
     });
 
     const submitForm = handleSubmit(async (data) => {
-        axios
-            .put(
-                '/api/login',
+        await axios
+            .post(`${process.env.NEXT_PUBLIC_HOST}auth/local`,
                 {
-                    email: data.email,
+                    identifier: data.email,
                     password: data.password,
-                },
-                {
-                    withCredentials: true,
-                },
-            )
-            .then(() => {
-                toast.success('Вы успешно вошли');
-                router.push(PAGES_LINK.HOME);
+                })
+            .then(res => {
+                toast.success('Вы успешно вошли')
+                router.push(PAGES_LINK.HOME)
+                setCookie('token', res.data.jwt)
+                router.refresh()
             })
             .catch((error: any) => {
-                if (Array.isArray(error?.response?.data?.message)) {
-                    error?.response?.data?.message.map((current: any) =>
-                        toast.error(current),
-                    );
-                } else {
-                    toast.error(
-                        error?.response?.data?.message ?? 'Неизвестная ошибка',
-                    );
-                }
-            });
+                toast.error(error?.response?.data?.error?.message ?? 'Неизвестная ошибка')
+            })
     });
 
     return (
@@ -67,6 +58,8 @@ export function Authorization() {
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            isError={!!errors.email}
+                            name='email'
                             placeholder={'Почта'}
                             onChange={onChange}
                             value={value}
@@ -78,6 +71,8 @@ export function Authorization() {
                 <Controller
                     render={({ field: { onChange, value } }) => (
                         <AuthInput
+                            isError={!!errors.password}
+                            name='password'
                             placeholder={'Пароль'}
                             password
                             onChange={onChange}

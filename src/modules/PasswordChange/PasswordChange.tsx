@@ -13,7 +13,7 @@ import s from './PasswordChange.module.scss';
 import { PAGES_LINK } from '@/constants';
 
 export function PasswordChange({ userId, resetCode }: PasswordChangeProps) {
-    const { control, handleSubmit } = useForm();
+    const { control, handleSubmit, formState: { errors } } = useForm();
     const router = useRouter();
 
     const onSubmit = handleSubmit(async (data) => {
@@ -60,6 +60,7 @@ export function PasswordChange({ userId, resetCode }: PasswordChangeProps) {
                             password
                             value={value}
                             onChange={onChange}
+                            isError={false}
                         />
                     )}
                 />

@@ -22,65 +22,65 @@ export const NAVIGATION__PREVIEW = [
     {
         title: 'Обучение по карточкам',
         href: PAGES_LINK.LEARNING,
-        videoHref: '/video/testVideo1.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
     {
         title: 'Полезные статьи',
         href: PAGES_LINK.ARTICLES,
-        videoHref: '/video/testVideo1.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
     {
         title: 'Планы уроков',
         href: PAGES_LINK.LESSON_PLANS,
-        videoHref: '/video/testVideo2.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
     {
         title: 'Чек-листы',
         href: PAGES_LINK.CHECK_LISTS,
-        videoHref: '/video/testVideo3.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
     {
         title: 'TedTalks',
         href: PAGES_LINK.TEDTALKS,
-        videoHref: '/video/testVideo4.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
     {
         title: 'Подготовка к ОГЭ/ЕГЭ',
         href: PAGES_LINK.EGE,
-        videoHref: '/video/testVideo5.mp4',
+        videoHref: '/video/testVideo.mp4',
     },
 ];
 
 export const NAVIGATION = [
     {
         id: 1,
-        text: 'Обучение',
+        text: 'Обучение по карточкам',
         type: 'list',
         link: PAGES_LINK.LEARNING,
-        level: [
+        levels: [
             {
                 id: 0,
-                text: 'a1',
+                text: 'A1',
             },
             {
                 id: 1,
-                text: 'a2',
+                text: 'A2',
             },
             {
                 id: 2,
-                text: 'b1',
+                text: 'B1',
             },
             {
                 id: 3,
-                text: 'b2',
+                text: 'B2',
             },
             {
                 id: 4,
-                text: 'c1',
+                text: 'C1',
             },
             {
                 id: 5,
-                text: 'c2',
+                text: 'C2',
             },
         ],
     },

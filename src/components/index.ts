@@ -36,3 +36,4 @@ export * from './TestChoose';
 export * from './TestText';
 export * from './TestQuestion';
 export * from './CardText'
+export * from './CheckToken'

@@ -1,5 +1,5 @@
 export interface ExamsItem {
-    id: string;
+    id: number;
     name: string;
     tags: Tags[];
     tests: ExamsTests[];

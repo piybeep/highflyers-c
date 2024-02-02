@@ -10,8 +10,6 @@ export const useUser = create<userProps>()(
             (set) => ({
                 user: null,
                 setUser: (user) => set({ user }, true),
-                status: 'unauthenticated',
-                setStatus: (status) => set({ status }),
             }),
             {
                 name: 'user',

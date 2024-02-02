@@ -1,9 +1,11 @@
 import { ComponentProps } from 'react';
+import { RegisterOptions } from 'react-hook-form/dist/types';
 
 export interface InputProps extends ComponentProps<'input'> {
-    isPassword?: boolean;
-    isPlaceholder?: boolean;
     isBordered?: boolean;
-    isEdit?: boolean;
-    inputType?: string;
+    name: string
+    idUser: number
+    initialValue?: string
+    validation?: RegisterOptions
+    isConfirm?: boolean
 }

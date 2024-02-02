@@ -10,12 +10,10 @@ export function Form() {
 
     const onSubmit = async (values: any) => {
         if (values.privacy) {
-            console.log(values);
             toast.success('Форма успешно отправлена');
             reset();
         } else {
             toast.error('Примите политику конфиденциальности');
-            console.log(values);
         }
     };
 

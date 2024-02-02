@@ -7,27 +7,40 @@ export const useMutateQuery = () => {
     const pathname = usePathname();
 
     const mutateQueryString = useCallback(
-        ({ name, value }: { name: string; value: string }) => {
+        ({ name, value, rewrite }: { name: string; value: string; rewrite?: boolean }) => {
             const params = new URLSearchParams(searchParams.toString());
-            const list = params.has(name) ? params.get(name)!.split(',') : [];
-            if (list.includes(value)) {
-                list.splice(list.indexOf(value), 1);
-            } else {
-                list.push(value);
+            let list = params.has(name) ? params.get(name)!.split(',') : [];
+            if (rewrite) {
+                params.delete(name)
+                list = value?.split(',')
             }
-            return `${name}=${list.join(',')}`;
+            else {
+                if (list.includes(value)) {
+                    list.splice(list.indexOf(value), 1);
+                } else {
+                    list.push(value);
+                }
+            }
+            if (value === '' || list?.length === 0) {
+                params.delete(name)
+            } else {
+                params.set(name, list?.join(','))
+            }
+            return params
         },
         [searchParams],
     );
 
-    const pushQueryString = (currentValue: string) => {
+    const pushQueryString = (currentValue: string, name: string, rewrite?: boolean) => {
         router.push(
             pathname +
-                '?' +
-                mutateQueryString({
-                    name: 'list',
-                    value: currentValue,
-                }),
+            '?' +
+            mutateQueryString({
+                // name: 'list',
+                name: name,
+                value: currentValue,
+                rewrite: rewrite
+            }),
             { scroll: false },
         );
     };
