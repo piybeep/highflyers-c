@@ -22,7 +22,7 @@ export * from './Lessons';
 export * from './Course';
 export * from './Questions';
 export * from './Form';
-export * from './Session';
+// export * from './Session';
 export * from './LearningList';
 export * from './ArticleList';
 export * from './Training'

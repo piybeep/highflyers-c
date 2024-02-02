@@ -5,7 +5,7 @@ export default function ogeItem() {
     const res = itemExams;
     return (
         <>
-            <ItemNavigation title={res.name} tags={res.tags} />
+            <ItemNavigation article={{ id: res.id, title: res.name, description: 'dfg' }} />
             <ItemExamsList tests={res.tests} />
         </>
     );
