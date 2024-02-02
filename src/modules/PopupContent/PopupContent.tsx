@@ -22,7 +22,10 @@ export function PopupContent({ text, link }: { text: string, link: string }) {
         <div className={classNames(s.wrapper, {
             [s.wrapper__visible]: searchParams.get('popup') === 'access'
         })}
-            onClick={() => router.push(pathname, { query: {}, scroll: false })}
+            onClick={() => router.push(pathname, {
+                // query: {},
+                scroll: false
+            })}
         >
             <div className={s.content} onClick={e => e.stopPropagation()}>
                 <div className={s.info}>

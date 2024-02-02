@@ -85,7 +85,7 @@ export const EXAMS_EGE: EXAMS_EGE_PROPS[] = [
 ];
 
 export const itemExams: ExamsItem = {
-    id: '1',
+    id: 1,
     name: 'Речевые обороты',
     tags: [
         {

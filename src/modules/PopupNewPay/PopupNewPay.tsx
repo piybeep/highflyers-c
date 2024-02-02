@@ -37,7 +37,7 @@ export function PopupNewPay() {
                         control={control}
                         name="cardNumber"
                         render={({ field: { onChange } }) => (
-                            <AuthInput autoComplete='off' type='number' onChange={onChange} placeholder={'Номер карты'} />
+                            <AuthInput autoComplete='off' type='number' onChange={onChange} placeholder={'Номер карты'} isError={false} />
                         )}
                     />
                     <div className={s.info__row}>
@@ -45,14 +45,14 @@ export function PopupNewPay() {
                             control={control}
                             name="cardDate"
                             render={({ field: { onChange } }) => (
-                                <AuthInput autoComplete='off' type='text' onChange={onChange} placeholder={'Срок действия'} />
+                                <AuthInput autoComplete='off' type='text' onChange={onChange} placeholder={'Срок действия'} isError={false} />
                             )}
                         />
                         <Controller
                             control={control}
                             name="cardCode"
                             render={({ field: { onChange } }) => (
-                                <AuthInput autoComplete='off' type='number' max={999} onChange={onChange} placeholder={'CVV/CVC'} />
+                                <AuthInput autoComplete='off' type='number' max={999} onChange={onChange} placeholder={'CVV/CVC'} isError={false} />
                             )}
                         />
                     </div>

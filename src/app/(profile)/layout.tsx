@@ -13,9 +13,7 @@ export default async function layout({ children }: PropsWithChildren) {
     const token = cookies().get('token')?.value
     const user = await axios.get(`${process.env.NEXT_PUBLIC_HOST}users/me`,
         {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) }
         })
         .then(res => res.data)
         .catch(error => redirect(PAGES_LINK.LOGIN))
